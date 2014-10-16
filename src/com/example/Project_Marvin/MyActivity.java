@@ -27,7 +27,7 @@ public class MyActivity extends Activity implements View.OnClickListener
     private Button info;
     private Button start;
 
-    //Dere
+    //Dere du Sack
     //Hiiiiiiiiii
     //Sveen
     @Override
