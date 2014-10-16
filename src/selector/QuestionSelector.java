@@ -1,6 +1,6 @@
 package selector;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.LinkedList;
 
 /**
@@ -10,11 +10,20 @@ public class QuestionSelector implements Serializable{
 
 
 
-    public QuestionSelector() {
+    public QuestionSelector() throws IOException {
         laodData();
     }
 
-    private void laodData() {
+    private void laodData() throws IOException {
+        FileReader fr = new FileReader(new File("/../Questions"));
+        BufferedReader br = new BufferedReader(fr);
 
+        String line = "";
+
+        while((line = br.readLine()) != null)
+        {
+            String[] parts = line.split(";");
+
+        }
     }
 }

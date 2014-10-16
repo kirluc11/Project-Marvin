@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import selector.QuestionSelector;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Objects;
 
 public class MyActivity extends Activity implements View.OnClickListener
@@ -16,20 +19,25 @@ public class MyActivity extends Activity implements View.OnClickListener
      * Called when the activity is first created.
      */
 
+    private QuestionSelector questionSelector;
+
     private Button deu;
     private Button eng;
     private Button credits;
     private Button info;
     private Button start;
-//Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii :-)
 
-    //Alex
-
-    //Dere
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        try {
+            questionSelector = new QuestionSelector();
+        } catch (IOException e) {
+            System.out.println("Error " + e.getMessage());
+        }
+
         setContentView(R.layout.main);
         deu=(Button) findViewById(R.id.deu);
         eng=(Button) findViewById(R.id.eng);
