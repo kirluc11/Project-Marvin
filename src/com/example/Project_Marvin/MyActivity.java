@@ -48,7 +48,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         start=(Button) findViewById(R.id.start);
     }
 
-        //Laura's Kommentar
+
     @Override
     public void onClick(View v)
     {
