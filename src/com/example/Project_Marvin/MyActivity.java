@@ -22,6 +22,8 @@ public class MyActivity extends Activity implements View.OnClickListener
     private Button info;
     private Button start;
 
+    //Hi
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
