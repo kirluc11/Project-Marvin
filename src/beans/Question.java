@@ -13,6 +13,8 @@ public class Question implements Serializable{
     private LinkedList<String> gerWrongAnswers;
     private String gerTip;
 
+    private String cat;
+
     private String engQuestion;
     private String engRightAnswer;
     private LinkedList<String> engWrongAnswers;

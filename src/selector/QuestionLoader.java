@@ -6,15 +6,15 @@ import java.util.LinkedList;
 /**
  * Created by Lukas on 16.10.2014.
  */
-public class QuestionSelector implements Serializable{
+public class QuestionLoader implements Serializable{
 
 
 
-    public QuestionSelector() throws IOException {
-        laodData();
+    public QuestionLoader() throws IOException {
+        loadData();
     }
 
-    private void laodData() throws IOException {
+    private void loadData() throws IOException {
         FileReader fr = new FileReader(new File("/../Questions"));
         BufferedReader br = new BufferedReader(fr);
 
