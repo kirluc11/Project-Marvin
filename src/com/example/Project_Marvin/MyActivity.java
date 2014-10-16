@@ -22,10 +22,6 @@ public class MyActivity extends Activity implements View.OnClickListener
     private Button info;
     private Button start;
 
-    //Hi
-    // SERVAS
-    //DERE
-
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
