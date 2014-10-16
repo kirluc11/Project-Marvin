@@ -20,15 +20,16 @@ public class Question implements Serializable{
     private LinkedList<String> engWrongAnswers;
     private String engTip;
 
-    public Question(String engTip, String gerQuestion, String gerRightAnswer, LinkedList<String> gerWrongAnswers, String gerTip, String engQuestion, String engRightAnswer, LinkedList<String> engWrongAnswers) {
-        this.engTip = engTip;
+    public Question(String gerQuestion, String gerRightAnswer, LinkedList<String> gerWrongAnswers, String gerTip, String cat, String engQuestion, String engRightAnswer, LinkedList<String> engWrongAnswers, String engTip) {
         this.gerQuestion = gerQuestion;
         this.gerRightAnswer = gerRightAnswer;
         this.gerWrongAnswers = gerWrongAnswers;
         this.gerTip = gerTip;
+        this.cat = cat;
         this.engQuestion = engQuestion;
         this.engRightAnswer = engRightAnswer;
         this.engWrongAnswers = engWrongAnswers;
+        this.engTip = engTip;
     }
 
     public String getGerQuestion() {
@@ -61,6 +62,14 @@ public class Question implements Serializable{
 
     public void setGerTip(String gerTip) {
         this.gerTip = gerTip;
+    }
+
+    public String getCat() {
+        return cat;
+    }
+
+    public void setCat(String cat) {
+        this.cat = cat;
     }
 
     public String getEngQuestion() {

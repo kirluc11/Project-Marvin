@@ -24,6 +24,27 @@ public class QuestionLoader implements Serializable{
         {
             String[] parts = line.split(";");
 
+            String gerQuestion = parts[0];
+            String gerRightAnswer = parts[1];
+            LinkedList<String> gerWrongAnswers = new LinkedList<String>();
+            gerWrongAnswers.add(parts[2]);
+            gerWrongAnswers.add(parts[3]);
+            gerWrongAnswers.add(parts[4]);
+            gerWrongAnswers.add(parts[5]);
+            String gerTip = parts[6];
+
+            String cat = parts[7];
+
+            String engQuestion = parts[8];
+            String engRightAnswer = parts[9];
+            LinkedList<String> engWrongAnswers = new LinkedList<String>();
+            engWrongAnswers.add(parts[10]);
+            engWrongAnswers.add(parts[11]);
+            engWrongAnswers.add(parts[12]);
+            engWrongAnswers.add(parts[13]);
+            String engTip = parts[14];
+
+
         }
     }
 }
