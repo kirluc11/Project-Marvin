@@ -44,7 +44,7 @@ public class QuestionLoader implements Serializable{
             engWrongAnswers.add(parts[11]);
             engWrongAnswers.add(parts[12]);
             engWrongAnswers.add(parts[13]);
-            String engHit = parts[14];
+            String engHint = parts[14];
 
 
         }
