@@ -31,7 +31,7 @@ public class QuestionLoader implements Serializable{
             gerWrongAnswers.add(parts[3]);
             gerWrongAnswers.add(parts[4]);
             gerWrongAnswers.add(parts[5]);
-            String gerTip = parts[6];
+            String gerHint = parts[6];
 
             String cat = parts[7];
 
@@ -42,7 +42,7 @@ public class QuestionLoader implements Serializable{
             engWrongAnswers.add(parts[11]);
             engWrongAnswers.add(parts[12]);
             engWrongAnswers.add(parts[13]);
-            String engTip = parts[14];
+            String engHit = parts[14];
 
 
         }
