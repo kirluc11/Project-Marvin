@@ -20,7 +20,7 @@ public class QuestionLoader implements Serializable{
 
     private void loadData() throws IOException, FileNotFoundException {
 
-        FileReader fr = new FileReader(new File("../resources/Questions.csv"));
+        FileReader fr = new FileReader(new File(System.getProperty("user.dir") + File.separator + "trunk" + File.separator + "src" + File.separator + "resources" + File.separator + "Questions.csv"));
         BufferedReader br = new BufferedReader(fr);
 
         String line = "";
@@ -57,17 +57,11 @@ public class QuestionLoader implements Serializable{
 
     private void sortInCatList(Question q)
     {
-        //Was genau passiert da?
         LinkedList<Question> qForCat = questions.get(q.getCat());
         if(qForCat == null)
         {
             qForCat = new LinkedList<Question>();
         }
-        qForCat.add(q);
-        //Warum haust du des auf a LinkedList rauf?????? - die Liste hot jo nur a Question obn
-        //Gib afoch Kategorie und Question drauf, oder?
-        //so: questions.put(q.getCat(), q); oder?
-        //Muast hoit obn dann  private LinkedHashMap<String, Question> questions = new LinkedHashMap<String, Question>(); hinschreibn
         questions.put(q.getCat(), qForCat);
     }
 
