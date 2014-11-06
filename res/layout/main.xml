@@ -19,6 +19,7 @@
             android:layout_below="@+id/start"
             android:layout_alignParentRight="true"
             android:layout_marginTop="40dp"
+            android:tag="2"
             android:id="@+id/info" android:text="Info"/>
     <Button
             android:layout_width="@android:dimen/thumbnail_width"
@@ -27,6 +28,7 @@
             android:layout_below="@+id/info"
             android:layout_alignParentRight="true"
             android:id="@+id/credits" android:text="Credits"
+            android:tag="3"
             android:onClick="onClickCredits"/>
     <Button
             android:layout_width="100dp"

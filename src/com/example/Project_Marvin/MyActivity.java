@@ -38,9 +38,9 @@ public class MyActivity extends Activity implements View.OnClickListener
         }
 
         if(getIntent().getIntExtra("screenNumber",0)==0)setContentView(R.layout.main);
-        else if(getIntent().getIntExtra("screenNumber",0)==1)setContentView(R.layout.general_playscreen);
-        else if(getIntent().getIntExtra("screenNumber",0)==2)setContentView(R.layout.info_screen);
-        else setContentView(R.layout.credits_screen);
+        if(getIntent().getIntExtra("screenNumber",0)==1)setContentView(R.layout.general_playscreen);
+        if(getIntent().getIntExtra("screenNumber",0)==2)setContentView(R.layout.info_screen);
+        if(getIntent().getIntExtra("screenNumber",0)==3)setContentView(R.layout.credits_screen);
 
 
         deu=(Button) findViewById(R.id.deu);
@@ -67,7 +67,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         //whichButton = 1 -> Start
         //whichButton = 2 -> Info
         //whichButton = 3 -> Credits
-
+        System.out.println(screenNumber+"");
+        System.out.println(whichButton+"");
         final Intent nextIntent=new Intent(this, MyActivity.class);
         if(whichButton==1)
         {
@@ -83,7 +84,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         }
 
         System.out.printf("goToNextScreen: intExtra=%d\n", screenNumber);
-
+        int x=nextIntent.getIntExtra("screenNumber",0);
         startActivity(nextIntent);
 
         /*
@@ -96,6 +97,7 @@ public class MyActivity extends Activity implements View.OnClickListener
     public void onClick(View v)
     {
         Button button=(Button) v;
-        System.out.println(button.getTag()+"");
+        int whichButton = Integer.parseInt(button.getTag().toString());
+        goToNextScreen(whichButton);
     }
 }
