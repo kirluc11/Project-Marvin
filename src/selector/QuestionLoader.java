@@ -3,6 +3,8 @@ package selector;
 import beans.Question;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 /**
@@ -10,14 +12,15 @@ import java.util.LinkedList;
  */
 public class QuestionLoader implements Serializable{
 
-    private LinkedList<Question> questions = new LinkedList<Question>();
+    private LinkedHashMap<String, LinkedList<Question>> questions = new LinkedHashMap<String, LinkedList<Question>>();
 
-    public QuestionLoader() throws IOException {
+    public QuestionLoader() throws IOException, FileNotFoundException {
         loadData();
     }
 
-    private void loadData() throws IOException {
-        FileReader fr = new FileReader(new File("/../Questions"));
+    private void loadData() throws IOException, FileNotFoundException {
+
+        FileReader fr = new FileReader(new File("../resources/Questions.csv"));
         BufferedReader br = new BufferedReader(fr);
 
         String line = "";
@@ -46,7 +49,31 @@ public class QuestionLoader implements Serializable{
             engWrongAnswers.add(parts[13]);
             String engHint = parts[14];
 
+            Question q = new Question(gerQuestion,gerRightAnswer,gerWrongAnswers,gerHint,cat,engQuestion,engRightAnswer,engWrongAnswers,engHint);
+            sortInCatList(q);
+            System.out.println(q);
+        }
+    }
 
+    private void sortInCatList(Question q)
+    {
+        LinkedList<Question> qForCat = questions.get(q.getCat());
+        if(qForCat == null)
+        {
+            qForCat = new LinkedList<Question>();
+        }
+        qForCat.add(q);
+        questions.put(q.getCat(), qForCat);
+    }
+
+    public static void main(String[] args) {
+        try {
+            QuestionLoader ql = new QuestionLoader();
+        } catch (FileNotFoundException ex)
+        {
+            System.out.println("File not found!");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -12,26 +12,26 @@ public class Question implements Serializable
     private String gerQuestion;
     private String gerRightAnswer;
     private LinkedList<String> gerWrongAnswers;
-    private String gerTip;
+    private String gerHint;
 
     private String cat;
 
     private String engQuestion;
     private String engRightAnswer;
     private LinkedList<String> engWrongAnswers;
-    private String engTip;
+    private String engHint;
 
-    public Question(String gerQuestion, String gerRightAnswer, LinkedList<String> gerWrongAnswers, String gerTip, String cat, String engQuestion, String engRightAnswer, LinkedList<String> engWrongAnswers, String engTip)
+    public Question(String gerQuestion, String gerRightAnswer, LinkedList<String> gerWrongAnswers, String gerHint, String cat, String engQuestion, String engRightAnswer, LinkedList<String> engWrongAnswers, String engHint)
     {
         this.gerQuestion = gerQuestion;
         this.gerRightAnswer = gerRightAnswer;
         this.gerWrongAnswers = gerWrongAnswers;
-        this.gerTip = gerTip;
+        this.gerHint = gerHint;
         this.cat = cat;
         this.engQuestion = engQuestion;
         this.engRightAnswer = engRightAnswer;
         this.engWrongAnswers = engWrongAnswers;
-        this.engTip = engTip;
+        this.engHint = engHint;
     }
 
     public String getGerQuestion() {
@@ -58,12 +58,12 @@ public class Question implements Serializable
         this.gerWrongAnswers = gerWrongAnswers;
     }
 
-    public String getGerTip() {
-        return gerTip;
+    public String getGerHint() {
+        return gerHint;
     }
 
-    public void setGerTip(String gerTip) {
-        this.gerTip = gerTip;
+    public void setGerHint(String gerHint) {
+        this.gerHint = gerHint;
     }
 
     public String getCat() {
@@ -98,11 +98,26 @@ public class Question implements Serializable
         this.engWrongAnswers = engWrongAnswers;
     }
 
-    public String getEngTip() {
-        return engTip;
+    public String getEngHint() {
+        return engHint;
     }
 
-    public void setEngTip(String engTip) {
-        this.engTip = engTip;
+    public void setEngHint(String engHint) {
+        this.engHint = engHint;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "gerQuestion='" + gerQuestion + '\'' +
+                ", gerRightAnswer='" + gerRightAnswer + '\'' +
+                ", gerWrongAnswers=" + gerWrongAnswers +
+                ", gerHint='" + gerHint + '\'' +
+                ", cat='" + cat + '\'' +
+                ", engQuestion='" + engQuestion + '\'' +
+                ", engRightAnswer='" + engRightAnswer + '\'' +
+                ", engWrongAnswers=" + engWrongAnswers +
+                ", engHint='" + engHint + '\'' +
+                '}';
     }
 }
