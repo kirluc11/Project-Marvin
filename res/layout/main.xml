@@ -33,13 +33,19 @@
     <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_above="@+id/credits" android:layout_alignParentLeft="true" android:id="@+id/deu"
+            android:layout_above="@+id/credits"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/deu"
             android:layout_marginLeft="20dp"
             android:background="@drawable/oesterreich"/>
     <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/engusa"
-            android:id="@+id/eng" android:layout_alignTop="@+id/credits" android:layout_alignStart="@+id/deu"/>
+            android:id="@+id/eng"
+            android:layout_alignTop="@+id/credits"
+
+            />
+
 
 </RelativeLayout>

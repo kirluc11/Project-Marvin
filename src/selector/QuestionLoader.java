@@ -57,12 +57,17 @@ public class QuestionLoader implements Serializable{
 
     private void sortInCatList(Question q)
     {
+        //Was genau passiert da?
         LinkedList<Question> qForCat = questions.get(q.getCat());
         if(qForCat == null)
         {
             qForCat = new LinkedList<Question>();
         }
         qForCat.add(q);
+        //Warum haust du des auf a LinkedList rauf?????? - die Liste hot jo nur a Question obn
+        //Gib afoch Kategorie und Question drauf, oder?
+        //so: questions.put(q.getCat(), q); oder?
+        //Muast hoit obn dann  private LinkedHashMap<String, Question> questions = new LinkedHashMap<String, Question>(); hinschreibn
         questions.put(q.getCat(), qForCat);
     }
 
