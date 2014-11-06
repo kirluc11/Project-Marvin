@@ -6,7 +6,8 @@ import java.util.LinkedList;
 /**
  * Created by Lukas on 16.10.2014.
  */
-public class Question implements Serializable{
+public class Question implements Serializable
+{
 
     private String gerQuestion;
     private String gerRightAnswer;
@@ -20,7 +21,8 @@ public class Question implements Serializable{
     private LinkedList<String> engWrongAnswers;
     private String engTip;
 
-    public Question(String gerQuestion, String gerRightAnswer, LinkedList<String> gerWrongAnswers, String gerTip, String cat, String engQuestion, String engRightAnswer, LinkedList<String> engWrongAnswers, String engTip) {
+    public Question(String gerQuestion, String gerRightAnswer, LinkedList<String> gerWrongAnswers, String gerTip, String cat, String engQuestion, String engRightAnswer, LinkedList<String> engWrongAnswers, String engTip)
+    {
         this.gerQuestion = gerQuestion;
         this.gerRightAnswer = gerRightAnswer;
         this.gerWrongAnswers = gerWrongAnswers;
