@@ -11,6 +11,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:tag="1"
             android:id="@+id/start" android:text="Start"/>
     <Button
             android:layout_width="@android:dimen/thumbnail_width"
