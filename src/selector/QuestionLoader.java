@@ -1,5 +1,7 @@
 package selector;
 
+import beans.Question;
+
 import java.io.*;
 import java.util.LinkedList;
 
@@ -8,7 +10,7 @@ import java.util.LinkedList;
  */
 public class QuestionLoader implements Serializable{
 
-
+    private LinkedList<Question> questions = new LinkedList<Question>();
 
     public QuestionLoader() throws IOException {
         loadData();
