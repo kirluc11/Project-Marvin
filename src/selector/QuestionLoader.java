@@ -12,16 +12,25 @@ import java.util.LinkedList;
  */
 public class QuestionLoader implements Serializable{
 
+    private static QuestionLoader questionLoaderInstance;
     private LinkedHashMap<String, LinkedList<Question>> questions = new LinkedHashMap<String, LinkedList<Question>>();
 
-    public QuestionLoader() throws IOException, FileNotFoundException {
+    public static QuestionLoader getInstance() throws IOException, FileNotFoundException
+    {
+        if(questionLoaderInstance ==  null){
+            questionLoaderInstance = new QuestionLoader();
+        }
+        return questionLoaderInstance;
+    }
+
+    private QuestionLoader() throws IOException, FileNotFoundException {
         loadData();
     }
 
     private void loadData() throws IOException, FileNotFoundException {
 
-        FileReader fr = new FileReader(new File(System.getProperty("user.dir") + File.separator + "trunk" + File.separator + "src" + File.separator + "resources" + File.separator + "Questions.csv"));
-        BufferedReader br = new BufferedReader(fr);
+        InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(System.getProperty("user.dir") + File.separator + "trunk" + File.separator + "src" + File.separator + "resources" + File.separator + "Questions.csv")),"UTF-8" );
+        BufferedReader br = new BufferedReader(isr);
 
         String line = "";
 
@@ -63,6 +72,10 @@ public class QuestionLoader implements Serializable{
             qForCat = new LinkedList<Question>();
         }
         questions.put(q.getCat(), qForCat);
+    }
+
+    public LinkedHashMap<String, LinkedList<Question>> getQuestions() {
+        return questions;
     }
 
     public static void main(String[] args) {
