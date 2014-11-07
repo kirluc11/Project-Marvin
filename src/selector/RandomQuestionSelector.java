@@ -13,7 +13,7 @@ public class RandomQuestionSelector {
 
     private LinkedHashMap<String, LinkedList<Question>> questions;
 
-    public RandomQuestionSelector() throws IOException {
+    public RandomQuestionSelector() throws Exception {
         questions = QuestionLoader.getInstance().getQuestions();
     }
 

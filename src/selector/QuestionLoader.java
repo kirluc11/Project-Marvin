@@ -14,6 +14,7 @@ public class QuestionLoader implements Serializable{
 
     private static QuestionLoader questionLoaderInstance;
     private LinkedHashMap<String, LinkedList<Question>> questions = new LinkedHashMap<String, LinkedList<Question>>();
+    private LinkedList<String> keys = new LinkedList<String>();
 
     public static QuestionLoader getInstance() throws IOException, FileNotFoundException
     {
@@ -60,6 +61,10 @@ public class QuestionLoader implements Serializable{
 
             Question q = new Question(gerQuestion,gerRightAnswer,gerWrongAnswers,gerHint,cat,engQuestion,engRightAnswer,engWrongAnswers,engHint);
             sortInCatList(q);
+            if(!keys.contains(cat))
+            {
+                keys.add(cat);
+            }
             System.out.println(q);
         }
     }
@@ -76,6 +81,10 @@ public class QuestionLoader implements Serializable{
 
     public LinkedHashMap<String, LinkedList<Question>> getQuestions() {
         return questions;
+    }
+
+    public LinkedList<String> getKeys() {
+        return keys;
     }
 
     public static void main(String[] args) {

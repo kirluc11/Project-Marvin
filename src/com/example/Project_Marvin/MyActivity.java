@@ -5,9 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import beans.Question;
 import selector.QuestionLoader;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 
 public class MyActivity extends Activity implements View.OnClickListener
 {
@@ -35,15 +41,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         else if(screennumber==1)this.thingsConcerningPlayScreen();
         else if(screennumber==2)this.thingsConcerningInfoScreen();
         else this.thingsConcerningCreditsScreen();
-
-        try
-        {
-            questionLoader = new QuestionLoader();
-        }
-        catch (IOException e)
-        {
-            System.out.println("Error " + e.getMessage());
-        }
     }
 
 
@@ -52,6 +49,25 @@ public class MyActivity extends Activity implements View.OnClickListener
         setContentView(R.layout.general_playscreen);
 
         //Attributes and stuff only here!
+
+
+
+        /*TextView tv = (TextView) findViewById(R.id.bla);
+        try {
+            QuestionLoader ql = QuestionLoader.getInstance();
+            LinkedHashMap<String, LinkedList<Question>> questions = ql.getQuestions();
+            LinkedList<String> keys = ql.getKeys();
+
+            for(String key : keys)
+            {
+                for(Question q : questions.get(key))
+                {
+                    tv.setText(q.toString() + "\n");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }*/
     }
 
     public void thingsConcerningInfoScreen()
