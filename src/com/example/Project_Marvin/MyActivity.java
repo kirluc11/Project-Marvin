@@ -23,23 +23,54 @@ public class MyActivity extends Activity implements View.OnClickListener
     private Button info;
     private Button start;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
 
-        try {
+        int screennumber = getIntent().getIntExtra("screenNumber",0);
+
+        if(screennumber==0)this.thingsConcerningStartScreen();
+        else if(screennumber==1)this.thingsConcerningPlayScreen();
+        else if(screennumber==2)this.thingsConcerningInfoScreen();
+        else this.thingsConcerningCreditsScreen();
+
+        try
+        {
             questionLoader = new QuestionLoader();
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             System.out.println("Error " + e.getMessage());
         }
-
-        if(getIntent().getIntExtra("screenNumber",0)==0)setContentView(R.layout.main);
-        if(getIntent().getIntExtra("screenNumber",0)==1)setContentView(R.layout.general_playscreen);
-        if(getIntent().getIntExtra("screenNumber",0)==2)setContentView(R.layout.info_screen);
-        if(getIntent().getIntExtra("screenNumber",0)==3)setContentView(R.layout.credits_screen);
+    }
 
 
+    public void thingsConcerningPlayScreen()
+    {
+        setContentView(R.layout.general_playscreen);
+
+        //Attributes and stuff only here!
+    }
+
+    public void thingsConcerningInfoScreen()
+    {
+        setContentView(R.layout.info_screen);
+
+        //Attributes and stuff only here!
+    }
+
+    public void thingsConcerningCreditsScreen()
+    {
+        setContentView(R.layout.credits_screen);
+
+        //Attributes and stuff only here!
+    }
+
+    public void thingsConcerningStartScreen()
+    {
+        setContentView(R.layout.main);
         deu=(Button) findViewById(R.id.deu);
         eng=(Button) findViewById(R.id.eng);
         credits =(Button) findViewById(R.id.credits);
@@ -48,9 +79,9 @@ public class MyActivity extends Activity implements View.OnClickListener
         info.setOnClickListener(this);
         start=(Button) findViewById(R.id.start);
         start.setOnClickListener(this);
+
+        //Attributes and stuff only here!
     }
-
-
 
     int getScreenNumber()
     {
@@ -61,9 +92,10 @@ public class MyActivity extends Activity implements View.OnClickListener
     {
         int screenNumber = getScreenNumber();
 
-        //whichButton = 1 -> Start
-        //whichButton = 2 -> Info
-        //whichButton = 3 -> Credits
+        /*  whichButton = 1 -> Start (General playscreen)
+            whichButton = 2 -> Info
+            whichButton = 3 -> Credits */
+
         System.out.println(screenNumber+"");
         System.out.println(whichButton+"");
         final Intent nextIntent=new Intent(this, MyActivity.class);
