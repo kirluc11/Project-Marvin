@@ -46,9 +46,9 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     public void thingsConcerningPlayScreen()
     {
-        setContentView(R.layout.general_playscreen);
+        //Attributes and everything else concerning the PlayScreen only here!
 
-        //Attributes and stuff only here!
+        setContentView(R.layout.general_playscreen);
 
 
 
@@ -72,20 +72,22 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     public void thingsConcerningInfoScreen()
     {
-        setContentView(R.layout.info_screen);
+        //Attributes and everything else concerning the InfoScreen only here!
 
-        //Attributes and stuff only here!
+        setContentView(R.layout.info_screen);
     }
 
     public void thingsConcerningCreditsScreen()
     {
-        setContentView(R.layout.credits_screen);
+        //Attributes and everything else concerning the CreditsScreen only here!
 
-        //Attributes and stuff only here!
+        setContentView(R.layout.credits_screen);
     }
 
     public void thingsConcerningStartScreen()
     {
+        //Attributes and everything else concerning the StartScreen only here!
+
         setContentView(R.layout.main);
         deu=(Button) findViewById(R.id.deu);
         eng=(Button) findViewById(R.id.eng);
@@ -95,8 +97,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         info.setOnClickListener(this);
         start=(Button) findViewById(R.id.start);
         start.setOnClickListener(this);
-
-        //Attributes and stuff only here!
     }
 
     int getScreenNumber()
@@ -108,12 +108,11 @@ public class MyActivity extends Activity implements View.OnClickListener
     {
         int screenNumber = getScreenNumber();
 
-        /*  whichButton = 1 -> Start (General playscreen)
+        /*  The screen numbers for the intents corresponding with the pressed buttons:
+            whichButton = 1 -> Start (General playscreen)
             whichButton = 2 -> Info
             whichButton = 3 -> Credits */
 
-        System.out.println(screenNumber+"");
-        System.out.println(whichButton+"");
         final Intent nextIntent=new Intent(this, MyActivity.class);
         if(whichButton==1)
         {
@@ -128,7 +127,6 @@ public class MyActivity extends Activity implements View.OnClickListener
             nextIntent.putExtra("screenNumber",3);
         }
 
-        System.out.printf("goToNextScreen: intExtra=%d\n", screenNumber);
         int x=nextIntent.getIntExtra("screenNumber",0);
         startActivity(nextIntent);
 
