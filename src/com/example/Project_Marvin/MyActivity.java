@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import beans.Question;
 import selector.QuestionLoader;
 
@@ -41,7 +40,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
 
         int screennumber = getIntent().getIntExtra("screenNumber",0);
-        System.out.println(screennumber);
         if(screennumber==0)this.thingsConcerningStartScreen();
         else if(screennumber==1)this.thingsConcerningPlayScreen();
         else if(screennumber==2)this.thingsConcerningInfoScreen();
@@ -53,7 +51,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     public void thingsConcerningPlayScreen()
     {
-        //Attributes and everything else concerning the PlayScreen only here!
+        //Place attributes and everything else concerning the PlayScreen only here!
 
         setContentView(R.layout.general_playscreen);
 
@@ -79,21 +77,21 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     public void thingsConcerningInfoScreen()
     {
-        //Attributes and everything else concerning the InfoScreen only here!
+        //Place attributes and everything else concerning the InfoScreen only here!
 
         setContentView(R.layout.info_screen);
     }
 
     public void thingsConcerningCreditsScreen()
     {
-        //Attributes and everything else concerning the CreditsScreen only here!
+        //Place attributes and everything else concerning the CreditsScreen only here!
 
         setContentView(R.layout.credits_screen);
     }
 
     public void thingsConcerningStartScreen()
     {
-        //Attributes and everything else concerning the StartScreen only here!
+        //Place attributes and everything else concerning the StartScreen only here!
 
         setContentView(R.layout.main);
         deu=(Button) findViewById(R.id.deu);
@@ -119,7 +117,7 @@ public class MyActivity extends Activity implements View.OnClickListener
     {
         int screenNumber = getScreenNumber();
 
-        /*  The screen numbers for the intents corresponding with the pressed buttons:
+        /*  These are the screen numbers for the intents corresponding with the pressed buttons:
             whichButton = 1 -> Start (General playscreen)
             whichButton = 2 -> Info
             whichButton = 3 -> Credits */
@@ -138,7 +136,6 @@ public class MyActivity extends Activity implements View.OnClickListener
             nextIntent.putExtra("screenNumber",3);
         }
 
-        int x=nextIntent.getIntExtra("screenNumber",0);
         startActivity(nextIntent);
 
         /*
@@ -160,12 +157,12 @@ public class MyActivity extends Activity implements View.OnClickListener
             actualLANG=langENG;
         }
         changeLanguage();
-
-
     }
 
     public void changeLanguage()
     {
+        //Place the whole "setText(actualLANG[])" things here.
+
         start.setText(actualLANG[0]);
         info.setText(actualLANG[1]);
         credits.setText(actualLANG[2]);
@@ -175,6 +172,8 @@ public class MyActivity extends Activity implements View.OnClickListener
     {
         Button button=(Button) v;
         int whichButton = Integer.parseInt(button.getTag().toString());
+
+        //Buttons 1-3 are menu things, 4+5 are the language buttons (defined in main.xml).
         if(whichButton<=3)
         {
             goToNextScreen(whichButton);
