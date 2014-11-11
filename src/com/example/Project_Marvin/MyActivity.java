@@ -28,6 +28,11 @@ public class MyActivity extends Activity implements View.OnClickListener
     private Button credits;
     private Button info;
     private Button start;
+    private Boolean languageIsEng=true;
+
+    private String[] langGER={"Startger", "Infoger","Creditsger"};
+    private String[] langENG={"Starteng", "Infoeng","Creditseng"};
+    private String[] actualLANG=langENG;
 
 
     @Override
@@ -36,11 +41,13 @@ public class MyActivity extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
 
         int screennumber = getIntent().getIntExtra("screenNumber",0);
-
+        System.out.println(screennumber);
         if(screennumber==0)this.thingsConcerningStartScreen();
         else if(screennumber==1)this.thingsConcerningPlayScreen();
         else if(screennumber==2)this.thingsConcerningInfoScreen();
         else this.thingsConcerningCreditsScreen();
+
+
     }
 
 
@@ -90,13 +97,17 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         setContentView(R.layout.main);
         deu=(Button) findViewById(R.id.deu);
+        deu.setOnClickListener(this);
         eng=(Button) findViewById(R.id.eng);
+        eng.setOnClickListener(this);
         credits =(Button) findViewById(R.id.credits);
         credits.setOnClickListener(this);
         info=(Button) findViewById(R.id.info);
         info.setOnClickListener(this);
         start=(Button) findViewById(R.id.start);
         start.setOnClickListener(this);
+
+        changeLanguage();
     }
 
     int getScreenNumber()
@@ -136,11 +147,41 @@ public class MyActivity extends Activity implements View.OnClickListener
          */
     }
 
+    public void identifyLanguage(int whichButton)
+    {
+        if(whichButton==4)
+        {
+            languageIsEng=false;
+            actualLANG=langGER;
+        }
+        else
+        {
+            languageIsEng=true;
+            actualLANG=langENG;
+        }
+        changeLanguage();
+
+
+    }
+
+    public void changeLanguage()
+    {
+        start.setText(actualLANG[0]);
+        info.setText(actualLANG[1]);
+        credits.setText(actualLANG[2]);
+    }
 
     public void onClick(View v)
     {
         Button button=(Button) v;
         int whichButton = Integer.parseInt(button.getTag().toString());
-        goToNextScreen(whichButton);
+        if(whichButton<=3)
+        {
+            goToNextScreen(whichButton);
+        }
+        else
+        {
+            identifyLanguage(whichButton);
+        }
     }
 }

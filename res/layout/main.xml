@@ -42,6 +42,7 @@
             android:layout_above="@+id/credits"
             android:layout_alignParentLeft="true"
             android:id="@+id/deu"
+            android:tag="4"
             android:layout_marginLeft="20dp"
             android:background="@drawable/oesterreich"/>
 
@@ -50,6 +51,7 @@
             android:layout_height="100dp"
             android:background="@drawable/engusa"
             android:id="@+id/eng"
+            android:tag="5"
             android:layout_alignTop="@+id/credits"
             android:layout_alignStart="@+id/deu"/>
 
