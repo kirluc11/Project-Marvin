@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import beans.Question;
 import selector.QuestionLoader;
 
@@ -56,8 +57,13 @@ public class MyActivity extends Activity implements View.OnClickListener
         setContentView(R.layout.general_playscreen);
 
 
+        System.out.println("hi");
 
-        /*TextView tv = (TextView) findViewById(R.id.bla);
+
+        TextView tv = (TextView) findViewById(R.id.bla);
+
+        tv.setText("hi");
+
         try {
             QuestionLoader ql = QuestionLoader.getInstance();
             LinkedHashMap<String, LinkedList<Question>> questions = ql.getQuestions();
@@ -68,11 +74,13 @@ public class MyActivity extends Activity implements View.OnClickListener
                 for(Question q : questions.get(key))
                 {
                     tv.setText(q.toString() + "\n");
+                    System.out.println(q.toString());
                 }
             }
         } catch (Exception e) {
+
             System.out.println(e.getMessage());
-        }*/
+        }
     }
 
     public void thingsConcerningInfoScreen()

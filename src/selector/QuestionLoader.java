@@ -1,11 +1,10 @@
 package selector;
 
 import beans.Question;
+import resources.CSVReader;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * Created by Lukas on 16.10.2014.
@@ -30,7 +29,8 @@ public class QuestionLoader implements Serializable{
 
     private void loadData() throws IOException, FileNotFoundException {
 
-        InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(System.getProperty("user.dir") + File.separator + "trunk" + File.separator + "src" + File.separator + "resources" + File.separator + "Questions.csv")),"UTF-8" );
+        InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(System.getProperty("user.dir") + File.separator + "trunk" + File.separator + "src" + File.separator + "resources" + File.separator + "Questions.txt")),"UTF-8" );
+        //InputStreamReader isr = new InputStreamReader(new FileInputStream(new File("/data/local/tmp/com.example.Project_Marvin/trunk")),"UTF-8" );
         BufferedReader br = new BufferedReader(isr);
 
         String line = "";
