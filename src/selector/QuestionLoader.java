@@ -1,7 +1,7 @@
 package selector;
 
+import android.content.res.AssetManager;
 import beans.Question;
-import resources.CSVReader;
 
 import java.io.*;
 import java.util.*;
@@ -17,19 +17,27 @@ public class QuestionLoader implements Serializable{
 
     public static QuestionLoader getInstance() throws IOException, FileNotFoundException
     {
+        return questionLoaderInstance;
+    }
+
+    public static QuestionLoader getInstance(AssetManager am) throws IOException, FileNotFoundException
+    {
         if(questionLoaderInstance ==  null){
-            questionLoaderInstance = new QuestionLoader();
+            questionLoaderInstance = new QuestionLoader(am);
         }
         return questionLoaderInstance;
     }
 
-    private QuestionLoader() throws IOException, FileNotFoundException {
-        loadData();
+    private QuestionLoader(AssetManager am) throws IOException, FileNotFoundException {
+        loadData(am);
     }
 
-    private void loadData() throws IOException, FileNotFoundException {
+    private void loadData(AssetManager am) throws IOException, FileNotFoundException {
 
-        InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(System.getProperty("user.dir") + File.separator + "trunk" + File.separator + "src" + File.separator + "resources" + File.separator + "Questions.txt")),"UTF-8" );
+
+        InputStream is = am.open("Questions.csv");
+        InputStreamReader isr = new InputStreamReader(is,"UTF-8");
+        //InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(System.getProperty("user.dir") + File.separator + "trunk" + File.separator + "src" + File.separator + "resources" + File.separator + "Questions.txt")),"UTF-8" );
         //InputStreamReader isr = new InputStreamReader(new FileInputStream(new File("/data/local/tmp/com.example.Project_Marvin/trunk")),"UTF-8" );
         BufferedReader br = new BufferedReader(isr);
 
@@ -65,7 +73,6 @@ public class QuestionLoader implements Serializable{
             {
                 keys.add(cat);
             }
-            System.out.println(q);
         }
     }
 
@@ -76,6 +83,7 @@ public class QuestionLoader implements Serializable{
         {
             qForCat = new LinkedList<Question>();
         }
+        qForCat.add(q);
         questions.put(q.getCat(), qForCat);
     }
 
@@ -85,16 +93,5 @@ public class QuestionLoader implements Serializable{
 
     public LinkedList<String> getKeys() {
         return keys;
-    }
-
-    public static void main(String[] args) {
-        try {
-            QuestionLoader ql = new QuestionLoader();
-        } catch (FileNotFoundException ex)
-        {
-            System.out.println("File not found!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

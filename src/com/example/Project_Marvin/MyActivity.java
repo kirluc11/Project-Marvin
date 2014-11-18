@@ -2,6 +2,7 @@ package com.example.Project_Marvin;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -54,29 +55,19 @@ public class MyActivity extends Activity implements View.OnClickListener
     {
         //Place attributes and everything else concerning the PlayScreen only here!
 
+
+
+
         setContentView(R.layout.general_playscreen);
-
-
-        System.out.println("hi");
-
 
         TextView tv = (TextView) findViewById(R.id.bla);
 
-        tv.setText("hi");
-
         try {
-            QuestionLoader ql = QuestionLoader.getInstance();
+            QuestionLoader ql = QuestionLoader.getInstance(getBaseContext().getApplicationContext().getAssets());
             LinkedHashMap<String, LinkedList<Question>> questions = ql.getQuestions();
             LinkedList<String> keys = ql.getKeys();
+            tv.setText(questions.get("FUN").getFirst().getGerQuestion());
 
-            for(String key : keys)
-            {
-                for(Question q : questions.get(key))
-                {
-                    tv.setText(q.toString() + "\n");
-                    System.out.println(q.toString());
-                }
-            }
         } catch (Exception e) {
 
             System.out.println(e.getMessage());
