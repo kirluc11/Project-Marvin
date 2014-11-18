@@ -47,7 +47,7 @@ public class QuestionLoader implements Serializable{
         {
             String[] parts = line.split(";");
 
-            String gerQuestion = fixUml(parts[0]);
+            String gerQuestion = parts[0];
             String gerRightAnswer = parts[1];
             LinkedList<String> gerWrongAnswers = new LinkedList<String>();
             gerWrongAnswers.add(parts[2]);
@@ -67,6 +67,26 @@ public class QuestionLoader implements Serializable{
             engWrongAnswers.add(parts[13]);
             String engHint = parts[14];
 
+            /*String gerQuestion = fixUml(parts[0]);
+            String gerRightAnswer = fixUml(parts[1]);
+            LinkedList<String> gerWrongAnswers = new LinkedList<String>();
+            gerWrongAnswers.add(fixUml(parts[2]));
+            gerWrongAnswers.add(fixUml(parts[3]));
+            gerWrongAnswers.add(fixUml(parts[4]));
+            gerWrongAnswers.add(fixUml(parts[5]));
+            String gerHint = fixUml(parts[6]);
+
+            String cat = fixUml(parts[7]);
+
+            String engQuestion = fixUml(parts[8]);
+            String engRightAnswer = fixUml(parts[9]);
+            LinkedList<String> engWrongAnswers = new LinkedList<String>();
+            engWrongAnswers.add(fixUml(parts[10]));
+            engWrongAnswers.add(fixUml(parts[11]));
+            engWrongAnswers.add(fixUml(parts[12]));
+            engWrongAnswers.add(fixUml(parts[13]));
+            String engHint = fixUml(parts[14]);*/
+
             Question q = new Question(gerQuestion,gerRightAnswer,gerWrongAnswers,gerHint,cat,engQuestion,engRightAnswer,engWrongAnswers,engHint);
             sortInCatList(q);
             if(!keys.contains(cat))
@@ -79,6 +99,14 @@ public class QuestionLoader implements Serializable{
     private String fixUml(String str)
     {
         str=str.replace("&uuml","ü");
+        str=str.replace("&auml","ä");
+        str=str.replace("&ouml","ö");
+        str=str.replace("&Uuml","Ü");
+        str=str.replace("&Auml","Ä");
+        str=str.replace("&Ouml","Ö");
+        str=str.replace("&eur","€");
+        str=str.replace("&dol","$");
+        str=str.replace("&ssharp","ß");
 
         return str;
     }
