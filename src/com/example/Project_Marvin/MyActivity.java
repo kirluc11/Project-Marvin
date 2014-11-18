@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import beans.Question;
 import selector.QuestionLoader;
+import selector.RandomQuestionSelector;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -63,13 +64,25 @@ public class MyActivity extends Activity implements View.OnClickListener
         TextView tv = (TextView) findViewById(R.id.bla);
 
         try {
-            QuestionLoader ql = QuestionLoader.getInstance(getBaseContext().getApplicationContext().getAssets());
-            LinkedHashMap<String, LinkedList<Question>> questions = ql.getQuestions();
+            //QuestionLoader.getInstance(getBaseContext().getApplicationContext().getAssets());
+            RandomQuestionSelector rqs=new RandomQuestionSelector(getBaseContext().getApplicationContext().getAssets());
+            LinkedList<Question> questions=rqs.getUsedQuestion();
+            for (int i = 0; i < questions.size(); i++) {
+                System.out.println(questions.get(i).toString());
+            }
+            /*LinkedHashMap<String, LinkedList<Question>> questions = ql.getQuestions();
             LinkedList<String> keys = ql.getKeys();
-            tv.setText(questions.get("Allgemein").getFirst().toString());
+            for(String key:keys)
+            {
+                for(Question q : questions.get(key))
+                {
+                    tv.append(q.toString()+"\n\n\n");
+                }
+            }*/
         } catch (Exception e) {
 
-            System.out.println(e.getMessage());
+            if(e!=null&&e.getMessage()!=null)System.out.println(e.getMessage());
+
         }
     }
 
