@@ -78,10 +78,8 @@ public class QuestionLoader implements Serializable{
 
     private String fixUml(String str)
     {
-        if(str.contains("&uuml"))
-        {
-            str.replace("&uuml", "ü");
-        }
+        str=str.replace("&uuml","ü");
+
         return str;
     }
 
