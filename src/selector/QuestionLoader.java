@@ -47,7 +47,7 @@ public class QuestionLoader implements Serializable{
         {
             String[] parts = line.split(";");
 
-            String gerQuestion = parts[0];
+            String gerQuestion = fixUml(parts[0]);
             String gerRightAnswer = parts[1];
             LinkedList<String> gerWrongAnswers = new LinkedList<String>();
             gerWrongAnswers.add(parts[2]);
@@ -74,6 +74,15 @@ public class QuestionLoader implements Serializable{
                 keys.add(cat);
             }
         }
+    }
+
+    private String fixUml(String str)
+    {
+        if(str.contains("&uuml"))
+        {
+            str.replace("&uuml", "ü");
+        }
+        return str;
     }
 
     private void sortInCatList(Question q)

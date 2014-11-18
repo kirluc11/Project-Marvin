@@ -66,8 +66,7 @@ public class MyActivity extends Activity implements View.OnClickListener
             QuestionLoader ql = QuestionLoader.getInstance(getBaseContext().getApplicationContext().getAssets());
             LinkedHashMap<String, LinkedList<Question>> questions = ql.getQuestions();
             LinkedList<String> keys = ql.getKeys();
-            tv.setText(questions.get("FUN").getFirst().getGerQuestion());
-
+            tv.setText(questions.get("Allgemein").getFirst().toString());
         } catch (Exception e) {
 
             System.out.println(e.getMessage());
