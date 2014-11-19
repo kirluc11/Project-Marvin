@@ -17,11 +17,12 @@ public class RandomQuestionSelector {
     private LinkedList<Question> usedQuestion = new LinkedList<Question>();
     private LinkedList<String> keys;
 
+
+
     public RandomQuestionSelector(AssetManager am) throws Exception {
         questions = QuestionLoader.getInstance(am).getQuestions();
 
         keys=QuestionLoader.getInstance().getKeys();
-        System.out.println(questions.size()+"     "+keys.size());
         questionPickSystem();
     }
 
@@ -36,15 +37,12 @@ public class RandomQuestionSelector {
         LinkedList<Question> tempQ = questions.get("FUN");
         Random randy = new Random();
         int zz = randy.nextInt(tempQ.size());
-        System.out.println(tempQ.size()+"       "+zz);
         usedQuestion.add(tempQ.get(zz));
-        System.out.println(usedQuestion.size());
         for (int i = 0; i < 9; i++)
         {
             zz=randy.nextInt(keys.size());
             tempQ=questions.get(keys.get(zz));
             keys.remove(zz);
-            System.out.println("key:"+keys.size() + "      "+"tq:"+tempQ.size()+ "    "+zz);
             zz=randy.nextInt(tempQ.size());
             usedQuestion.add(0,tempQ.get(zz));
         }

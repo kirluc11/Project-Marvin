@@ -64,25 +64,15 @@ public class MyActivity extends Activity implements View.OnClickListener
         TextView tv = (TextView) findViewById(R.id.bla);
 
         try {
-            //QuestionLoader.getInstance(getBaseContext().getApplicationContext().getAssets());
             RandomQuestionSelector rqs=new RandomQuestionSelector(getBaseContext().getApplicationContext().getAssets());
             LinkedList<Question> questions=rqs.getUsedQuestion();
             for (int i = 0; i < questions.size(); i++) {
                 System.out.println(questions.get(i).toString());
+                tv.append(questions.get(i).toString());
             }
-            /*LinkedHashMap<String, LinkedList<Question>> questions = ql.getQuestions();
-            LinkedList<String> keys = ql.getKeys();
-            for(String key:keys)
-            {
-                for(Question q : questions.get(key))
-                {
-                    tv.append(q.toString()+"\n\n\n");
-                }
-            }*/
         } catch (Exception e) {
-
-            if(e!=null&&e.getMessage()!=null)System.out.println(e.getMessage());
-
+            if(e!=null&&e.getMessage()!=null)
+                System.out.println(e.getMessage());
         }
     }
 
