@@ -71,8 +71,8 @@ public class MyActivity extends Activity implements View.OnClickListener
                 tv.append(questions.get(i).toString());
             }
         } catch (Exception e) {
-            if(e!=null&&e.getMessage()!=null)
-                System.out.println(e.getMessage());
+            if(e!=null&&e.getMessage()!=null){}
+                //System.out.println(e.getMessage());
         }
     }
 

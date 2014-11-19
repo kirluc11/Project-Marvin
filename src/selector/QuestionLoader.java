@@ -47,7 +47,7 @@ public class QuestionLoader implements Serializable{
         {
             String[] parts = line.split(";");
 
-            /*String gerQuestion = parts[0];
+            String gerQuestion = parts[0];
             String gerRightAnswer = parts[1];
             LinkedList<String> gerWrongAnswers = new LinkedList<String>();
             gerWrongAnswers.add(parts[2]);
@@ -65,9 +65,9 @@ public class QuestionLoader implements Serializable{
             engWrongAnswers.add(parts[11]);
             engWrongAnswers.add(parts[12]);
             engWrongAnswers.add(parts[13]);
-            String engHint = parts[14];*/
+            String engHint = parts[14];
 
-            String gerQuestion = fixUml(parts[0]);
+            /*String gerQuestion = fixUml(parts[0]);
             String gerRightAnswer = fixUml(parts[1]);
             LinkedList<String> gerWrongAnswers = new LinkedList<String>();
             gerWrongAnswers.add(fixUml(parts[2]));
@@ -85,7 +85,7 @@ public class QuestionLoader implements Serializable{
             engWrongAnswers.add(fixUml(parts[11]));
             engWrongAnswers.add(fixUml(parts[12]));
             engWrongAnswers.add(fixUml(parts[13]));
-            String engHint = fixUml(parts[14]);
+            String engHint = fixUml(parts[14]);*/
 
             Question q = new Question(gerQuestion,gerRightAnswer,gerWrongAnswers,gerHint,cat,engQuestion,engRightAnswer,engWrongAnswers,engHint);
             sortInCatList(q);

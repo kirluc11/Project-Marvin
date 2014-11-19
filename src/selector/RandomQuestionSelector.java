@@ -33,7 +33,6 @@ public class RandomQuestionSelector {
     private void questionPickSystem()
     {
         keys.remove("FUN");
-        System.out.println(keys.size());
         LinkedList<Question> tempQ = questions.get("FUN");
         Random randy = new Random();
         int zz = randy.nextInt(tempQ.size());
