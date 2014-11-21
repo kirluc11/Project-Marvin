@@ -56,9 +56,6 @@ public class MyActivity extends Activity implements View.OnClickListener
     {
         //Place attributes and everything else concerning the PlayScreen only here!
 
-
-
-
         setContentView(R.layout.general_playscreen);
 
         TextView tv = (TextView) findViewById(R.id.bla);
