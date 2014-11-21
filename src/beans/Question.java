@@ -108,16 +108,11 @@ public class Question implements Serializable
 
     @Override
     public String toString() {
-        return "Question{" +
-                "gerQuestion='" + gerQuestion + '\'' +
-                ", gerRightAnswer='" + gerRightAnswer + '\'' +
-                ", gerWrongAnswers=" + gerWrongAnswers +
-                ", gerHint='" + gerHint + '\'' +
-                ", cat='" + cat + '\'' +
-                ", engQuestion='" + engQuestion + '\'' +
-                ", engRightAnswer='" + engRightAnswer + '\'' +
-                ", engWrongAnswers=" + engWrongAnswers +
-                ", engHint='" + engHint + '\'' +
-                '}';
+        return "Question{"
+                + "cat: " + cat + " {"
+                + gerQuestion + " "
+                + gerRightAnswer
+                + ", " + gerWrongAnswers + "} "
+                + "hint: " + gerHint + "\n";
     }
 }

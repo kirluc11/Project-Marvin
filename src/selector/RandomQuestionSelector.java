@@ -3,6 +3,7 @@ package selector;
 import android.content.res.AssetManager;
 import beans.Question;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -13,13 +14,26 @@ import java.util.Random;
  */
 public class RandomQuestionSelector {
 
+    private static RandomQuestionSelector randomQuestionSelectorInstance;
+
     private LinkedHashMap<String, LinkedList<Question>> questions;
     private LinkedList<Question> usedQuestion = new LinkedList<Question>();
     private LinkedList<String> keys;
 
+    public static RandomQuestionSelector getInstance(AssetManager am) throws Exception {
+        if(randomQuestionSelectorInstance == null)
+        {
+            randomQuestionSelectorInstance = new RandomQuestionSelector(am);
+        }
+        return randomQuestionSelectorInstance;
+    }
 
+    public static RandomQuestionSelector getInstance()
+    {
+        return randomQuestionSelectorInstance;
+    }
 
-    public RandomQuestionSelector(AssetManager am) throws Exception {
+    private RandomQuestionSelector(AssetManager am) throws Exception {
         questions = QuestionLoader.getInstance(am).getQuestions();
 
         keys=QuestionLoader.getInstance().getKeys();

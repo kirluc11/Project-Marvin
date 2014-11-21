@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import beans.Question;
+import selector.QuestionHandler;
 import selector.QuestionLoader;
 import selector.RandomQuestionSelector;
 
@@ -16,14 +17,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class MyActivity extends Activity implements View.OnClickListener
 {
     /**
      * Called when the activity is first created.
      */
-
-    private QuestionLoader questionLoader;
 
     private Button deu;
     private Button eng;
@@ -32,8 +32,8 @@ public class MyActivity extends Activity implements View.OnClickListener
     private Button start;
     private Boolean languageIsEng=true;
 
-    private String[] langGER={"Startger", "Infoger","Creditsger"};
-    private String[] langENG={"Starteng", "Infoeng","Creditseng"};
+    private String[] langGER={"Start", "Steuerung","Mitwirkende"};
+    private String[] langENG={"Start", "Control","Credits"};
     private String[] actualLANG=langENG;
 
 
@@ -55,18 +55,17 @@ public class MyActivity extends Activity implements View.OnClickListener
     public void thingsConcerningPlayScreen()
     {
         //Place attributes and everything else concerning the PlayScreen only here!
+        // get access to assets folder: getBaseContext().getApplicationContext().getAssets()
 
         setContentView(R.layout.general_playscreen);
 
         TextView tv = (TextView) findViewById(R.id.bla);
 
         try {
-            RandomQuestionSelector rqs=new RandomQuestionSelector(getBaseContext().getApplicationContext().getAssets());
-            LinkedList<Question> questions=rqs.getUsedQuestion();
-            for (int i = 0; i < questions.size(); i++) {
-                System.out.println(questions.get(i).toString());
-                tv.append(questions.get(i).toString());
-            }
+            QuestionHandler qh = QuestionHandler.getInstance(getBaseContext().getApplicationContext().getAssets());
+            System.out.println(qh.getNextQuestion().toString());
+            tv.setText(qh.getNextQuestion().toString());
+            tv.setText(qh.checkAnswer(qh.getNextQuestion().getGerRightAnswer()));
         } catch (Exception e) {
             if(e!=null&&e.getMessage()!=null){}
                 //System.out.println(e.getMessage());
