@@ -10,10 +10,9 @@
     <Button
             android:layout_width="@android:dimen/thumbnail_width"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
             android:tag="1"
-            android:id="@+id/start" android:text="Start"/>
+            android:id="@+id/start" android:text="Start" android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/info"/>
 
     <Button
             android:layout_width="@android:dimen/thumbnail_width"
@@ -37,7 +36,7 @@
             android:onClick="onClickCredits"/>
 
     <Button
-            android:layout_width="100dp"
+            android:layout_width="130dp"
             android:layout_height="100dp"
             android:layout_above="@+id/credits"
             android:layout_alignParentLeft="true"
@@ -47,12 +46,16 @@
             android:background="@drawable/oesterreich"/>
 
     <Button
-            android:layout_width="100dp"
+            android:layout_width="130dp"
             android:layout_height="100dp"
             android:background="@drawable/engusa"
             android:id="@+id/eng"
             android:tag="5"
-            android:layout_alignTop="@+id/credits"
-            android:layout_alignStart="@+id/deu"/>
+            android:layout_alignTop="@+id/credits" android:layout_alignLeft="@+id/deu"/>
+    <ImageView
+            android:layout_width="100dp"
+            android:layout_height="250dp"
+            android:id="@+id/imageView" android:layout_above="@+id/deu" android:layout_alignParentLeft="true"
+            android:src="@drawable/marvin_ganz"/>
 
 </RelativeLayout>

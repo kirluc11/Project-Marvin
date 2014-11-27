@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+        >
+    <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageView" android:layout_centerVertical="true" android:layout_centerHorizontal="true"
+            android:src="@drawable/layout_frageseite4"/>
     <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="start screen"
-            android:id="@+id/bla"
-            android:layout_gravity="center_horizontal"/>
-</LinearLayout>
+            android:id="@+id/tvAnswer1"
+            android:layout_marginTop="93dp"
+            android:autoText="false"
+            android:width="100dp"
+            android:height="70dp"
+            android:layout_marginLeft="40dp" android:text="SDasfsdfsdfsfdEFsfEFSWFsdsdffvsdfsdvvESWFsdfsdfsdsdfsd"
+            android:layout_alignParentTop="true" android:layout_alignLeft="@+id/tvAnswer3"/>
+    <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvAnswer2"
+            android:autoText="false"
+            android:width="100dp"
+            android:height="70dp"
+            android:layout_marginRight="20dp"
+            android:editable="false" android:enabled="false" android:text="Text!Text!Text!Text!Text!Text!DSlsdllm,fmlssdfmlsdfmlöv"
+            android:layout_below="@+id/tvAnswer1" android:layout_alignParentRight="true" android:singleLine="false"/>
+    <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvAnswer3"
+            android:autoText="false"
+            android:width="100dp"
+            android:height="70dp"
+            android:layout_marginLeft="27dp"
+            android:text="adfasdfdvasdvasefawefasdvasdvafaerfwefsdfsdfasdfasdfdfad"
+            android:layout_marginTop="76dp"
+            android:layout_below="@+id/tvAnswer2" android:layout_alignParentLeft="true"/>
+    <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvAnswer4"
+            android:autoText="false"
+            android:width="100dp"
+            android:height="70dp"
+            android:text="sdfasdfvcxvklklefiosdfljkadfjkldvkjlsdsdfdsdfsadfdsvSDRFGWE"
+            android:layout_marginLeft="43dp"
+            android:layout_below="@+id/tvAnswer5" android:layout_alignLeft="@+id/tvAnswer1"/>
+    <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvAnswer5"
+            android:autoText="false"
+            android:width="100dp"
+            android:height="70dp"
+            android:text="sdafsdvsdvasefKSDFKLGADFGJKLLKÖasdfgkljdfagsdfdfvdsf"
+            android:layout_alignTop="@+id/tvAnswer3"
+            android:layout_alignLeft="@+id/tvAnswer2"
+            android:layout_marginTop="55dp"/>
+</RelativeLayout>
