@@ -14,9 +14,12 @@
             android:height="70dp"
             android:text="SDasfsdfsdfsfdEFsfEFSWFsdsdffvsdfsdvvESWFsdfsdfsdsdfsd"
             android:textColor="#ff3a387a"
-            android:clickable="true" android:background="@drawable/answer_border"
+            android:clickable="true"
+            android:background="@drawable/answer_border"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_above="@+id/tvAnswer3" android:layout_toLeftOf="@+id/tvAnswer3"
+            android:layout_above="@+id/tvAnswer3"
+            android:layout_toLeftOf="@+id/tvAnswer3"
+            android:tag="101"
             android:layout_marginBottom="51dp"/>
     <TextView
 
@@ -26,11 +29,17 @@
             android:autoText="false"
             android:width="100dp"
             android:height="70dp"
-            android:editable="false" android:enabled="false" android:text="Text!Text!Text!Text!Text!Text!DSlsdllm,fmlssdfmlsdfmlöv"
+            android:editable="false"
+            android:enabled="false"
+            android:text="Text!Text!Text!Text!Text!Text!DSlsdllm,fmlssdfmlsdfmlöv"
             android:singleLine="false"
-            android:ellipsize="start" android:textColor="#ff3a387a"
-            android:background="@drawable/answer_border" android:layout_alignTop="@+id/tvAnswer1"
-            android:layout_toRightOf="@+id/tvAnswer3" android:gravity="center_vertical|center_horizontal"/>
+            android:ellipsize="start"
+            android:textColor="#ff3a387a"
+            android:background="@drawable/answer_border"
+            android:layout_alignTop="@+id/tvAnswer1"
+            android:layout_toRightOf="@+id/tvAnswer3"
+            android:tag="102"
+            android:gravity="center_vertical|center_horizontal"/>
     <TextView
 
             android:layout_width="wrap_content"
@@ -43,8 +52,11 @@
             android:ellipsize="start"
             android:textColor="#ff3a387a"
             android:background="@drawable/answer_border"
-            android:gravity="center_vertical|center_horizontal" android:layout_above="@+id/tvAnswer4"
-            android:layout_centerHorizontal="true" android:layout_marginBottom="48dp"/>
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_above="@+id/tvAnswer4"
+            android:layout_centerHorizontal="true"
+            android:tag="103"
+            android:layout_marginBottom="48dp"/>
     <TextView
 
             android:layout_width="wrap_content"
@@ -54,10 +66,14 @@
             android:width="100dp"
             android:height="70dp"
             android:text="sdfasdfvcxvklklefiosdfljkadfjkldvkjlsdsdfdsdfsadfdsvSDRFGWE"
-            android:ellipsize="start" android:textColor="#ff3a387a"
+            android:ellipsize="start"
+            android:textColor="#ff3a387a"
             android:background="@drawable/answer_border"
-            android:gravity="center_vertical|center_horizontal" android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/tvAnswer1" android:layout_marginBottom="53dp"/>
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/tvAnswer1"
+            android:tag="104"
+            android:layout_marginBottom="53dp"/>
     <TextView
 
             android:layout_width="wrap_content"
@@ -70,7 +86,9 @@
             android:ellipsize="start"
             android:textColor="#ff3a387a"
             android:background="@drawable/answer_border"
-            android:layout_alignTop="@+id/tvAnswer4" android:layout_toRightOf="@+id/tvAnswer3"
+            android:layout_alignTop="@+id/tvAnswer4"
+            android:layout_toRightOf="@+id/tvAnswer3"
+            android:tag="105"
             android:gravity="center_vertical|center_horizontal"/>
     <TextView
             android:layout_width="fill_parent"
@@ -86,7 +104,10 @@
             android:layout_height="60dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
-            android:id="@+id/tvInfo" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/tvAnswer3"
-            android:layout_alignParentRight="true" android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/tvInfo"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/tvAnswer3"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical|center_horizontal"
             android:background="@drawable/info_border"/>
 </RelativeLayout>
