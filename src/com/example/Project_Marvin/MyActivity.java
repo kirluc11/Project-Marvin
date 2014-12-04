@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import beans.Language;
@@ -57,7 +58,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         setContentView(R.layout.general_playscreen);
 
-        TextView tv = (TextView) findViewById(R.id.tvAnswer2);
+        TextView tv = (TextView) findViewById(R.id.btAnswer2);
 
         try {
             QuestionHandler qh = QuestionHandler.getInstance(getBaseContext().getApplicationContext().getAssets());

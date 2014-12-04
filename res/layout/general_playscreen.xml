@@ -4,11 +4,11 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
         android:clickable="false" android:background="#ffc6fff1">
-    <TextView
+    <Button
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvAnswer1"
+            android:id="@+id/btAnswer1"
             android:autoText="false"
             android:width="100dp"
             android:height="70dp"
@@ -17,15 +17,15 @@
             android:clickable="true"
             android:background="@drawable/answer_border"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_above="@+id/tvAnswer3"
-            android:layout_toLeftOf="@+id/tvAnswer3"
+            android:layout_above="@+id/btAnswer3"
+            android:layout_toLeftOf="@+id/btAnswer3"
             android:tag="101"
-            android:layout_marginBottom="51dp"/>
-    <TextView
+            android:layout_marginBottom="51dp" android:textSize="10dp"/>
+    <Button
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvAnswer2"
+            android:id="@+id/btAnswer2"
             android:autoText="false"
             android:width="100dp"
             android:height="70dp"
@@ -36,15 +36,15 @@
             android:ellipsize="start"
             android:textColor="#ff3a387a"
             android:background="@drawable/answer_border"
-            android:layout_alignTop="@+id/tvAnswer1"
-            android:layout_toRightOf="@+id/tvAnswer3"
+            android:layout_alignTop="@+id/btAnswer1"
+            android:layout_toRightOf="@+id/btAnswer3"
             android:tag="102"
-            android:gravity="center_vertical|center_horizontal"/>
-    <TextView
+            android:gravity="center_vertical|center_horizontal" android:textSize="10dp"/>
+    <Button
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvAnswer3"
+            android:id="@+id/btAnswer3"
             android:autoText="false"
             android:width="100dp"
             android:height="70dp"
@@ -53,15 +53,15 @@
             android:textColor="#ff3a387a"
             android:background="@drawable/answer_border"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_above="@+id/tvAnswer4"
+            android:layout_above="@+id/btAnswer4"
             android:layout_centerHorizontal="true"
             android:tag="103"
-            android:layout_marginBottom="48dp"/>
+            android:layout_marginBottom="48dp" android:textSize="10dp"/>
     <TextView
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvAnswer4"
+            android:id="@+id/btAnswer4"
             android:autoText="false"
             android:width="100dp"
             android:height="70dp"
@@ -71,14 +71,14 @@
             android:background="@drawable/answer_border"
             android:gravity="center_vertical|center_horizontal"
             android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/tvAnswer1"
+            android:layout_alignLeft="@+id/btAnswer1"
             android:tag="104"
-            android:layout_marginBottom="53dp"/>
-    <TextView
+            android:layout_marginBottom="53dp" android:textSize="10dp"/>
+    <Button
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvAnswer5"
+            android:id="@+id/btAnswer5"
             android:autoText="false"
             android:width="100dp"
             android:height="70dp"
@@ -86,10 +86,10 @@
             android:ellipsize="start"
             android:textColor="#ff3a387a"
             android:background="@drawable/answer_border"
-            android:layout_alignTop="@+id/tvAnswer4"
-            android:layout_toRightOf="@+id/tvAnswer3"
+            android:layout_alignTop="@+id/btAnswer4"
+            android:layout_toRightOf="@+id/btAnswer3"
             android:tag="105"
-            android:gravity="center_vertical|center_horizontal"/>
+            android:gravity="center_vertical|center_horizontal" android:textSize="10dp"/>
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="50dp"
@@ -99,14 +99,14 @@
             android:layout_marginTop="87dp" android:textColor="#ff3a387a"
             android:gravity="center_vertical|center_horizontal"
             android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
-    <TextView
+    <Button
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
             android:id="@+id/tvInfo"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/tvAnswer3"
+            android:layout_toRightOf="@+id/btAnswer3"
             android:layout_alignParentRight="true"
             android:gravity="center_vertical|center_horizontal"
             android:background="@drawable/info_border"/>
