@@ -20,7 +20,8 @@
             android:layout_above="@+id/btAnswer3"
             android:layout_toLeftOf="@+id/btAnswer3"
             android:tag="101"
-            android:layout_marginBottom="51dp" android:textSize="10dp"/>
+            android:layout_marginBottom="51dp"
+            android:textSize="10dp"/>
     <Button
 
             android:layout_width="wrap_content"
@@ -30,7 +31,6 @@
             android:width="100dp"
             android:height="70dp"
             android:editable="false"
-            android:enabled="false"
             android:text="Text!Text!Text!Text!Text!Text!DSlsdllm,fmlssdfmlsdfmlöv"
             android:singleLine="false"
             android:ellipsize="start"
@@ -39,7 +39,8 @@
             android:layout_alignTop="@+id/btAnswer1"
             android:layout_toRightOf="@+id/btAnswer3"
             android:tag="102"
-            android:gravity="center_vertical|center_horizontal" android:textSize="10dp"/>
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="10dp"/>
     <Button
 
             android:layout_width="wrap_content"
@@ -56,8 +57,9 @@
             android:layout_above="@+id/btAnswer4"
             android:layout_centerHorizontal="true"
             android:tag="103"
-            android:layout_marginBottom="48dp" android:textSize="10dp"/>
-    <TextView
+            android:layout_marginBottom="48dp"
+            android:textSize="10dp"/>
+    <Button
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +75,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/btAnswer1"
             android:tag="104"
-            android:layout_marginBottom="53dp" android:textSize="10dp"/>
+            android:layout_marginBottom="53dp"
+            android:textSize="10dp"/>
     <Button
 
             android:layout_width="wrap_content"
@@ -82,32 +85,36 @@
             android:autoText="false"
             android:width="100dp"
             android:height="70dp"
-            android:text="sdafsdvsdvasefKSDFKLGADFGJKLLKÖasdfgkljdfagsdfdfvdsf"
+            android:text="sdafdfdfvdsf"
             android:ellipsize="start"
             android:textColor="#ff3a387a"
             android:background="@drawable/answer_border"
             android:layout_alignTop="@+id/btAnswer4"
             android:layout_toRightOf="@+id/btAnswer3"
             android:tag="105"
-            android:gravity="center_vertical|center_horizontal" android:textSize="10dp"/>
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="10dp"/>
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
             android:id="@+id/Question"
-            android:layout_marginTop="87dp" android:textColor="#ff3a387a"
+            android:layout_marginTop="87dp"
+            android:textColor="#ff3a387a"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
-            android:id="@+id/tvInfo"
+            android:id="@+id/btInfo"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/btAnswer3"
             android:layout_alignParentRight="true"
+            android:tag="6"
             android:gravity="center_vertical|center_horizontal"
             android:background="@drawable/info_border"/>
 </RelativeLayout>

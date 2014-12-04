@@ -32,7 +32,15 @@ public class MyActivity extends Activity implements View.OnClickListener
     private Button credits;
     private Button info;
     private Button start;
+    private Button answerB1;
+    private Button answerB2;
+    private Button answerB3;
+    private Button answerB4;
+    private Button answerB5;
+    private Button infoB;
+
     private Language language;
+    private int chosenAnswerButton=0;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -44,8 +52,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         int screennumber = getIntent().getIntExtra("screenNumber",0);
         if(screennumber==0)this.thingsConcerningStartScreen();
         else if(screennumber==1)this.thingsConcerningPlayScreen();
-        else if(screennumber==2)this.thingsConcerningInfoScreen();
-        else this.thingsConcerningCreditsScreen();
+        else if(screennumber==2 || screennumber==6)this.thingsConcerningInfoScreen();
+        else if(screennumber==3)this.thingsConcerningCreditsScreen();
 
 
     }
@@ -54,13 +62,27 @@ public class MyActivity extends Activity implements View.OnClickListener
     public void thingsConcerningPlayScreen()
     {
         //Place attributes and everything else concerning the PlayScreen only here!
-        // get access to assets folder: getBaseContext().getApplicationContext().getAssets()
+        //get access to assets folder: getBaseContext().getApplicationContext().getAssets()
 
         setContentView(R.layout.general_playscreen);
 
-        TextView tv = (TextView) findViewById(R.id.btAnswer2);
+        Button b1=(Button) findViewById(R.id.btAnswer1);
+        b1.setOnClickListener(this);
+        Button b2=(Button) findViewById(R.id.btAnswer2);
+        b2.setOnClickListener(this);
+        Button b3=(Button) findViewById(R.id.btAnswer3);
+        b3.setOnClickListener(this);
+        Button b4=(Button) findViewById(R.id.btAnswer4);
+        b4.setOnClickListener(this);
+        Button b5=(Button) findViewById(R.id.btAnswer5);
+        b5.setOnClickListener(this);
 
-        try {
+        Button infoButton=(Button) findViewById(R.id.btInfo);
+        infoButton.setOnClickListener(this);
+
+        TextView tv = (TextView) findViewById(R.id.Question);
+
+        /*try {
             QuestionHandler qh = QuestionHandler.getInstance(getBaseContext().getApplicationContext().getAssets());
             if(language.isEnglish())
             {
@@ -77,7 +99,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         } catch (Exception e) {
             if(e!=null&&e.getMessage()!=null){}
                 //System.out.println(e.getMessage());
-        }
+        }*/
     }
 
     public void thingsConcerningInfoScreen()
@@ -99,6 +121,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         //Place attributes and everything else concerning the StartScreen only here!
 
         setContentView(R.layout.main);
+
         deu=(Button) findViewById(R.id.deu);
         deu.setOnClickListener(this);
         eng=(Button) findViewById(R.id.eng);
@@ -136,9 +159,13 @@ public class MyActivity extends Activity implements View.OnClickListener
         {
             nextIntent.putExtra("screenNumber",2);
         }
-        else
+        else if(whichButton==3)
         {
             nextIntent.putExtra("screenNumber",3);
+        }
+        else
+        {
+            nextIntent.putExtra("screenNumber",6);
         }
 
         startActivity(nextIntent);
@@ -162,6 +189,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         changeLanguage();
     }
 
+    public void getAnswerButton(int numberOfAnswerButton)
+    {
+        System.out.println(numberOfAnswerButton+"");
+    }
+
     public void changeLanguage()
     {
         //Place the whole "setText(actualLANG[x])" things here.
@@ -176,14 +208,24 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button button=(Button) v;
         int whichButton = Integer.parseInt(button.getTag().toString());
 
-        //Buttons 1-3 are menu things, 4+5 are the language buttons (defined in main.xml).
-        if(whichButton<=3)
+        //Buttons 1-3: menu things in main.xml
+        //Buttons 4+5: language buttons in main.xml
+        //Button 6: Info-Button in general_playscreen.xml
+        //Buttons 101-105: Answer-Buttons in general-playscreen.xml
+        if(whichButton<=3 || whichButton==6)
         {
             goToNextScreen(whichButton);
+            System.out.println(whichButton+"");
+        }
+        else if(whichButton==4 || whichButton==5)
+        {
+            identifyLanguage(whichButton);
         }
         else
         {
-            identifyLanguage(whichButton);
+            System.out.println(chosenAnswerButton);
+            chosenAnswerButton=(whichButton%100);
+            System.out.println(chosenAnswerButton);
         }
     }
 }
