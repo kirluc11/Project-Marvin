@@ -57,7 +57,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         setContentView(R.layout.general_playscreen);
 
-        TextView tv = (TextView) findViewById(R.id.bla);
+        TextView tv = (TextView) findViewById(R.id.tvAnswer2);
 
         try {
             QuestionHandler qh = QuestionHandler.getInstance(getBaseContext().getApplicationContext().getAssets());
