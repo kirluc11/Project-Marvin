@@ -53,13 +53,12 @@ public class QuestionHandler {
     }
 
     /**
-     *
      * @param answer
      * @return 0: right,
      *         1: wrong,
      *         2: no current question
      */
-    public int checkAnswer(String answer)
+    public int checkAnswer(String answer, boolean english)
     {
         if(currentQuestion == null)
         {
@@ -69,16 +68,33 @@ public class QuestionHandler {
         else
         {
             currentQuestionAnswered = true;
-            if(answer != null && answer.equals(currentQuestion.getGerRightAnswer()))
+            if(english)
             {
-                right++;
-                System.out.println("true");
-                return 0;
+                if(answer != null && answer.equals(currentQuestion.getEngRightAnswer()))
+                {
+                    right++;
+                    System.out.println("true");
+                    return 0;
+                }
+                else
+                {
+                    System.out.println("false");
+                    return 1;
+                }
             }
             else
             {
-                System.out.println("false");
-                return 1;
+                if(answer != null && answer.equals(currentQuestion.getGerRightAnswer()))
+                {
+                    right++;
+                    System.out.println("true");
+                    return 0;
+                }
+                else
+                {
+                    System.out.println("false");
+                    return 1;
+                }
             }
         }
     }

@@ -2,18 +2,23 @@ package com.example.Project_Marvin;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import beans.Language;
 import beans.Question;
+import selector.QuestionHandler;
 import selector.QuestionLoader;
+import selector.RandomQuestionSelector;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class MyActivity extends Activity implements View.OnClickListener
 {
@@ -21,24 +26,19 @@ public class MyActivity extends Activity implements View.OnClickListener
      * Called when the activity is first created.
      */
 
-    private QuestionLoader questionLoader;
-
     private Button deu;
     private Button eng;
     private Button credits;
     private Button info;
     private Button start;
-    private Boolean languageIsEng=true;
-
-    private String[] langGER={"Startger", "Infoger","Creditsger"};
-    private String[] langENG={"Starteng", "Infoeng","Creditseng"};
-    private String[] actualLANG=langENG;
-
+    private Language language;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        language = Language.getInstance();
 
         int screennumber = getIntent().getIntExtra("screenNumber",0);
         if(screennumber==0)this.thingsConcerningStartScreen();
@@ -53,36 +53,30 @@ public class MyActivity extends Activity implements View.OnClickListener
     public void thingsConcerningPlayScreen()
     {
         //Place attributes and everything else concerning the PlayScreen only here!
+        // get access to assets folder: getBaseContext().getApplicationContext().getAssets()
 
         setContentView(R.layout.general_playscreen);
 
-
-        System.out.println("hi");
-
-        /**TextView die Lukas und Alex für die Fragen gemacht haben! VVVVV*/
-
-/*
         TextView tv = (TextView) findViewById(R.id.bla);
 
-        tv.setText("hi");
-
         try {
-            QuestionLoader ql = QuestionLoader.getInstance();
-            LinkedHashMap<String, LinkedList<Question>> questions = ql.getQuestions();
-            LinkedList<String> keys = ql.getKeys();
-
-            for(String key : keys)
+            QuestionHandler qh = QuestionHandler.getInstance(getBaseContext().getApplicationContext().getAssets());
+            if(language.isEnglish())
             {
-                for(Question q : questions.get(key))
-                {
-                    tv.setText(q.toString() + "\n");
-                    System.out.println(q.toString());
-                }
+                tv.setText(qh.getNextQuestion().getEngQuestion() + "\n");
+                tv.append(qh.getNextQuestion().getEngRightAnswer() + "\n");
+                tv.append(qh.getNextQuestion().getEngWrongAnswers().toString());
+            }
+            else
+            {
+                tv.setText(qh.getNextQuestion().getGerQuestion() + "\n");
+                tv.append(qh.getNextQuestion().getGerRightAnswer() + "\n");
+                tv.append(qh.getNextQuestion().getGerWrongAnswers().toString());
             }
         } catch (Exception e) {
-
-            System.out.println(e.getMessage());
-        }*/
+            if(e!=null&&e.getMessage()!=null){}
+                //System.out.println(e.getMessage());
+        }
     }
 
     public void thingsConcerningInfoScreen()
@@ -158,24 +152,22 @@ public class MyActivity extends Activity implements View.OnClickListener
     {
         if(whichButton==4)
         {
-            languageIsEng=false;
-            actualLANG=langGER;
+            language.setEnglish(false);
         }
         else
         {
-            languageIsEng=true;
-            actualLANG=langENG;
+            language.setEnglish(true);
         }
         changeLanguage();
     }
 
     public void changeLanguage()
     {
-        //Place the whole "setText(actualLANG[])" things here.
+        //Place the whole "setText(actualLANG[x])" things here.
 
-        start.setText(actualLANG[0]);
-        info.setText(actualLANG[1]);
-        credits.setText(actualLANG[2]);
+        start.setText(language.getActualLanguage()[0]);
+        info.setText(language.getActualLanguage()[1]);
+        credits.setText(language.getActualLanguage()[2]);
     }
 
     public void onClick(View v)
