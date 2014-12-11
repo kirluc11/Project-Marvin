@@ -1,10 +1,12 @@
 package selector;
 
 import android.content.res.AssetManager;
+import beans.Language;
 import beans.Question;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.Random;
 
 /**
  * Created by Lukas on 21.11.2014.
@@ -16,6 +18,7 @@ public class QuestionHandler {
     private LinkedList<Question> usedQuestion = new LinkedList<Question>();
     private Question currentQuestion;
     private boolean currentQuestionAnswered = true;
+    private LinkedList<String> currentQuestionAnswers = null;
     private int right = 0;
 
 
@@ -36,6 +39,38 @@ public class QuestionHandler {
         usedQuestion = RandomQuestionSelector.getInstance(am).getUsedQuestion();
     }
 
+    public String getNextAnswer()
+    {
+        if(currentQuestion != null)
+        {
+            if(currentQuestionAnswers == null)
+            {
+                if(Language.getInstance().isEnglish())
+                {
+                    currentQuestionAnswers = (LinkedList<String>) currentQuestion.getEngWrongAnswers().clone();
+                    currentQuestionAnswers.add(currentQuestion.getEngRightAnswer());
+                }
+                else
+                {
+                    currentQuestionAnswers = (LinkedList<String>) currentQuestion.getGerWrongAnswers().clone();
+                    currentQuestionAnswers.add(currentQuestion.getGerRightAnswer());
+                }
+            }
+            Random rand = new Random();
+            int i = rand.nextInt(currentQuestionAnswers.size());
+            String answer = currentQuestionAnswers.get(i);
+
+            currentQuestionAnswers.remove(i);
+            if(currentQuestionAnswers.size() == 0)
+            {
+                currentQuestionAnswers = null;
+            }
+            System.out.println();
+            return answer;
+        }
+        return null;
+    }
+
     public Question getNextQuestion()
     {
         if(usedQuestion != null && usedQuestion.size() > 0)
@@ -52,33 +87,34 @@ public class QuestionHandler {
         return null;
     }
 
+    public int getRight() {
+        return right;
+    }
+
     /**
      * @param answer
      * @return 0: right,
      *         1: wrong,
      *         2: no current question
      */
-    public int checkAnswer(String answer, boolean english)
+    public int checkAnswer(String answer)
     {
         if(currentQuestion == null)
         {
-            System.out.println("null");
             return 2;
         }
         else
         {
             currentQuestionAnswered = true;
-            if(english)
+            if(Language.getInstance().isEnglish())
             {
                 if(answer != null && answer.equals(currentQuestion.getEngRightAnswer()))
                 {
                     right++;
-                    System.out.println("true");
                     return 0;
                 }
                 else
                 {
-                    System.out.println("false");
                     return 1;
                 }
             }
@@ -87,12 +123,10 @@ public class QuestionHandler {
                 if(answer != null && answer.equals(currentQuestion.getGerRightAnswer()))
                 {
                     right++;
-                    System.out.println("true");
                     return 0;
                 }
                 else
                 {
-                    System.out.println("false");
                     return 1;
                 }
             }

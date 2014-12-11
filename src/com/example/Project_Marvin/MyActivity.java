@@ -49,6 +49,8 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         language = Language.getInstance();
 
+
+
         int screennumber = getIntent().getIntExtra("screenNumber",0);
         if(screennumber==0)this.thingsConcerningStartScreen();
         else if(screennumber==1)this.thingsConcerningPlayScreen();
@@ -82,24 +84,38 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         TextView tv = (TextView) findViewById(R.id.Question);
 
-        /*try {
+        System.out.println("before try");
+
+        try {
             QuestionHandler qh = QuestionHandler.getInstance(getBaseContext().getApplicationContext().getAssets());
-            if(language.isEnglish())
+
+            Question q = qh.getNextQuestion();
+
+            if(Language.getInstance().isEnglish())
             {
-                tv.setText(qh.getNextQuestion().getEngQuestion() + "\n");
-                tv.append(qh.getNextQuestion().getEngRightAnswer() + "\n");
-                tv.append(qh.getNextQuestion().getEngWrongAnswers().toString());
+                tv.setText(q.getEngQuestion());
             }
             else
             {
-                tv.setText(qh.getNextQuestion().getGerQuestion() + "\n");
-                tv.append(qh.getNextQuestion().getGerRightAnswer() + "\n");
-                tv.append(qh.getNextQuestion().getGerWrongAnswers().toString());
+                tv.setText(q.getGerQuestion());
             }
+
+            System.out.println("after ql");
+
+            b1.setText(qh.getNextAnswer());
+            System.out.println("after first getNextAnswer");
+            b2.setText(qh.getNextAnswer());
+            b3.setText(qh.getNextAnswer());
+            b4.setText(qh.getNextAnswer());
+            b5.setText(qh.getNextAnswer());
+
         } catch (Exception e) {
+            System.out.println("in catch");
             if(e!=null&&e.getMessage()!=null){}
                 //System.out.println(e.getMessage());
-        }*/
+        }
+
+        System.out.println("after try catch");
     }
 
     public void thingsConcerningInfoScreen()
@@ -223,9 +239,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         }
         else
         {
-            System.out.println(chosenAnswerButton);
             chosenAnswerButton=(whichButton%100);
-            System.out.println(chosenAnswerButton);
+            QuestionHandler.getInstance().checkAnswer((String) button.getText());
+            thingsConcerningPlayScreen();
+
+            System.out.println(QuestionHandler.getInstance().getRight());
         }
     }
 }
