@@ -53,7 +53,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         int screennumber = getIntent().getIntExtra("screenNumber",0);
         if(screennumber==0)this.thingsConcerningStartScreen();
-        else if(screennumber==1)this.thingsConcerningPlayScreen();
+        else if(screennumber==1)this.thingsConcerningPlayScreen(true);
         else if(screennumber==2 || screennumber==6)this.thingsConcerningInfoScreen();
         else if(screennumber==3)this.thingsConcerningCreditsScreen();
 
@@ -61,12 +61,14 @@ public class MyActivity extends Activity implements View.OnClickListener
     }
 
 
-    public void thingsConcerningPlayScreen()
+    public void thingsConcerningPlayScreen(boolean neu)
     {
         //Place attributes and everything else concerning the PlayScreen only here!
         //get access to assets folder: getBaseContext().getApplicationContext().getAssets()
 
-        setContentView(R.layout.general_playscreen);
+        if(neu){
+            setContentView(R.layout.general_playscreen);
+        }
 
         Button b1=(Button) findViewById(R.id.btAnswer1);
         b1.setOnClickListener(this);
@@ -90,6 +92,11 @@ public class MyActivity extends Activity implements View.OnClickListener
             QuestionHandler qh = QuestionHandler.getInstance(getBaseContext().getApplicationContext().getAssets());
 
             Question q = qh.getNextQuestion();
+
+            if(q == null)
+            {
+                System.out.println("hi");
+            }
 
             if(Language.getInstance().isEnglish())
             {
@@ -241,7 +248,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         {
             chosenAnswerButton=(whichButton%100);
             QuestionHandler.getInstance().checkAnswer((String) button.getText());
-            thingsConcerningPlayScreen();
+            thingsConcerningPlayScreen(false);
 
             System.out.println(QuestionHandler.getInstance().getRight());
         }
