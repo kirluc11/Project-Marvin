@@ -22,20 +22,7 @@ public class QuestionHandler {
     private int right = 0;
 
 
-    public static QuestionHandler getInstance(AssetManager am) throws Exception {
-        if(questionHandlerInstance == null)
-        {
-            questionHandlerInstance = new QuestionHandler(am);
-        }
-        return questionHandlerInstance;
-    }
-
-    public static QuestionHandler getInstance()
-    {
-        return questionHandlerInstance;
-    }
-
-    private QuestionHandler(AssetManager am) throws Exception {
+    public QuestionHandler(AssetManager am) throws Exception {
         usedQuestion = RandomQuestionSelector.getInstance(am).getUsedQuestion();
     }
 

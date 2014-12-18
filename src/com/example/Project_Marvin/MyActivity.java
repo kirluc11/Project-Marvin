@@ -42,6 +42,8 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     private Language language;
 
+    private QuestionHandler qh;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -87,13 +89,17 @@ public class MyActivity extends Activity implements View.OnClickListener
         TextView tv = (TextView) findViewById(R.id.Question);
 
         try {
-            QuestionHandler qh = QuestionHandler.getInstance(getBaseContext().getApplicationContext().getAssets());
+            if(qh == null)
+            {
+                qh = new QuestionHandler(getBaseContext().getApplicationContext().getAssets());
+            }
 
             Question q = qh.getNextQuestion();
 
             if(q == null)
             {
                 //Toast.makeText(this,qh.getRight(),Toast.LENGTH_LONG).show();
+                qh = null;
                 goToNextScreen(2);
             }
             else
@@ -250,7 +256,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         }
         else
         {
-            QuestionHandler.getInstance().checkAnswer((String) button.getText());
+            qh.checkAnswer((String) button.getText());
             thingsConcerningPlayScreen(false);
         }
     }
