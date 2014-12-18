@@ -100,6 +100,7 @@ public class MyActivity extends Activity implements View.OnClickListener
             {
                 //Toast.makeText(this,qh.getRight(),Toast.LENGTH_LONG).show();
                 qh = null;
+                finish();
                 goToNextScreen(2);
             }
             else
@@ -120,7 +121,8 @@ public class MyActivity extends Activity implements View.OnClickListener
                 b5.setText(qh.getNextAnswer());
             }
 
-        } catch (Exception e){}
+        } catch (Exception e){
+            System.out.println(e.getMessage());}
     }
 
     public void thingsConcerningInfoScreen()
@@ -219,11 +221,6 @@ public class MyActivity extends Activity implements View.OnClickListener
             language.setEnglish(true);
         }
         changeLanguage();
-    }
-
-    public void getAnswerButton(int numberOfAnswerButton)
-    {
-        System.out.println(numberOfAnswerButton+"");
     }
 
     public void changeLanguage()

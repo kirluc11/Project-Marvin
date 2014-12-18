@@ -37,15 +37,16 @@ public class RandomQuestionSelector {
         questions = QuestionLoader.getInstance(am).getQuestions();
 
         keys=QuestionLoader.getInstance().getKeys();
-        questionPickSystem();
     }
 
     public LinkedList<Question> getUsedQuestion() {
         return usedQuestion;
     }
 
-    private void questionPickSystem()
+    public void questionPickSystem() throws IOException
     {
+        keys=QuestionLoader.getInstance().getKeys();
+        usedQuestion.clear();
         keys.remove("FUN");
         LinkedList<Question> tempQ = questions.get("FUN");
         Random randy = new Random();

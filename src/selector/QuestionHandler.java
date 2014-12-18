@@ -13,8 +13,6 @@ import java.util.Random;
  */
 public class QuestionHandler {
 
-    private static QuestionHandler questionHandlerInstance;
-
     private LinkedList<Question> usedQuestion = new LinkedList<Question>();
     private Question currentQuestion;
     private boolean currentQuestionAnswered = true;
@@ -23,7 +21,9 @@ public class QuestionHandler {
 
 
     public QuestionHandler(AssetManager am) throws Exception {
-        usedQuestion = RandomQuestionSelector.getInstance(am).getUsedQuestion();
+        RandomQuestionSelector.getInstance(am).questionPickSystem();
+        usedQuestion = RandomQuestionSelector.getInstance().getUsedQuestion();
+
     }
 
     public String getNextAnswer()
@@ -52,7 +52,6 @@ public class QuestionHandler {
             {
                 currentQuestionAnswers = null;
             }
-            System.out.println();
             return answer;
         }
         return null;
