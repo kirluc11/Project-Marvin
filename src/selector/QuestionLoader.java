@@ -37,8 +37,6 @@ public class QuestionLoader implements Serializable{
 
         InputStream is = am.open("Questions.csv");
         InputStreamReader isr = new InputStreamReader(is,"UTF-8");
-        //InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(System.getProperty("user.dir") + File.separator + "trunk" + File.separator + "src" + File.separator + "resources" + File.separator + "Questions.txt")),"UTF-8" );
-        //InputStreamReader isr = new InputStreamReader(new FileInputStream(new File("/data/local/tmp/com.example.Project_Marvin/trunk")),"UTF-8" );
         BufferedReader br = new BufferedReader(isr);
 
         String line = "";

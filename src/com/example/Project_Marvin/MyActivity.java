@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import beans.Language;
 import beans.Question;
 import selector.QuestionHandler;
@@ -40,7 +41,6 @@ public class MyActivity extends Activity implements View.OnClickListener
     private Button infoB;
 
     private Language language;
-    private int chosenAnswerButton=0;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -56,7 +56,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         else if(screennumber==1)this.thingsConcerningPlayScreen(true);
         else if(screennumber==2 || screennumber==6)this.thingsConcerningInfoScreen();
         else if(screennumber==3)this.thingsConcerningCreditsScreen();
-
+        else this.thingsConcerningEndScreen();
 
     }
 
@@ -86,8 +86,6 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         TextView tv = (TextView) findViewById(R.id.Question);
 
-        System.out.println("before try");
-
         try {
             QuestionHandler qh = QuestionHandler.getInstance(getBaseContext().getApplicationContext().getAssets());
 
@@ -95,34 +93,28 @@ public class MyActivity extends Activity implements View.OnClickListener
 
             if(q == null)
             {
-                System.out.println("hi");
-            }
-
-            if(Language.getInstance().isEnglish())
-            {
-                tv.setText(q.getEngQuestion());
+                //Toast.makeText(this,qh.getRight(),Toast.LENGTH_LONG).show();
+                goToNextScreen(2);
             }
             else
             {
-                tv.setText(q.getGerQuestion());
+                if(Language.getInstance().isEnglish())
+                {
+                    tv.setText(q.getEngQuestion());
+                }
+                else
+                {
+                    tv.setText(q.getGerQuestion());
+                }
+
+                b1.setText(qh.getNextAnswer());
+                b2.setText(qh.getNextAnswer());
+                b3.setText(qh.getNextAnswer());
+                b4.setText(qh.getNextAnswer());
+                b5.setText(qh.getNextAnswer());
             }
 
-            System.out.println("after ql");
-
-            b1.setText(qh.getNextAnswer());
-            System.out.println("after first getNextAnswer");
-            b2.setText(qh.getNextAnswer());
-            b3.setText(qh.getNextAnswer());
-            b4.setText(qh.getNextAnswer());
-            b5.setText(qh.getNextAnswer());
-
-        } catch (Exception e) {
-            System.out.println("in catch");
-            if(e!=null&&e.getMessage()!=null){}
-                //System.out.println(e.getMessage());
-        }
-
-        System.out.println("after try catch");
+        } catch (Exception e){}
     }
 
     public void thingsConcerningInfoScreen()
@@ -159,6 +151,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         changeLanguage();
     }
 
+    public void thingsConcerningEndScreen()
+    {
+
+    }
+
     int getScreenNumber()
     {
         return getIntent().getIntExtra("screenNumber",0);
@@ -171,7 +168,9 @@ public class MyActivity extends Activity implements View.OnClickListener
         /*  These are the screen numbers for the intents corresponding with the pressed buttons:
             whichButton = 1 -> Start (General playscreen)
             whichButton = 2 -> Info
-            whichButton = 3 -> Credits */
+            whichButton = 3 -> Credits
+            whichButton = 6 -> Info
+            whichButton = 10-> Endscreen*/
 
         final Intent nextIntent=new Intent(this, MyActivity.class);
         if(whichButton==1)
@@ -186,9 +185,13 @@ public class MyActivity extends Activity implements View.OnClickListener
         {
             nextIntent.putExtra("screenNumber",3);
         }
-        else
+        else if(whichButton==6)
         {
             nextIntent.putExtra("screenNumber",6);
+        }
+        else
+        {
+            nextIntent.putExtra("screenNumber",10);
         }
 
         startActivity(nextIntent);
@@ -219,7 +222,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     public void changeLanguage()
     {
-        //Place the whole "setText(actualLANG[x])" things here.
+        //Place the "setText(actualLANG[x])" things here.
 
         start.setText(language.getActualLanguage()[0]);
         info.setText(language.getActualLanguage()[1]);
@@ -235,10 +238,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         //Buttons 4+5: language buttons in main.xml
         //Button 6: Info-Button in general_playscreen.xml
         //Buttons 101-105: Answer-Buttons in general-playscreen.xml
+
+
         if(whichButton<=3 || whichButton==6)
         {
             goToNextScreen(whichButton);
-            System.out.println(whichButton+"");
         }
         else if(whichButton==4 || whichButton==5)
         {
@@ -246,11 +250,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         }
         else
         {
-            chosenAnswerButton=(whichButton%100);
             QuestionHandler.getInstance().checkAnswer((String) button.getText());
             thingsConcerningPlayScreen(false);
-
-            System.out.println(QuestionHandler.getInstance().getRight());
         }
     }
 }
