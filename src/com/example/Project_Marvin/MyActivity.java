@@ -3,6 +3,7 @@ package com.example.Project_Marvin;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -242,6 +243,14 @@ public class MyActivity extends Activity implements View.OnClickListener
         //Button 6: Info-Button in general_playscreen.xml
         //Buttons 101-105: Answer-Buttons in general-playscreen.xml
 
+
+        //to go to a website when a button is clicked:
+        /*
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("http://www.google.com"));
+        startActivity(intent);*/
 
         if(whichButton<=3 || whichButton==6)
         {
