@@ -25,9 +25,15 @@ public class MyActivity extends Activity implements View.OnClickListener
     private Button credits;
     private Button info;
     private Button start;
-    //every Button where the text can be changed to another language needs to be put here.
-    //Because it's called in the changeLanguage() method!
+    private TextView creditsScreenTV;
+    private TextView info1;
+    private TextView info2;
+    private TextView info3;
+    //every thingy where the text can be changed to another language needs to be put here,
+    //because it's called in the changeLanguage() method!
 
+
+    private int screennumber=0;
 
     private Language language;
 
@@ -54,13 +60,14 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         language = Language.getInstance();
 
-        int screennumber = getIntent().getIntExtra("screenNumber",0);
+        screennumber = getIntent().getIntExtra("screenNumber",0);
         if(screennumber==0)this.thingsConcerningStartScreen();
         else if(screennumber==1)this.thingsConcerningPlayScreen(true);
         else if(screennumber==2)this.thingsConcerningInfoScreen();
         else if(screennumber==3)this.thingsConcerningCreditsScreen();
         else this.thingsConcerningEndScreen();
 
+        changeLanguage(screennumber);
 
     }
 
@@ -300,7 +307,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvCreditsText.setTextSize(10);
         tvCreditsText.setGravity(Gravity.CENTER);
         tvCreditsText.setBackgroundColor(Color.CYAN);
-        tvCreditsText.setText("TOPooooooooooo");
+        tvCreditsText.setText("11111111111111");
         layout.removeView(tvCreditsText);
         gridLayout.addView(tvCreditsText, first);
 
@@ -503,16 +510,20 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         setContentView(R.layout.info_screen);
         InfoScreen();
-    }
 
+        info1= (TextView) findViewById(R.id.tvInfo1);
+        info2= (TextView) findViewById(R.id.tvInfo2);
+        info3= (TextView) findViewById(R.id.tvInfo3);
+    }
     public void thingsConcerningCreditsScreen()
     {
         //Place attributes and everything else concerning the CreditsScreen only here!
 
         setContentView(R.layout.credits_screen);
         CreditsScreen();
-    }
 
+        creditsScreenTV = (TextView) findViewById(R.id.tvCreditsText);
+    }
     public void thingsConcerningStartScreen()
     {
         //Place attributes and everything else concerning the StartScreen only here!
@@ -530,8 +541,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         info.setOnClickListener(this);
         start=(Button) findViewById(R.id.start);
         start.setOnClickListener(this);
-
-        changeLanguage();
     }
 
     public void thingsConcerningEndScreen()
@@ -589,18 +598,31 @@ public class MyActivity extends Activity implements View.OnClickListener
         {
             language.setEnglish(true);
         }
-        changeLanguage();
+        changeLanguage(0);
     }
 
 
 
-    public void changeLanguage()
+    public void changeLanguage(int screennumber)
     {
-        //Place the "buttonname.setText(language.getActualLanguage()[x])" things here.
+        //Place the "variablenname.setText(language.getActualLanguage()[x])" things here.
 
-        start.setText(language.getActualLanguage()[0]);
-        info.setText(language.getActualLanguage()[1]);
-        credits.setText(language.getActualLanguage()[2]);
+        if(screennumber==0)
+        {
+            start.setText(language.getActualLanguage()[0]);
+            info.setText(language.getActualLanguage()[1]);
+            credits.setText(language.getActualLanguage()[2]);
+        }
+        else if(screennumber==3)
+        {
+            creditsScreenTV.setText(language.getActualLanguage()[3]);
+        }
+        else if(screennumber==2)
+        {
+            info1.setText(language.getActualLanguage()[4]);
+            info2.setText(language.getActualLanguage()[5]);
+            info3.setText(language.getActualLanguage()[6]);
+        }
     }
 
     public void onClick(View v)
