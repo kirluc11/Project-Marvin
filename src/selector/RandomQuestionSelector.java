@@ -40,7 +40,7 @@ public class RandomQuestionSelector {
     }
 
     public LinkedList<Question> getUsedQuestion() {
-        return usedQuestion;
+        return (LinkedList<Question>) usedQuestion.clone();
     }
 
     public void questionPickSystem() throws IOException

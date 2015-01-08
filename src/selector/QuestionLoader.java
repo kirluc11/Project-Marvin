@@ -121,10 +121,10 @@ public class QuestionLoader implements Serializable{
     }
 
     public LinkedHashMap<String, LinkedList<Question>> getQuestions() {
-        return questions;
+        return (LinkedHashMap<String, LinkedList<Question>>) questions.clone();
     }
 
     public LinkedList<String> getKeys() {
-        return keys;
+        return (LinkedList<String>) keys.clone();
     }
 }

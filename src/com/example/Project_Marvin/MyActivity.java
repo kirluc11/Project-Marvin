@@ -31,7 +31,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     private Language language;
 
-    private QuestionHandler qh;
+    private static QuestionHandler qh;
 
     private int screenWidth;
     private int screenHeight;
@@ -463,6 +463,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         {
             if(qh == null)
             {
+                System.out.println("qh = null in things....");
                 qh = new QuestionHandler(getBaseContext().getApplicationContext().getAssets());
             }
 
@@ -470,7 +471,6 @@ public class MyActivity extends Activity implements View.OnClickListener
 
             if(q == null)
             {
-                //Toast.makeText(this,qh.getRight(),Toast.LENGTH_LONG).show();
                 qh = null;
                 finish();
                 goToNextScreen(6);
@@ -493,8 +493,9 @@ public class MyActivity extends Activity implements View.OnClickListener
                 b5.setText(qh.getNextAnswer());
             }
 
-        } catch (Exception e){
-            System.out.println(e.getMessage());}
+        } catch (Exception e) {
+            //System.out.println(e.getMessage());
+        }
     }
     public void thingsConcerningInfoScreen()
     {
@@ -631,8 +632,21 @@ public class MyActivity extends Activity implements View.OnClickListener
         }
         else
         {
-            qh.checkAnswer((String) button.getText());
-            thingsConcerningPlayScreen(false);
+            if(button != null)
+            {
+                if(qh != null) {
+                    qh.checkAnswer((String) button.getText());
+                    thingsConcerningPlayScreen(false);
+                }
+                else
+                {
+                    System.out.println("qh = null");
+                }
+            }
+            else
+            {
+                System.out.println("button = null");
+            }
         }
     }
 }
