@@ -1,120 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
-        android:clickable="false" android:background="#ffc6fff1">
-    <Button
 
-            android:layout_width="wrap_content"
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/playScreenLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
+    <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btAnswer1"
-            android:autoText="false"
-            android:width="100dp"
-            android:height="70dp"
-            android:text="SDasfsdfsdfsfdEFsfEFSWFsdsdffvsdfsdvvESWFsdfsdfsdsdfsd"
-            android:textColor="#ff3a387a"
             android:clickable="true"
-            android:background="@drawable/answer_border"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_above="@+id/btAnswer3"
-            android:layout_toLeftOf="@+id/btAnswer3"
-            android:tag="101"
-            android:layout_marginBottom="51dp"
-            android:textSize="10dp"/>
-    <Button
-
-            android:layout_width="wrap_content"
+            />
+    <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btAnswer2"
-            android:autoText="false"
-            android:width="100dp"
-            android:height="70dp"
-            android:editable="false"
-            android:text="Text!Text!Text!Text!Text!Text!DSlsdllm,fmlssdfmlsdfmlöv"
-            android:singleLine="false"
-            android:ellipsize="start"
-            android:textColor="#ff3a387a"
-            android:background="@drawable/answer_border"
-            android:layout_alignTop="@+id/btAnswer1"
-            android:layout_toRightOf="@+id/btAnswer3"
-            android:tag="102"
-            android:gravity="center_vertical|center_horizontal"
-            android:textSize="10dp"/>
-    <Button
-
-            android:layout_width="wrap_content"
+            android:clickable="true"
+            />
+    <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btAnswer3"
-            android:autoText="false"
-            android:width="100dp"
-            android:height="70dp"
-            android:text="adfasdfdvasdvasefawefasdvasdvafaerfwefsdfsdfasdfasdfdfad"
-            android:ellipsize="start"
-            android:textColor="#ff3a387a"
-            android:background="@drawable/answer_border"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_above="@+id/btAnswer4"
-            android:layout_centerHorizontal="true"
-            android:tag="103"
-            android:layout_marginBottom="48dp"
-            android:textSize="10dp"/>
-    <Button
-
-            android:layout_width="wrap_content"
+            android:clickable="true"
+            />
+    <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btAnswer4"
-            android:autoText="false"
-            android:width="100dp"
-            android:height="70dp"
-            android:text="sdfasdfvcxvklklefiosdfljkadfjkldvkjlsdsdfdsdfsadfdsvSDRFGWE"
-            android:ellipsize="start"
-            android:textColor="#ff3a387a"
-            android:background="@drawable/answer_border"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/btAnswer1"
-            android:tag="104"
-            android:layout_marginBottom="53dp"
-            android:textSize="10dp"/>
-    <Button
-
-            android:layout_width="wrap_content"
+            android:clickable="true"
+            />
+    <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btAnswer5"
-            android:autoText="false"
-            android:width="100dp"
-            android:height="70dp"
-            android:text="sdafdfdfvdsf"
-            android:ellipsize="start"
-            android:textColor="#ff3a387a"
-            android:background="@drawable/answer_border"
-            android:layout_alignTop="@+id/btAnswer4"
-            android:layout_toRightOf="@+id/btAnswer3"
-            android:tag="105"
-            android:gravity="center_vertical|center_horizontal"
-            android:textSize="10dp"/>
-    <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/Question"
-            android:layout_marginTop="87dp"
-            android:textColor="#ff3a387a"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"/>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
+            android:clickable="true"
+            />
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/btInfo"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/btAnswer3"
-            android:layout_alignParentRight="true"
-            android:tag="6"
-            android:gravity="center_vertical|center_horizontal"
-            android:background="@drawable/info_border"/>
-</RelativeLayout>
+            android:clickable="true"
+            />
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Testitest"
+              android:id="@+id/tvQuestion"
+            />
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/ivLogo"
+            android:src="@drawable/marvin_logo_big"/>
+
+</LinearLayout>
+        <!--<GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+                android:clickable="false"
+                android:background="#ffc6fff1"
+                android:rowOrderPreserved="true"
+                android:rowCount="5"
+                android:columnCount="3"
+                android:columnOrderPreserved="true"
+
+
+                android:useDefaultMargins="false">
+        <LinearLayout
+                android:layout_column="0"
+                android:layout_row="2"
+                >
+            <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btAnswer1"
+                    android:autoText="false"
+                    android:layout_weight="1"
+                    android:text="SDasfsdfsdfsfdEFsfEFSWFsdsdffvsdfsdvvESWFsdfsdfsdsdfsd"
+                    android:textColor="#ff3a387a"
+                    android:clickable="true" android:background="@drawable/answer_border"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textSize="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_column="1"
+                android:layout_row="3"
+                >
+            <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btAnswer2"
+                    android:autoText="false"
+                    android:layout_weight="1"
+
+                    android:editable="false"
+                    android:text="Text!Text!Text!Text!Text!Text!DSlsdllm,fmlssdfmlsdfmlöv"
+                    android:singleLine="false"
+                    android:textColor="#ff3a387a"
+                    android:background="@drawable/answer_border"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textSize="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_column="2"
+                android:layout_row="2"
+                >
+            <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btAnswer3"
+                    android:autoText="false"
+                    android:layout_weight="1"
+                    android:text="adfasdfdvasdvasefawefasdvasdvafaerfwefsdfsdfasdfasdfdfad"
+                    android:ellipsize="start"
+                    android:textColor="#ff3a387a"
+                    android:background="@drawable/answer_border"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_column="0"
+                android:layout_row="4"
+                >
+            <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btAnswer4"
+                    android:layout_weight="1"
+                    android:autoText="false"
+                    android:text="sdfasdfvcxvklklefiosdfljkadfjkldvkjlsdsdfdsdfsadfdsvSDRFGWE"
+                    android:ellipsize="start" android:textColor="#ff3a387a"
+                    android:background="@drawable/answer_border"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_row="4"
+                android:layout_column="2"
+                >
+            <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btAnswer5"
+                    android:layout_weight="1"
+                    android:autoText="false"
+                    android:text="sdafsdvsdvasefKSDFKLGADFGJKLLKÖasdfgkljdfagsdfdfvdsf"
+                    android:ellipsize="start"
+                    android:textColor="#ff3a387a"
+                    android:background="@drawable/answer_border"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textSize="10dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_columnSpan="3"
+                android:layout_rowSpan="1"
+                >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Text"
+                    android:id="@+id/tvQuestion"
+                    android:layout_weight="1"
+                    android:textColor="#ff3a387a"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center_vertical|center_horizontal"/>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_column="2"
+                android:layout_row="0"
+                android:layout_width="match_parent"
+                >
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Text"
+                    android:id="@+id/btInfo"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:background="@drawable/info_border"
+                    />
+        </LinearLayout>
+        </GridLayout>-->

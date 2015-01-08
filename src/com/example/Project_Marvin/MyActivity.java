@@ -3,11 +3,14 @@ package com.example.Project_Marvin;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.Color;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
+import android.view.*;
 import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import beans.Language;
@@ -42,13 +45,30 @@ public class MyActivity extends Activity implements View.OnClickListener
     private Button infoB;
 
     private Language language;
+    private int chosenAnswerButton=0;
 
     private QuestionHandler qh;
+
+    private int screenWidth;
+    private int screenHeight;
+    private int thirdScreenWidth;
+    private int fifthScreenHeight;
+    private int quarterScreenHeight;
+    private int halfScreenWidth;
+    private int quarterScreenWidth;
+    private int ninthScreenHeight;
+    private int seventeenthScreenHeight;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        calculateScreenSizes();
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
         language = Language.getInstance();
 
@@ -61,8 +81,376 @@ public class MyActivity extends Activity implements View.OnClickListener
         else if(screennumber==3)this.thingsConcerningCreditsScreen();
         else this.thingsConcerningEndScreen();
 
+
     }
 
+    public void calculateScreenSizes()
+    {
+        Point size = new Point();
+        getWindowManager().getDefaultDisplay().getSize(size);
+        screenWidth = size.x;
+        screenHeight = size.y;
+
+        thirdScreenWidth = (int) (screenWidth/3);
+        fifthScreenHeight = (int) (screenHeight/5);
+        quarterScreenHeight = (int)(screenHeight/4);
+        ninthScreenHeight = (int)(screenHeight/9);
+        seventeenthScreenHeight = (int)(screenHeight/14);
+        halfScreenWidth = (int)(screenWidth *0.5);
+        quarterScreenWidth = (int)(halfScreenWidth * 0.5);
+    }
+
+    public void PlayScreen()
+    {
+        ViewGroup layout = (ViewGroup)findViewById(R.id.playScreenLayout);
+        GridLayout.Spec row0 = GridLayout.spec(0);
+        GridLayout.Spec row1 = GridLayout.spec(1);
+        GridLayout.Spec row2 = GridLayout.spec(2);
+        GridLayout.Spec row3 = GridLayout.spec(3);
+        GridLayout.Spec row4 = GridLayout.spec(4);
+
+        GridLayout.Spec col0 = GridLayout.spec(0);
+        GridLayout.Spec col1 = GridLayout.spec(1);
+        GridLayout.Spec col2 = GridLayout.spec(2);
+        GridLayout.Spec colspan1 = GridLayout.spec(0,2);
+        GridLayout.Spec colspan2 = GridLayout.spec(0, 3);
+
+        GridLayout gridLayout = new GridLayout(this);
+        gridLayout.setColumnCount(3);
+        gridLayout.setRowCount(5);
+
+
+        ImageView ivLogo = (ImageView)layout.findViewById(R.id.ivLogo);
+        GridLayout.LayoutParams zero = new GridLayout.LayoutParams(row0,colspan1);
+        zero.width = (screenWidth/3)*2;
+        zero.height = fifthScreenHeight;
+        ivLogo.setLayoutParams(zero);
+        ivLogo.setBackgroundColor(Color.CYAN);
+        layout.removeView(ivLogo);
+        gridLayout.addView(ivLogo, zero);
+
+        Button btInfo = (Button) layout.findViewById(R.id.btInfo);
+        GridLayout.LayoutParams first = new GridLayout.LayoutParams(row0,col2);
+        first.width = thirdScreenWidth;
+        first.height = fifthScreenHeight;
+        btInfo.setGravity(Gravity.CENTER);
+        btInfo.setBackgroundColor(Color.WHITE);
+        btInfo.setText("Info");
+        btInfo.setLayoutParams(first);
+        layout.removeView(btInfo);
+        gridLayout.addView(btInfo, first);
+
+
+        TextView tvQuestion = (TextView) layout.findViewById(R.id.tvQuestion);
+        GridLayout.LayoutParams second = new GridLayout.LayoutParams(row1,colspan2);
+        second.width = screenWidth;
+        second.height = fifthScreenHeight;
+        tvQuestion.setLayoutParams(second);
+        tvQuestion.setTextSize(10);
+        tvQuestion.setGravity(Gravity.CENTER);
+        tvQuestion.setBackgroundColor(Color.CYAN);
+        tvQuestion.setText("TOP");
+        layout.removeView(tvQuestion);
+        gridLayout.addView(tvQuestion, second);
+
+
+        Button btAnswer1 = (Button) layout.findViewById(R.id.btAnswer1);
+        GridLayout.LayoutParams third = new GridLayout.LayoutParams(row2,col0);
+        third.width = thirdScreenWidth;
+        third.height = fifthScreenHeight;
+        btAnswer1.setLayoutParams(third);
+        btAnswer1.setGravity(Gravity.CENTER);
+        btAnswer1.setBackgroundColor(Color.RED);
+        btAnswer1.setText("Info");
+        btAnswer1.setTextSize(12);
+        layout.removeView(btAnswer1);
+        gridLayout.addView(btAnswer1, third);
+
+        Button btAnswer2 = (Button) layout.findViewById(R.id.btAnswer2);
+        GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row2,col2);
+        fourth.width = thirdScreenWidth;
+        fourth.height = fifthScreenHeight;
+        btAnswer2.setLayoutParams(fourth);
+        btAnswer2.setGravity(Gravity.CENTER);
+        btAnswer2.setBackgroundColor(Color.RED);
+        btAnswer2.setText("Info");
+        layout.removeView(btAnswer2);
+        gridLayout.addView(btAnswer2, fourth);
+
+        Button btAnswer3 = (Button) layout.findViewById(R.id.btAnswer3);
+        GridLayout.LayoutParams fifth = new GridLayout.LayoutParams(row3,col1);
+        fifth.width = thirdScreenWidth;
+        fifth.height = fifthScreenHeight;
+        btAnswer3.setLayoutParams(fifth);
+        btAnswer3.setGravity(Gravity.CENTER);
+        btAnswer3.setBackgroundColor(Color.RED);
+        btAnswer3.setText("Info");
+        layout.removeView(btAnswer3);
+        gridLayout.addView(btAnswer3, fifth);
+
+        Button btAnswer4 = (Button) layout.findViewById(R.id.btAnswer4);
+        GridLayout.LayoutParams sixth = new GridLayout.LayoutParams(row4,col0);
+        sixth.width = thirdScreenWidth;
+        sixth.height = fifthScreenHeight;
+        btAnswer4.setLayoutParams(sixth);
+        btAnswer4.setGravity(Gravity.CENTER);
+        btAnswer4.setBackgroundColor(Color.RED);
+        btAnswer4.setText("Info");
+        layout.removeView(btAnswer4);
+        gridLayout.addView(btAnswer4, sixth);
+
+        Button btAnswer5 = (Button) layout.findViewById(R.id.btAnswer5);
+        GridLayout.LayoutParams seventh = new GridLayout.LayoutParams(row4,col2);
+        seventh.width = thirdScreenWidth;
+        seventh.height = fifthScreenHeight;
+        btAnswer5.setLayoutParams(seventh);
+        btAnswer5.setGravity(Gravity.CENTER);
+        btAnswer5.setBackgroundColor(Color.RED);
+        btAnswer5.setText("Info");
+        layout.removeView(btAnswer5);
+        gridLayout.addView(btAnswer5, seventh);
+
+        layout.addView(gridLayout);
+    }
+
+    public void InfoScreen()
+    {
+        ViewGroup layout = (ViewGroup)findViewById(R.id.InfoLayout);
+        GridLayout.Spec row0 = GridLayout.spec(0);
+        GridLayout.Spec row1 = GridLayout.spec(1);
+        GridLayout.Spec row2 = GridLayout.spec(2);
+        GridLayout.Spec row3 = GridLayout.spec(3);
+        GridLayout.Spec rowspan0 = GridLayout.spec(0,3);
+
+        GridLayout.Spec col0 = GridLayout.spec(0);
+        GridLayout.Spec col1 = GridLayout.spec(1);
+        GridLayout.Spec colspan0 = GridLayout.spec(0,2);
+
+        GridLayout gridLayout = new GridLayout(this);
+        gridLayout.setColumnCount(2);
+        gridLayout.setRowCount(4);
+
+        ImageView ivInfoMarvin = (ImageView) layout.findViewById(R.id.ivInfoMarvin);
+        GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,col0);
+        first.width = halfScreenWidth;
+        first.height = quarterScreenHeight*3;
+        ivInfoMarvin.setLayoutParams(first);
+        ivInfoMarvin.setBackgroundColor(Color.CYAN);
+        layout.removeView(ivInfoMarvin);
+        gridLayout.addView(ivInfoMarvin, first);
+
+        TextView tvInfo1 = (TextView) layout.findViewById(R.id.tvInfo1);
+        GridLayout.LayoutParams second = new GridLayout.LayoutParams(row0,col1);
+        second.width = halfScreenWidth;
+        second.height = quarterScreenHeight;
+        tvInfo1.setLayoutParams(second);
+        tvInfo1.setTextSize(10);
+        tvInfo1.setGravity(Gravity.CENTER);
+        tvInfo1.setBackgroundColor(Color.CYAN);
+        tvInfo1.setText("TOP");
+        layout.removeView(tvInfo1);
+        gridLayout.addView(tvInfo1, second);
+
+        TextView tvInfo2 = (TextView) layout.findViewById(R.id.tvInfo2);
+        GridLayout.LayoutParams third = new GridLayout.LayoutParams(row1,col1);
+        third.width = halfScreenWidth;
+        third.height = quarterScreenHeight;
+        tvInfo2.setLayoutParams(third);
+        tvInfo2.setTextSize(10);
+        tvInfo2.setGravity(Gravity.CENTER);
+        tvInfo2.setBackgroundColor(Color.CYAN);
+        tvInfo2.setText("TOP");
+        layout.removeView(tvInfo2);
+        gridLayout.addView(tvInfo2, third);
+
+        TextView tvInfo3 = (TextView) layout.findViewById(R.id.tvInfo3);
+        GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row2,col1);
+        fourth.width = halfScreenWidth;
+        fourth.height = quarterScreenHeight;
+        tvInfo3.setLayoutParams(fourth);
+        tvInfo3.setTextSize(10);
+        tvInfo3.setGravity(Gravity.CENTER);
+        tvInfo3.setBackgroundColor(Color.CYAN);
+        tvInfo3.setText("TOP");
+        layout.removeView(tvInfo3);
+        gridLayout.addView(tvInfo3, fourth);
+
+        Button btInfoBack = (Button) layout.findViewById(R.id.btInfoBack);
+        GridLayout.LayoutParams fifth = new GridLayout.LayoutParams(row3,colspan0);
+        fifth.width = screenWidth;
+        fifth.height = quarterScreenHeight;
+        btInfoBack.setLayoutParams(fifth);
+        btInfoBack.setGravity(Gravity.CENTER);
+        btInfoBack.setBackgroundColor(Color.RED);
+        btInfoBack.setText("Info");
+        layout.removeView(btInfoBack);
+        gridLayout.addView(btInfoBack, fifth);
+
+        layout.addView(gridLayout);
+    }
+    public void CreditsScreen()
+    {
+        ViewGroup layout = (ViewGroup)findViewById(R.id.CreditsScreenLayout);
+        GridLayout.Spec row0 = GridLayout.spec(0);
+        GridLayout.Spec row1 = GridLayout.spec(1);
+        GridLayout.Spec row2 = GridLayout.spec(2);
+        GridLayout.Spec row3 = GridLayout.spec(3);
+        GridLayout.Spec row4 = GridLayout.spec(4);
+        GridLayout.Spec row5 = GridLayout.spec(5);
+        GridLayout.Spec row6 = GridLayout.spec(6);
+        GridLayout.Spec row7 = GridLayout.spec(7);
+        GridLayout.Spec row8 = GridLayout.spec(8);
+        GridLayout.Spec rowspan0 = GridLayout.spec(0,3);
+        GridLayout.Spec rowspan1 = GridLayout.spec(3,5);
+
+        GridLayout.Spec col0 = GridLayout.spec(0);
+        GridLayout.Spec col1 = GridLayout.spec(1);
+        GridLayout.Spec col2 = GridLayout.spec(2);
+        GridLayout.Spec colspan = GridLayout.spec(0,3);
+
+        GridLayout gridLayout = new GridLayout(this);
+        gridLayout.setColumnCount(3);
+        gridLayout.setRowCount(9);
+
+       TextView tvCreditsText = (TextView) layout.findViewById(R.id.tvCreditsText);
+        GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,colspan);
+        first.width = screenWidth;
+        first.height = ninthScreenHeight*3;
+        tvCreditsText.setLayoutParams(first);
+        tvCreditsText.setTextSize(10);
+        tvCreditsText.setGravity(Gravity.CENTER);
+        tvCreditsText.setBackgroundColor(Color.CYAN);
+        tvCreditsText.setText("TOPooooooooooo");
+        layout.removeView(tvCreditsText);
+        gridLayout.addView(tvCreditsText, first);
+
+        ImageView ivCreditsPicture = (ImageView) layout.findViewById(R.id.ivCreditsPicture);
+        GridLayout.LayoutParams second = new GridLayout.LayoutParams(rowspan1,colspan);
+        second.width = screenWidth;
+        second.height = ninthScreenHeight*5;
+        ivCreditsPicture.setLayoutParams(second);
+        ivCreditsPicture.setBackgroundColor(Color.CYAN);
+        layout.removeView(ivCreditsPicture);
+        gridLayout.addView(ivCreditsPicture, second);
+
+        Button btCreditsBack = (Button) layout.findViewById(R.id.btCreditsBack);
+        GridLayout.LayoutParams third = new GridLayout.LayoutParams(row8,col2);
+        third.width = thirdScreenWidth;
+        third.height = ninthScreenHeight;
+        btCreditsBack.setLayoutParams(third);
+        btCreditsBack.setGravity(Gravity.CENTER);
+        btCreditsBack.setBackgroundColor(Color.RED);
+        btCreditsBack.setText("Info");
+        layout.removeView(btCreditsBack);
+        gridLayout.addView(btCreditsBack, third);
+
+        layout.addView(gridLayout);
+    }
+
+    public void StartScreen()
+    {
+        ViewGroup layout = (ViewGroup)findViewById(R.id.MainScreenLayout);
+        GridLayout.Spec row0 = GridLayout.spec(0);
+        GridLayout.Spec row1 = GridLayout.spec(1);
+        GridLayout.Spec row2 = GridLayout.spec(2);
+        GridLayout.Spec row3 = GridLayout.spec(3);
+        GridLayout.Spec row4 = GridLayout.spec(4);
+        GridLayout.Spec row5 = GridLayout.spec(5);
+        GridLayout.Spec row6 = GridLayout.spec(6);
+        GridLayout.Spec row7 = GridLayout.spec(7);
+        GridLayout.Spec row8 = GridLayout.spec(8);
+        GridLayout.Spec row9 = GridLayout.spec(9);
+        GridLayout.Spec row10 = GridLayout.spec(10);
+        GridLayout.Spec row11 = GridLayout.spec(11);
+        GridLayout.Spec row12 = GridLayout.spec(12);
+        GridLayout.Spec row13 = GridLayout.spec(13);
+        GridLayout.Spec row14 = GridLayout.spec(14);
+        GridLayout.Spec row15 = GridLayout.spec(15);
+        GridLayout.Spec row16 = GridLayout.spec(16);
+        GridLayout.Spec rowspan0 = GridLayout.spec(0,5);
+        GridLayout.Spec rowspan1 = GridLayout.spec(6,3);
+        GridLayout.Spec rowspan2 = GridLayout.spec(10,3);
+
+
+        GridLayout.Spec col0 = GridLayout.spec(0);
+        GridLayout.Spec col1 = GridLayout.spec(1);
+        GridLayout.Spec col2 = GridLayout.spec(2);
+        GridLayout.Spec col3 = GridLayout.spec(3);
+        GridLayout.Spec colspan = GridLayout.spec(0,2);
+        GridLayout.Spec colspan1 = GridLayout.spec(3,1);
+
+        GridLayout gridLayout = new GridLayout(this);
+        gridLayout.setColumnCount(4);
+        gridLayout.setRowCount(14);
+
+        ImageView ivMainMarvin = (ImageView) layout.findViewById(R.id.ivMainMarvin);
+        GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,colspan);
+        first.width = quarterScreenWidth*2;
+        first.height = seventeenthScreenHeight*5;
+        ivMainMarvin.setLayoutParams(first);
+        ivMainMarvin.setBackgroundColor(Color.CYAN);
+        layout.removeView(ivMainMarvin);
+        gridLayout.addView(ivMainMarvin, first);
+
+        Button start = (Button) layout.findViewById(R.id.start);
+        GridLayout.LayoutParams second = new GridLayout.LayoutParams(row5,colspan1);
+        second.width = quarterScreenWidth;
+        second.height = seventeenthScreenHeight;
+        start.setLayoutParams(second);
+        start.setGravity(Gravity.CENTER);
+        start.setBackgroundColor(Color.RED);
+        start.setText("Start");
+        layout.removeView(start);
+        gridLayout.addView(start, second);
+
+        Button info = (Button) layout.findViewById(R.id.info);
+        GridLayout.LayoutParams third = new GridLayout.LayoutParams(row7,col3);
+        third.width = quarterScreenWidth;
+        third.height = seventeenthScreenHeight;
+        info.setLayoutParams(third);
+        info.setGravity(Gravity.CENTER);
+        info.setBackgroundColor(Color.RED);
+        info.setText("Info");
+        layout.removeView(info);
+        gridLayout.addView(info, third);
+
+        Button credits = (Button) layout.findViewById(R.id.credits);
+        GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row9,col3);
+        fourth.width = quarterScreenWidth;
+        fourth.height = seventeenthScreenHeight;
+        credits.setLayoutParams(fourth);
+        credits.setGravity(Gravity.CENTER);
+        credits.setBackgroundColor(Color.RED);
+        credits.setText("Credits");
+        layout.removeView(credits);
+        gridLayout.addView(credits, fourth);
+
+        Button deu = (Button) layout.findViewById(R.id.deu);
+        GridLayout.LayoutParams fifth = new GridLayout.LayoutParams(rowspan1,colspan);
+        fifth.width = quarterScreenWidth*2;
+        fifth.height = seventeenthScreenHeight*3;
+        deu.setLayoutParams(fifth);
+        deu.setGravity(Gravity.CENTER);
+        deu.setBackgroundColor(Color.RED);
+        deu.setText("Start");
+        //deu.setBackground();
+        layout.removeView(deu);
+        gridLayout.addView(deu, fifth);
+
+        Button eng = (Button) layout.findViewById(R.id.eng);
+        GridLayout.LayoutParams sixth = new GridLayout.LayoutParams(rowspan2,colspan);
+        sixth.width = quarterScreenWidth*2;
+        sixth.height = seventeenthScreenHeight*3;
+        eng.setLayoutParams(second);
+        eng.setGravity(Gravity.CENTER);
+        eng.setBackgroundColor(Color.RED);
+        eng.setText("Start");
+        layout.removeView(eng);
+        gridLayout.addView(eng, sixth);
+
+
+        layout.addView(gridLayout);
+    }
 
     public void thingsConcerningPlayScreen(boolean neu)
     {
@@ -71,6 +459,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         if(neu){
             setContentView(R.layout.general_playscreen);
+            PlayScreen();
         }
 
         Button b1=(Button) findViewById(R.id.btAnswer1);
@@ -87,7 +476,9 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button infoButton=(Button) findViewById(R.id.btInfo);
         infoButton.setOnClickListener(this);
 
-        TextView tv = (TextView) findViewById(R.id.Question);
+        TextView tv = (TextView) findViewById(R.id.tvQuestion);
+
+      
 
         try {
             if(qh == null)
@@ -131,6 +522,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         //Place attributes and everything else concerning the InfoScreen only here!
 
         setContentView(R.layout.info_screen);
+        InfoScreen();
     }
 
     public void thingsConcerningCreditsScreen()
@@ -138,6 +530,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         //Place attributes and everything else concerning the CreditsScreen only here!
 
         setContentView(R.layout.credits_screen);
+        CreditsScreen();
     }
 
     public void thingsConcerningStartScreen()
@@ -145,6 +538,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         //Place attributes and everything else concerning the StartScreen only here!
 
         setContentView(R.layout.main);
+
+        StartScreen();
+
+
+        
 
         deu=(Button) findViewById(R.id.deu);
         deu.setOnClickListener(this);
@@ -224,6 +622,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         changeLanguage();
     }
 
+
+
     public void changeLanguage()
     {
         //Place the "setText(actualLANG[x])" things here.
@@ -255,6 +655,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         if(whichButton<=3 || whichButton==6)
         {
             goToNextScreen(whichButton);
+            System.out.println(whichButton + "");
         }
         else if(whichButton==4 || whichButton==5)
         {

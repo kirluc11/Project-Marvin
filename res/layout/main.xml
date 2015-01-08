@@ -1,61 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-
+<LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/MainScreenLayout"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:weightSum="1" android:background="#ffc6fff1">
+                >
 
     <Button
-            android:layout_width="@android:dimen/thumbnail_width"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="1"
-            android:id="@+id/start" android:text="Start" android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/info"/>
+            android:id="@+id/start"
+            android:text="Start"
+
+            />
 
     <Button
-            android:layout_width="@android:dimen/thumbnail_width"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/start"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="40dp"
-            android:tag="2"
             android:id="@+id/info"
-            android:text="Info"/>
+            android:text="Info"
+            />
 
     <Button
-            android:layout_width="@android:dimen/thumbnail_width"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_below="@+id/info"
-            android:layout_alignParentRight="true"
             android:id="@+id/credits"
             android:text="Credits"
-            android:tag="3"
             android:onClick="onClickCredits"/>
 
     <Button
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:layout_above="@+id/credits"
-            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/deu"
-            android:tag="4"
-            android:layout_marginLeft="20dp"
             android:background="@drawable/oesterreich"/>
 
     <Button
-            android:layout_width="130dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/engusa"
             android:id="@+id/eng"
-            android:tag="5"
-            android:layout_alignTop="@+id/credits" android:layout_alignLeft="@+id/deu"/>
-    <ImageView
-            android:layout_width="100dp"
-            android:layout_height="250dp"
-            android:id="@+id/imageView" android:layout_above="@+id/deu" android:layout_alignParentLeft="true"
-            android:src="@drawable/marvin_ganz"/>
 
-</RelativeLayout>
+            />
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ivMainMarvin"
+            android:src="@drawable/marvin_borderless"
+            />
+
+</LinearLayout>
