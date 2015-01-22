@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hellviolett">#d5c4db</color>
+    <color name="mittelviolett">#7f3689</color>
+    <color name="rotviolett">#700d4e</color>
+    <color name="dunkelviolett">#4d1056</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>
