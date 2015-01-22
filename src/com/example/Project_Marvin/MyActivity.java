@@ -5,15 +5,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.TypedValue;
 import android.view.*;
 import android.widget.*;
 import beans.Language;
 import beans.Question;
 import selector.QuestionHandler;
-
-
-
 
 public class MyActivity extends Activity implements View.OnClickListener
 {
@@ -29,7 +27,7 @@ public class MyActivity extends Activity implements View.OnClickListener
     private TextView info2;
     private TextView info3;
     //every thingy where the text can be changed to another language needs to be put here,
-    //because it's called in the changeLanguage() method!
+    //because it's used in the changeLanguage() method!
 
     private int screennumber=0;
 
@@ -41,7 +39,6 @@ public class MyActivity extends Activity implements View.OnClickListener
     private int screenHeight;
     private int thirdScreenWidth;
     private int fifthScreenHeight;
-    private int quarterScreenHeight;
     private int halfScreenWidth;
     private int quarterScreenWidth;
     private int eigthScreenHeight;
@@ -60,8 +57,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
-
         language = Language.getInstance();
 
         screennumber = getIntent().getIntExtra("screenNumber",0);
@@ -72,9 +67,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         else this.thingsConcerningEndScreen();
 
         changeLanguage(screennumber);
-
     }
-
 
 
     public void calculateScreenSizes()
@@ -86,7 +79,6 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         thirdScreenWidth = (int) (screenWidth/3);
         fifthScreenHeight = (int) (screenHeight/5);
-        quarterScreenHeight = (int)(screenHeight/4);
         eigthScreenHeight = (int)(screenHeight/8);
         thirteenthScreenHeight = (int)(screenHeight/13);
         halfScreenWidth = (int)(screenWidth *0.5);
@@ -112,7 +104,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         GridLayout gridLayout = new GridLayout(this);
         gridLayout.setColumnCount(3);
         gridLayout.setRowCount(5);
-
 
 
         gridLayout.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
@@ -141,7 +132,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         layout.removeView(btInfo);
         gridLayout.addView(btInfo, first);
 
-
         TextView tvQuestion = (TextView) layout.findViewById(R.id.tvQuestion);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(row1,colspan2);
         second.width = screenWidth;
@@ -154,7 +144,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvQuestion.setText("TOP");
         layout.removeView(tvQuestion);
         gridLayout.addView(tvQuestion, second);
-
 
         Button btAnswer1 = (Button) layout.findViewById(R.id.btAnswer1);
         btAnswer1.setOnClickListener(this);
@@ -246,12 +235,9 @@ public class MyActivity extends Activity implements View.OnClickListener
         GridLayout.Spec col1 = GridLayout.spec(1);
         GridLayout.Spec colspan = GridLayout.spec(0,2);
 
-
         GridLayout gridLayout = new GridLayout(this);
         gridLayout.setColumnCount(2);
         gridLayout.setRowCount(3);
-
-
 
         ImageView ivInfoMarvin = (ImageView) layout.findViewById(R.id.ivInfoMarvin);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,col0);
@@ -300,8 +286,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         layout.removeView(tvInfo3);
         gridLayout.addView(tvInfo3, fourth);
 
-
-
         layout.addView(gridLayout);
     }
     public void CreditsScreen()
@@ -348,8 +332,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         ivCreditsPicture.setBackgroundColor(Color.CYAN);
         layout.removeView(ivCreditsPicture);
         gridLayout.addView(ivCreditsPicture, second);
-
-
 
         layout.addView(gridLayout);
     }
@@ -451,7 +433,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         deu.setLayoutParams(fifth);
         deu.setGravity(Gravity.CENTER);
         deu.setBackgroundColor(Color.RED);
-
         deu.setTag("4");
         deu.setBackgroundResource(R.drawable.oesterreich);
         //deu.setBackground();
@@ -466,10 +447,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         sixth.height = thirteenthScreenHeight *3;
         eng.setLayoutParams(second);
         eng.setGravity(Gravity.CENTER);
-
-
         eng.setTag("5");
-
         eng.setBackgroundResource(R.drawable.engusa);
         layout.removeView(eng);
         gridLayout.addView(eng, sixth);
@@ -479,21 +457,15 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         seventh.width = quarterScreenWidth;
         seventh.height = screenHeight;
-        //spColumnPlaceholder.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         spColumnPlaceholder.setLayoutParams(seventh);
-
-
-        //spColumnPlaceholder.setBackgroundColor(Color.RED);
 
         layout.removeView(spColumnPlaceholder);
         gridLayout.addView(spColumnPlaceholder, seventh);
 
-
-
         layout.addView(gridLayout);
     }
-    private void EndScreen() {
-
+    private void EndScreen()
+    {
         ViewGroup layout = (ViewGroup)findViewById(R.id.EndScreenLayout);
         GridLayout.Spec row0 = GridLayout.spec(0);
         GridLayout.Spec row1 = GridLayout.spec(1);
@@ -513,14 +485,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         GridLayout.Spec rowspan1 = GridLayout.spec(3,3);
         GridLayout.Spec rowspan3 = GridLayout.spec(6,6);
 
-
         GridLayout.Spec col0 = GridLayout.spec(0);
-
 
         GridLayout gridLayout = new GridLayout(this);
         gridLayout.setColumnCount(1);
         gridLayout.setRowCount(13);
-
 
         TextView tvEndHeader = (TextView) layout.findViewById(R.id.tvEndHeader);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(rowspan0,col0);
@@ -556,9 +525,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         gridLayout.addView(ivEndPicture, fourth);
         layout.addView(gridLayout);
     }
+
+
     public void thingsConcerningPlayScreen(boolean neu)
     {
-        //Place attributes and everything else concerning the PlayScreen only here!
         //get access to assets folder: getBaseContext().getApplicationContext().getAssets()
 
         if(neu)
@@ -582,8 +552,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         infoButton.setOnClickListener(this);
 
         TextView tv = (TextView) findViewById(R.id.tvQuestion);
-
-      
 
         try
         {
@@ -619,14 +587,11 @@ public class MyActivity extends Activity implements View.OnClickListener
                 b5.setText(qh.getNextAnswer());
             }
 
-        } catch (Exception e) {
-            //System.out.println(e.getMessage());
-        }
+        } catch (Exception e) {}
     }
+
     public void thingsConcerningInfoScreen()
     {
-        //Place attributes and everything else concerning the InfoScreen only here!
-
         setContentView(R.layout.info_screen);
         InfoScreen();
 
@@ -636,22 +601,32 @@ public class MyActivity extends Activity implements View.OnClickListener
     }
     public void thingsConcerningCreditsScreen()
     {
-        //Place attributes and everything else concerning the CreditsScreen only here!
-
         setContentView(R.layout.credits_screen);
         CreditsScreen();
 
         creditsScreenTV = (TextView) findViewById(R.id.tvCreditsText);
+
+        //To close an intent after a specified time (first parameter in milliseconds, do not modify the second).
+        /*new CountDownTimer(10000, 100)
+        {
+            public void onTick(long millisUntilFinished)
+            {
+                if(millisUntilFinished<=1000)
+                {
+                    creditsScreenTV.setText((millisUntilFinished/1000+1)+language.getActualLanguage()[8]);
+                }
+                else
+                {
+                    creditsScreenTV.setText((millisUntilFinished/1000+1)+language.getActualLanguage()[7]);
+                }
+            }
+            public void onFinish(){cancel();finish();}
+        }.start();*/
     }
     public void thingsConcerningStartScreen()
     {
-        //Place attributes and everything else concerning the StartScreen only here!
-
         setContentView(R.layout.main);
         StartScreen();
-
-
-        
 
         //we need these because the language can be changed.
         credits =(Button) findViewById(R.id.credits);
@@ -667,8 +642,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         setContentView(R.layout.end_screen);
         EndScreen();
     }
-
-
 
     int getScreenNumber()
     {
@@ -722,23 +695,21 @@ public class MyActivity extends Activity implements View.OnClickListener
         changeLanguage(0);
     }
 
-
-
     public void changeLanguage(int screennumber)
     {
         //Place the "variablenname.setText(language.getActualLanguage()[x])" things here.
 
-        if(screennumber==0)
+        if(screennumber==0) //start-screen
         {
             start.setText(language.getActualLanguage()[0]);
             info.setText(language.getActualLanguage()[1]);
             credits.setText(language.getActualLanguage()[2]);
         }
-        else if(screennumber==3)
+        else if(screennumber==3)   //credits-screen
         {
             creditsScreenTV.setText(language.getActualLanguage()[3]);
         }
-        else if(screennumber==2)
+        else if(screennumber==2) //info-screen
         {
             info1.setText(language.getActualLanguage()[4]);
             info2.setText(language.getActualLanguage()[5]);
