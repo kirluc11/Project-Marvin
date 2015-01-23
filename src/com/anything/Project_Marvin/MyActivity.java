@@ -28,6 +28,7 @@ public class MyActivity extends Activity implements View.OnClickListener
     private TextView info3;
     private TextView tv1;
     private TextView tv2;
+    private TextView tvOnStartScreen;
     //every thingy where the text can be changed to another language needs to be put here,
     //because it's used in the changeLanguage() method!
 
@@ -672,6 +673,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         info.setOnClickListener(this);
         start=(Button) findViewById(R.id.start);
         start.setOnClickListener(this);
+        tvOnStartScreen=(TextView) findViewById(R.id.tvStartText);
     }
     public void thingsConcerningEndScreen()
     {
@@ -742,6 +744,7 @@ public class MyActivity extends Activity implements View.OnClickListener
             start.setText(language.getActualLanguage()[0]);
             info.setText(language.getActualLanguage()[1]);
             credits.setText(language.getActualLanguage()[2]);
+            tvOnStartScreen.setText(language.getActualLanguage()[12]);
         }
         else if(screennumber==3)   //credits-screen
         {
