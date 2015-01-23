@@ -46,7 +46,8 @@ public class MyActivity extends Activity implements View.OnClickListener
     private int eigthScreenHeight;
     private int thirteenthScreenHeight;
     private int thirdScreenHeight;
-    private final int textSize = 16;
+    private int fifthScreenWidth;
+
 
 
     @Override
@@ -86,6 +87,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         halfScreenWidth = (int)(screenWidth *0.5);
         quarterScreenWidth = (int)(halfScreenWidth * 0.5);
         thirdScreenHeight = screenHeight/3;
+        fifthScreenWidth = screenWidth/5;
     }
 
     public void PlayScreen()
@@ -127,7 +129,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btInfo.setGravity(Gravity.CENTER);
         btInfo.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btInfo.setText("Info");
-        btInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        btInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         btInfo.setTag("2");
         btInfo.setTextColor(getResources().getColor(R.color.green));
         btInfo.setBackground(getResources().getDrawable(R.drawable.button_border));
@@ -140,7 +142,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         second.width = screenWidth;
         second.height = fifthScreenHeight;
         btQuestion.setLayoutParams(second);
-        btQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+        btQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btQuestion.setGravity(Gravity.CENTER);
         btQuestion.setTextColor(getResources().getColor(R.color.green));
         btQuestion.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
@@ -157,7 +159,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer1.setGravity(Gravity.CENTER);
         btAnswer1.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btAnswer1.setText("Gerhard Gugerbauer Idiotsadsafsadf ");
-        btAnswer1.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        btAnswer1.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         btAnswer1.setTag("101");
         btAnswer1.setTextColor(getResources().getColor(R.color.green));
         btAnswer1.setBackground(getResources().getDrawable(R.drawable.answer_border));
@@ -173,7 +175,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer2.setGravity(Gravity.CENTER);
         btAnswer2.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btAnswer2.setText("Gerhard Gugerbauer Idiotsadsafsadf ");
-        btAnswer2.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        btAnswer2.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         btAnswer2.setTag("102");
         btAnswer2.setTextColor(getResources().getColor(R.color.green));
         btAnswer2.setBackground(getResources().getDrawable(R.drawable.answer_border));
@@ -189,7 +191,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer3.setGravity(Gravity.CENTER);
         btAnswer3.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btAnswer3.setText("Gerhard Gugerbauer Idiot sadsafsadf");
-        btAnswer3.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        btAnswer3.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         btAnswer3.setTag("103");
         btAnswer3.setTextColor(getResources().getColor(R.color.green));
         btAnswer3.setBackground(getResources().getDrawable(R.drawable.answer_border));
@@ -205,7 +207,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer4.setGravity(Gravity.CENTER);
         btAnswer4.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btAnswer4.setText("Gerhard Gugerbauer Idiot");
-        btAnswer4.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        btAnswer4.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         btAnswer4.setTag("104");
         btAnswer4.setTextColor(getResources().getColor(R.color.green));
         btAnswer4.setBackground(getResources().getDrawable(R.drawable.answer_border));
@@ -221,7 +223,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer5.setGravity(Gravity.CENTER);
         btAnswer5.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btAnswer5.setText("Gerhard Gugerbauer Idiot sadsafsadf");
-        btAnswer5.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        btAnswer5.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         btAnswer5.setTag("105");
         btAnswer5.setTextColor(getResources().getColor(R.color.green));
         btAnswer5.setBackground(getResources().getDrawable(R.drawable.answer_border));
@@ -237,7 +239,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         GridLayout.Spec row0 = GridLayout.spec(0);
         GridLayout.Spec row1 = GridLayout.spec(1);
         GridLayout.Spec row2 = GridLayout.spec(2);
-        GridLayout.Spec rowspan0 = GridLayout.spec(1,2);
+        GridLayout.Spec row3 = GridLayout.spec(3);
+        GridLayout.Spec row4 = GridLayout.spec(4);
+        GridLayout.Spec rowspan0 = GridLayout.spec(1,4);
+        GridLayout.Spec rowspan1 = GridLayout.spec(1,3);
 
         GridLayout.Spec col0 = GridLayout.spec(0);
         GridLayout.Spec col1 = GridLayout.spec(1);
@@ -245,12 +250,12 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         GridLayout gridLayout = new GridLayout(this);
         gridLayout.setColumnCount(2);
-        gridLayout.setRowCount(3);
+        gridLayout.setRowCount(5);
 
         ImageView ivInfoMarvin = (ImageView) layout.findViewById(R.id.ivInfoMarvin);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,col0);
         first.width = halfScreenWidth;
-        first.height = thirdScreenHeight*2;
+        first.height = fifthScreenHeight*4;
         ivInfoMarvin.setLayoutParams(first);
         layout.removeView(ivInfoMarvin);
         gridLayout.addView(ivInfoMarvin, first);
@@ -258,38 +263,38 @@ public class MyActivity extends Activity implements View.OnClickListener
         TextView tvInfo1 = (TextView) layout.findViewById(R.id.tvInfo1);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(row0,colspan);
         second.width = screenWidth;
-        second.height = thirdScreenHeight;
+        second.height = fifthScreenHeight;
         tvInfo1.setLayoutParams(second);
-        tvInfo1.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        tvInfo1.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
         tvInfo1.setGravity(Gravity.CENTER);
-        tvInfo1.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         tvInfo1.setText("TOP");
         tvInfo1.setTextColor(getResources().getColor(R.color.green));
         layout.removeView(tvInfo1);
         gridLayout.addView(tvInfo1, second);
 
         TextView tvInfo2 = (TextView) layout.findViewById(R.id.tvInfo2);
-        GridLayout.LayoutParams third = new GridLayout.LayoutParams(row1,col1);
+        GridLayout.LayoutParams third = new GridLayout.LayoutParams(rowspan1,col1);
         third.width = halfScreenWidth;
-        third.height = thirdScreenHeight;
+        third.height = fifthScreenHeight*3;
         tvInfo2.setLayoutParams(third);
-        tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.textView));
         tvInfo2.setGravity(Gravity.CENTER);
         tvInfo2.setText("Gerhard Gugerbauer Idiot");
         tvInfo2.setTextColor(getResources().getColor(R.color.green));
-        tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.textView));
         layout.removeView(tvInfo2);
         gridLayout.addView(tvInfo2, third);
 
         TextView tvInfo3 = (TextView) layout.findViewById(R.id.tvInfo3);
-        GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row2,col1);
+        GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row4,col1);
         fourth.width = halfScreenWidth;
-        fourth.height = thirdScreenHeight;
+        fourth.height = fifthScreenHeight;
         tvInfo3.setLayoutParams(fourth);
-        tvInfo3.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        tvInfo3.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.textView));
         tvInfo3.setGravity(Gravity.CENTER);
         tvInfo3.setTextColor(getResources().getColor(R.color.green));
         tvInfo3.setText("TOP");
+        tvInfo3.setBackground(getResources().getDrawable(R.drawable.textview_border));
         layout.removeView(tvInfo3);
         gridLayout.addView(tvInfo3, fourth);
 
@@ -326,10 +331,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         first.width = screenWidth;
         first.height = eigthScreenHeight *3;
         tvCreditsText.setLayoutParams(first);
-        tvCreditsText.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        tvCreditsText.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
         tvCreditsText.setGravity(Gravity.CENTER);
         tvCreditsText.setText("11111111111111");
         tvCreditsText.setTextColor(getResources().getColor(R.color.green));
+        tvCreditsText.setBackground(getResources().getDrawable(R.drawable.textview_border));
         layout.removeView(tvCreditsText);
         gridLayout.addView(tvCreditsText, first);
 
@@ -374,8 +380,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         GridLayout.Spec col1 = GridLayout.spec(1);
         GridLayout.Spec col2 = GridLayout.spec(2);
         GridLayout.Spec col3 = GridLayout.spec(3);
+        GridLayout.Spec col4 = GridLayout.spec(4);
         GridLayout.Spec colspan = GridLayout.spec(0,2);
         GridLayout.Spec colspan1 = GridLayout.spec(3,1);
+        GridLayout.Spec colspan2 = GridLayout.spec(3,2);
 
         GridLayout gridLayout = new GridLayout(this);
         gridLayout.setColumnCount(5);
@@ -384,22 +392,23 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         ImageView ivMainMarvin = (ImageView) layout.findViewById(R.id.ivMainMarvin);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,colspan);
-        first.width = quarterScreenWidth*2;
+        first.width = fifthScreenWidth*2;
         first.height = thirteenthScreenHeight *6;
         ivMainMarvin.setLayoutParams(first);
         layout.removeView(ivMainMarvin);
         gridLayout.addView(ivMainMarvin, first);
 
         Button start = (Button) layout.findViewById(R.id.start);
-        GridLayout.LayoutParams second = new GridLayout.LayoutParams(row6,col3);
+        GridLayout.LayoutParams second = new GridLayout.LayoutParams(row6,colspan2);
         start.setOnClickListener(this);
-        second.width = quarterScreenWidth;
+        second.width = fifthScreenWidth*2;
         second.height = thirteenthScreenHeight;
         start.setLayoutParams(second);
         start.setGravity(Gravity.CENTER);
         start.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         start.setText("Start");
-        start.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        start.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
+        start.setTextColor(getResources().getColor(R.color.green));
         start.setTag("1");
         start.setBackground(getResources().getDrawable(R.drawable.button_border));
         layout.removeView(start);
@@ -407,30 +416,32 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         Button info = (Button) layout.findViewById(R.id.info);
         info.setOnClickListener(this);
-        GridLayout.LayoutParams third = new GridLayout.LayoutParams(row8,col3);
-        third.width = quarterScreenWidth;
+        GridLayout.LayoutParams third = new GridLayout.LayoutParams(row8,colspan2);
+        third.width = fifthScreenWidth*2;
         third.height = thirteenthScreenHeight;
         info.setLayoutParams(third);
         info.setGravity(Gravity.CENTER);
         info.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         info.setText("Info");
-        info.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        info.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         info.setTag("2");
+        info.setTextColor(getResources().getColor(R.color.green));
         info.setBackground(getResources().getDrawable(R.drawable.button_border));
         layout.removeView(info);
         gridLayout.addView(info, third);
 
         Button credits = (Button) layout.findViewById(R.id.credits);
         credits.setOnClickListener(this);
-        GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row10,col3);
-        fourth.width = quarterScreenWidth;
+        GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row10,colspan2);
+        fourth.width = fifthScreenWidth*2;
         fourth.height = thirteenthScreenHeight;
         credits.setLayoutParams(fourth);
         credits.setGravity(Gravity.CENTER);
         credits.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         credits.setText("Credits");
-        credits.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        credits.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         credits.setBackground(getResources().getDrawable(R.drawable.button_border));
+        credits.setTextColor(getResources().getColor(R.color.green));
         credits.setTag("3");
         layout.removeView(credits);
         gridLayout.addView(credits, fourth);
@@ -438,7 +449,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button deu = (Button) layout.findViewById(R.id.deu);
         deu.setOnClickListener(this);
         GridLayout.LayoutParams fifth = new GridLayout.LayoutParams(rowspan1,colspan);
-        fifth.width = quarterScreenWidth*2;
+        fifth.width = fifthScreenWidth*2;
         fifth.height = thirteenthScreenHeight *3;
         deu.setLayoutParams(fifth);
         deu.setGravity(Gravity.CENTER);
@@ -453,7 +464,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button eng = (Button) layout.findViewById(R.id.eng);
         eng.setOnClickListener(this);
         GridLayout.LayoutParams sixth = new GridLayout.LayoutParams(rowspan2,colspan);
-        sixth.width = quarterScreenWidth*2;
+        sixth.width = fifthScreenWidth*2;
         sixth.height = thirteenthScreenHeight *3;
         eng.setLayoutParams(second);
         eng.setGravity(Gravity.CENTER);
@@ -464,8 +475,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         Space spColumnPlaceholder = (Space) layout.findViewById(R.id.spMainColumnPlaceholder);
         GridLayout.LayoutParams seventh = new GridLayout.LayoutParams(rowspan3,col2);
-
-        seventh.width = quarterScreenWidth;
+        seventh.width = fifthScreenWidth;
         seventh.height = screenHeight;
         spColumnPlaceholder.setLayoutParams(seventh);
 
@@ -508,9 +518,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         second.width = screenWidth;
         second.height = thirteenthScreenHeight *3;
         tvEndHeader.setLayoutParams(second);
-        tvEndHeader.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        tvEndHeader.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
         tvEndHeader.setGravity(Gravity.CENTER);
         tvEndHeader.setText("Header");
+        tvEndHeader.setTextColor(getResources().getColor(R.color.green));
         layout.removeView(tvEndHeader);
         gridLayout.addView(tvEndHeader, second);
 
@@ -519,9 +530,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         third.width = screenWidth;
         third.height = thirteenthScreenHeight *3;
         tvEndSubtitle.setLayoutParams(third);
-        tvEndSubtitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+        tvEndSubtitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.textView));
         tvEndSubtitle.setGravity(Gravity.CENTER);
         tvEndSubtitle.setText("Sub");
+        tvEndSubtitle.setTextColor(getResources().getColor(R.color.green));
         layout.removeView(tvEndSubtitle);
         gridLayout.addView(tvEndSubtitle, third);
 
