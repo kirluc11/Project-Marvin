@@ -574,7 +574,6 @@ public class MyActivity extends Activity implements View.OnClickListener
 
             if(q == null)
             {
-                qh = null;
                 finish();
                 goToNextScreen(6);
             }
@@ -727,7 +726,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         else if(screennumber==6) //end-screen
         {
             tv1.setText(language.getActualLanguage()[9]);  //we don't need 7 and 8
-            tv2.setText(language.getActualLanguage()[10]+language.getActualLanguage()[11]);
+            tv2.setText(language.getActualLanguage()[10]+qh.getRight()+ language.getActualLanguage()[11]);
+            qh = null;
         }
     }
 
