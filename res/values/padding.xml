@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="padding_left">50</integer>
+    <integer name="padding_right">50</integer>
+    <integer name="padding_top">50</integer>
+    <integer name="padding_bottom">50</integer>
+</resources>
