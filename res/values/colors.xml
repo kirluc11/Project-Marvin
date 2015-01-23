@@ -5,5 +5,7 @@
     <color name="rotviolett">#700d4e</color>
     <color name="dunkelviolett">#4d1056</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="green">#217844</color>
 
 </resources>

@@ -127,23 +127,24 @@ public class MyActivity extends Activity implements View.OnClickListener
         btInfo.setText("Info");
         btInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         btInfo.setTag("2");
+        btInfo.setTextColor(getResources().getColor(R.color.green));
         btInfo.setBackground(getResources().getDrawable(R.drawable.button_border));
         btInfo.setLayoutParams(first);
         layout.removeView(btInfo);
         gridLayout.addView(btInfo, first);
 
-        TextView tvQuestion = (TextView) layout.findViewById(R.id.tvQuestion);
+        TextView btQuestion = (TextView) layout.findViewById(R.id.btQuestion);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(row1,colspan2);
         second.width = screenWidth;
         second.height = fifthScreenHeight;
-        tvQuestion.setLayoutParams(second);
-        tvQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
-        tvQuestion.setGravity(Gravity.CENTER);
-        tvQuestion.setTextColor(Color.BLACK);
-        tvQuestion.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        tvQuestion.setText("TOP");
-        layout.removeView(tvQuestion);
-        gridLayout.addView(tvQuestion, second);
+        btQuestion.setLayoutParams(second);
+        btQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+        btQuestion.setGravity(Gravity.CENTER);
+        btQuestion.setTextColor(getResources().getColor(R.color.green));
+        btQuestion.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
+        btQuestion.setText("TOP");
+        layout.removeView(btQuestion);
+        gridLayout.addView(btQuestion, second);
 
         Button btAnswer1 = (Button) layout.findViewById(R.id.btAnswer1);
         btAnswer1.setOnClickListener(this);
@@ -153,9 +154,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer1.setLayoutParams(third);
         btAnswer1.setGravity(Gravity.CENTER);
         btAnswer1.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        btAnswer1.setText("Info");
+        btAnswer1.setText("Gerhard Gugerbauer Idiotsadsafsadf ");
         btAnswer1.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         btAnswer1.setTag("101");
+        btAnswer1.setTextColor(getResources().getColor(R.color.green));
         btAnswer1.setBackground(getResources().getDrawable(R.drawable.answer_border));
         layout.removeView(btAnswer1);
         gridLayout.addView(btAnswer1, third);
@@ -168,9 +170,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer2.setLayoutParams(fourth);
         btAnswer2.setGravity(Gravity.CENTER);
         btAnswer2.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        btAnswer2.setText("Info");
+        btAnswer2.setText("Gerhard Gugerbauer Idiotsadsafsadf ");
         btAnswer2.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         btAnswer2.setTag("102");
+        btAnswer2.setTextColor(getResources().getColor(R.color.green));
         btAnswer2.setBackground(getResources().getDrawable(R.drawable.answer_border));
         layout.removeView(btAnswer2);
         gridLayout.addView(btAnswer2, fourth);
@@ -183,9 +186,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer3.setLayoutParams(fifth);
         btAnswer3.setGravity(Gravity.CENTER);
         btAnswer3.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        btAnswer3.setText("Info");
+        btAnswer3.setText("Gerhard Gugerbauer Idiot sadsafsadf");
         btAnswer3.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         btAnswer3.setTag("103");
+        btAnswer3.setTextColor(getResources().getColor(R.color.green));
         btAnswer3.setBackground(getResources().getDrawable(R.drawable.answer_border));
         layout.removeView(btAnswer3);
         gridLayout.addView(btAnswer3, fifth);
@@ -198,9 +202,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer4.setLayoutParams(sixth);
         btAnswer4.setGravity(Gravity.CENTER);
         btAnswer4.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        btAnswer4.setText("Info");
+        btAnswer4.setText("Gerhard Gugerbauer Idiot");
         btAnswer4.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         btAnswer4.setTag("104");
+        btAnswer4.setTextColor(getResources().getColor(R.color.green));
         btAnswer4.setBackground(getResources().getDrawable(R.drawable.answer_border));
         layout.removeView(btAnswer4);
         gridLayout.addView(btAnswer4, sixth);
@@ -213,9 +218,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer5.setLayoutParams(seventh);
         btAnswer5.setGravity(Gravity.CENTER);
         btAnswer5.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        btAnswer5.setText("Info");
+        btAnswer5.setText("Gerhard Gugerbauer Idiot sadsafsadf");
         btAnswer5.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         btAnswer5.setTag("105");
+        btAnswer5.setTextColor(getResources().getColor(R.color.green));
         btAnswer5.setBackground(getResources().getDrawable(R.drawable.answer_border));
         layout.removeView(btAnswer5);
         gridLayout.addView(btAnswer5, seventh);
@@ -244,7 +250,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         first.width = halfScreenWidth;
         first.height = thirdScreenHeight*2;
         ivInfoMarvin.setLayoutParams(first);
-        ivInfoMarvin.setBackgroundColor(Color.CYAN);
         layout.removeView(ivInfoMarvin);
         gridLayout.addView(ivInfoMarvin, first);
 
@@ -255,9 +260,9 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvInfo1.setLayoutParams(second);
         tvInfo1.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         tvInfo1.setGravity(Gravity.CENTER);
-        tvInfo1.setBackgroundColor(Color.CYAN);
         tvInfo1.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         tvInfo1.setText("TOP");
+        tvInfo1.setTextColor(getResources().getColor(R.color.green));
         layout.removeView(tvInfo1);
         gridLayout.addView(tvInfo1, second);
 
@@ -268,8 +273,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvInfo2.setLayoutParams(third);
         tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         tvInfo2.setGravity(Gravity.CENTER);
-        tvInfo2.setBackgroundColor(Color.CYAN);
-        tvInfo2.setText("TOP");
+        tvInfo2.setText("Gerhard Gugerbauer Idiot");
+        tvInfo2.setTextColor(getResources().getColor(R.color.green));
         tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         layout.removeView(tvInfo2);
         gridLayout.addView(tvInfo2, third);
@@ -281,10 +286,12 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvInfo3.setLayoutParams(fourth);
         tvInfo3.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         tvInfo3.setGravity(Gravity.CENTER);
-        tvInfo3.setBackgroundColor(Color.CYAN);
+        tvInfo3.setTextColor(getResources().getColor(R.color.green));
         tvInfo3.setText("TOP");
         layout.removeView(tvInfo3);
         gridLayout.addView(tvInfo3, fourth);
+
+        gridLayout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
 
         layout.addView(gridLayout);
     }
@@ -319,8 +326,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvCreditsText.setLayoutParams(first);
         tvCreditsText.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         tvCreditsText.setGravity(Gravity.CENTER);
-        tvCreditsText.setBackgroundColor(Color.CYAN);
         tvCreditsText.setText("11111111111111");
+        tvCreditsText.setTextColor(getResources().getColor(R.color.green));
         layout.removeView(tvCreditsText);
         gridLayout.addView(tvCreditsText, first);
 
@@ -329,9 +336,10 @@ public class MyActivity extends Activity implements View.OnClickListener
         second.width = screenWidth;
         second.height = eigthScreenHeight *5;
         ivCreditsPicture.setLayoutParams(second);
-        ivCreditsPicture.setBackgroundColor(Color.CYAN);
         layout.removeView(ivCreditsPicture);
         gridLayout.addView(ivCreditsPicture, second);
+
+        gridLayout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
 
         layout.addView(gridLayout);
     }
@@ -491,6 +499,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         gridLayout.setColumnCount(1);
         gridLayout.setRowCount(13);
 
+        gridLayout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
+
         TextView tvEndHeader = (TextView) layout.findViewById(R.id.tvEndHeader);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(rowspan0,col0);
         second.width = screenWidth;
@@ -499,7 +509,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvEndHeader.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         tvEndHeader.setGravity(Gravity.CENTER);
         tvEndHeader.setText("Header");
-        //ivEndStars.setBackgroundColor();
         layout.removeView(tvEndHeader);
         gridLayout.addView(tvEndHeader, second);
 
@@ -511,16 +520,14 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvEndSubtitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
         tvEndSubtitle.setGravity(Gravity.CENTER);
         tvEndSubtitle.setText("Sub");
-        //ivEndStars.setBackgroundColor();
         layout.removeView(tvEndSubtitle);
         gridLayout.addView(tvEndSubtitle, third);
 
         ImageView ivEndPicture = (ImageView) layout.findViewById(R.id.ivEndPicture);
         GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(rowspan3,col0);
         fourth.width = screenWidth;
-        fourth.height = thirteenthScreenHeight *6;
+        fourth.height = thirteenthScreenHeight *7;
         ivEndPicture.setLayoutParams(fourth);
-        //ivEndStars.setBackgroundColor();
         layout.removeView(ivEndPicture);
         gridLayout.addView(ivEndPicture, fourth);
         layout.addView(gridLayout);
@@ -551,7 +558,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button infoButton=(Button) findViewById(R.id.btInfo);
         infoButton.setOnClickListener(this);
 
-        TextView tv = (TextView) findViewById(R.id.tvQuestion);
+        TextView tv = (TextView) findViewById(R.id.btQuestion);
 
         try
         {
