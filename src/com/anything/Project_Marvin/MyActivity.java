@@ -49,6 +49,8 @@ public class MyActivity extends Activity implements View.OnClickListener
     private int thirdScreenHeight;
     private int fifthScreenWidth;
 
+    private int padding = 0;
+
 
 
     @Override
@@ -76,19 +78,24 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     public void calculateScreenSizes()
     {
+
+
         Point size = new Point();
         getWindowManager().getDefaultDisplay().getSize(size);
         screenWidth = size.x;
         screenHeight = size.y;
 
-        thirdScreenWidth = (int) (screenWidth/3);
-        fifthScreenHeight = (int) (screenHeight/5);
-        eigthScreenHeight = (int)(screenHeight/8);
-        thirteenthScreenHeight = (int)(screenHeight/13);
-        halfScreenWidth = (int)(screenWidth *0.5);
-        quarterScreenWidth = (int)(halfScreenWidth * 0.5);
-        thirdScreenHeight = screenHeight/3;
-        fifthScreenWidth = screenWidth/5;
+        /**Define Screen height here*/
+        fifthScreenHeight = (int) (screenHeight/5)-padding;
+        eigthScreenHeight = (int)(screenHeight/8)-padding;
+        thirdScreenHeight = (screenHeight/3)-padding;
+        thirteenthScreenHeight = (int)(screenHeight/13)-padding;
+
+        /**Define Screen Width here*/
+        thirdScreenWidth = (int) (screenWidth/3)-padding;
+        halfScreenWidth = (int)(screenWidth *0.5)-padding;
+        quarterScreenWidth = (int)(halfScreenWidth * 0.5)-padding;
+        fifthScreenWidth = (screenWidth/5)-padding;
     }
 
     public void PlayScreen()
@@ -231,6 +238,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         layout.removeView(btAnswer5);
         gridLayout.addView(btAnswer5, seventh);
 
+        //gridLayout.setUseDefaultMargins(true);
+
         layout.addView(gridLayout);
     }
 
@@ -295,7 +304,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvInfo3.setGravity(Gravity.CENTER);
         tvInfo3.setTextColor(getResources().getColor(R.color.green));
         tvInfo3.setText("TOP");
-        tvInfo3.setBackground(getResources().getDrawable(R.drawable.textview_border));
         layout.removeView(tvInfo3);
         gridLayout.addView(tvInfo3, fourth);
 
@@ -327,6 +335,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         gridLayout.setColumnCount(3);
         gridLayout.setRowCount(9);
 
+
+
        TextView tvCreditsText = (TextView) layout.findViewById(R.id.tvCreditsText);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,colspan);
         first.width = screenWidth;
@@ -336,7 +346,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvCreditsText.setGravity(Gravity.CENTER);
         tvCreditsText.setText("11111111111111");
         tvCreditsText.setTextColor(getResources().getColor(R.color.green));
-        tvCreditsText.setBackground(getResources().getDrawable(R.drawable.textview_border));
         layout.removeView(tvCreditsText);
         gridLayout.addView(tvCreditsText, first);
 
@@ -392,10 +401,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         gridLayout.setRowCount(13);
         gridLayout.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
 
-        /*gridLayout.setPadding(  getResources().getInteger(R.integer.padding_left),
-                                getResources().getInteger(R.integer.padding_top),
-                                getResources().getInteger(R.integer.padding_right),
-                                getResources().getInteger(R.integer.padding_bottom));*/
 
         ImageView ivMainMarvin = (ImageView) layout.findViewById(R.id.ivMainMarvin);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,colspan);
@@ -496,10 +501,12 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvMainText.setText("dsfsdfsdfsdfsfsdfsdf");
         tvMainText.setTextColor(getResources().getColor(R.color.green));
         tvMainText.setTextSize(getResources().getInteger(R.integer.headings));
-        //tvMainText.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        tvMainText.setGravity(Gravity.CENTER);
         layout.removeView(tvMainText);
         gridLayout.addView(tvMainText,eighth);
 
+        //gridLayout.setBackground(getResources().getDrawable(R.drawable.layout_border));
+        //gridLayout.setUseDefaultMargins(true);
 
         layout.addView(gridLayout);
     }
