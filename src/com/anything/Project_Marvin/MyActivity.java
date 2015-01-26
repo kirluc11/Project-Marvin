@@ -33,6 +33,8 @@ public class MyActivity extends Activity implements View.OnClickListener
     private TextView tv1;
     private TextView tv2;
     private TextView tvOnStartScreen;
+    private TextView tvSponsorscreen1;
+    private TextView tvSponsorscreen2;
     //every thingy where the text can be changed to another language needs to be put here,
     //because it's used in the changeLanguage() method!
 
@@ -74,6 +76,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         else if(screennumber==1)this.thingsConcerningPlayScreen(true);
         else if(screennumber==2)this.thingsConcerningInfoScreen();
         else if(screennumber==3)this.thingsConcerningCreditsScreen();
+        else if(screennumber==7)this.thingsConcerningSponsorScreen();
         else this.thingsConcerningEndScreen();
 
         changeLanguage(screennumber);
@@ -143,7 +146,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btInfo.setGravity(Gravity.CENTER);
         btInfo.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btInfo.setText("Info");
-        btInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
+        btInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btInfo.setTag("2");
         btInfo.setTextColor(getResources().getColor(R.color.green));
         btInfo.setBackground(getResources().getDrawable(R.drawable.button_border));
@@ -174,7 +177,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer1.setGravity(Gravity.CENTER);
         btAnswer1.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btAnswer1.setText("Gerhard Gugerbauer Idiot sasdasdasdadasdasdadsafsadf");
-        btAnswer1.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
+        btAnswer1.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btAnswer1.setTag("101");
         btAnswer1.setTextColor(getResources().getColor(R.color.green));
         btAnswer1.setBackground(getResources().getDrawable(R.drawable.answer_border));
@@ -190,7 +193,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer2.setGravity(Gravity.CENTER);
         btAnswer2.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btAnswer2.setText("Gerhard Gugerbauer Idiot sasdasdasdadasdasdadsafsadf");
-        btAnswer2.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
+        btAnswer2.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btAnswer2.setTag("102");
         btAnswer2.setTextColor(getResources().getColor(R.color.green));
         btAnswer2.setBackground(getResources().getDrawable(R.drawable.answer_border));
@@ -206,7 +209,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer3.setGravity(Gravity.CENTER);
         btAnswer3.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btAnswer3.setText("Gerhard Gugerbauer Idiot sasdasdasdadasdasdadsafsadf");
-        btAnswer3.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
+        btAnswer3.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btAnswer3.setTag("103");
         btAnswer3.setTextColor(getResources().getColor(R.color.green));
         btAnswer3.setBackground(getResources().getDrawable(R.drawable.answer_border));
@@ -222,7 +225,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer4.setGravity(Gravity.CENTER);
         btAnswer4.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btAnswer4.setText("Gerhard Gugerbauer Idiot sasdasdasdadasdasdadsafsadf");
-        btAnswer4.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
+        btAnswer4.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btAnswer4.setTag("104");
         btAnswer4.setTextColor(getResources().getColor(R.color.green));
         btAnswer4.setBackground(getResources().getDrawable(R.drawable.answer_border));
@@ -238,7 +241,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer5.setGravity(Gravity.CENTER);
         btAnswer5.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btAnswer5.setText("Gerhard Gugerbauer Idiot sasdasdasdadasdasdadsafsadf");
-        btAnswer5.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
+        btAnswer5.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btAnswer5.setTag("105");
         btAnswer5.setTextColor(getResources().getColor(R.color.green));
         btAnswer5.setBackground(getResources().getDrawable(R.drawable.answer_border));
@@ -285,7 +288,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         second.width = screenWidth-padding;
         second.height = fifthScreenHeight-padding;
         tvInfo1.setLayoutParams(second);
-        tvInfo1.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
+        tvInfo1.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.headings));
         tvInfo1.setGravity(Gravity.CENTER);
         tvInfo1.setText("TOP");
         tvInfo1.setTextColor(getResources().getColor(R.color.green));
@@ -297,11 +300,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         third.width = halfScreenWidth-padding;
         third.height = fifthScreenHeight*3-padding;
         tvInfo2.setLayoutParams(third);
-        tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.textView));
+        tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.textView));
         tvInfo2.setGravity(Gravity.CENTER);
         tvInfo2.setText("Gerhard Gugerbauer Idiot");
         tvInfo2.setTextColor(getResources().getColor(R.color.green));
-        tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.textView));
+        tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.textView));
         layout.removeView(tvInfo2);
         gridLayout.addView(tvInfo2, third);
 
@@ -581,8 +584,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         gridLayout.addView(ivEndPicture, fourth);
         layout.addView(gridLayout);
     }
-
-
     public void SponsorScreen()
     {
         ViewGroup layout = (ViewGroup)findViewById(R.id.SponsorScreenLayout);
@@ -674,6 +675,7 @@ public class MyActivity extends Activity implements View.OnClickListener
             {
                 finish();
                 goToNextScreen(6);
+                goToNextScreen(7);
             }
             else
             {
@@ -749,6 +751,36 @@ public class MyActivity extends Activity implements View.OnClickListener
         tv1 = (TextView) findViewById(R.id.tvEndHeader);
         tv2 = (TextView) findViewById(R.id.tvEndSubtitle);
     }
+    public void thingsConcerningSponsorScreen()
+    {
+        setContentView(R.layout.sponsor_screen);
+        SponsorScreen();
+
+        tvSponsorscreen1 = (TextView) findViewById(R.id.tvSponsorText);
+        //tvSponsorscreen2 = (TextView) findViewById(R.id.tvSponsorText);
+        new CountDownTimer(10000, 100)
+        {
+            public void onTick(long millisUntilFinished)
+            {
+                if(millisUntilFinished<=1000)
+                {
+                    tvSponsorscreen1.setText((millisUntilFinished/1000+1)+language.getActualLanguage()[8]);
+                }
+                else
+                {
+                    tvSponsorscreen1.setText((millisUntilFinished/1000+1)+language.getActualLanguage()[7]);
+                }
+            }
+            public void onFinish(){cancel();finish();}
+        }.start();
+    }
+
+
+    @Override
+    public void onBackPressed()
+    {
+        if(screennumber!=7)super.onBackPressed();
+    }
 
     int getScreenNumber()
     {
@@ -761,7 +793,8 @@ public class MyActivity extends Activity implements View.OnClickListener
             whichButton = 1 -> Start (General playscreen)
             whichButton = 2 -> Info
             whichButton = 3 -> Credits
-            whichButton = 6-> Endscreen*/
+            whichButton = 6 -> Endscreen
+            whichButton = 7 -> Sponsorscreen*/
 
         final Intent nextIntent=new Intent(this, MyActivity.class);
         if(whichButton==1)
@@ -776,11 +809,14 @@ public class MyActivity extends Activity implements View.OnClickListener
         {
             nextIntent.putExtra("screenNumber",3);
         }
-        else
+        else if(whichButton==6)
         {
             nextIntent.putExtra("screenNumber",6);
         }
-
+        else if(whichButton==7)
+        {
+            nextIntent.putExtra("screenNumber",7);
+        }
         startActivity(nextIntent);
 
         /*
@@ -825,9 +861,19 @@ public class MyActivity extends Activity implements View.OnClickListener
         }
         else if(screennumber==6) //end-screen
         {
-            tv1.setText(language.getActualLanguage()[9]);  //we don't need 7 and 8
-            tv2.setText(language.getActualLanguage()[10]+qh.getRight()+ language.getActualLanguage()[11]);
-            qh = null;
+            if(qh.getRight()<=6)
+            {
+                tv1.setText(language.getActualLanguage()[9]);
+                tv2.setText(language.getActualLanguage()[10]+qh.getRight()+ language.getActualLanguage()[11]);
+                qh = null;
+            }
+            else
+            {
+                tv1.setText(language.getActualLanguage()[9]);
+                tv2.setText(language.getActualLanguage()[10]+qh.getRight()+ language.getActualLanguage()[11]);
+                qh = null;
+            }
+
         }
     }
 
@@ -852,7 +898,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         intent.setData(Uri.parse("http://www.google.com"));
         startActivity(intent);*/
 
-        if(whichButton<=3 || whichButton==6)
+        if(whichButton<=3 || whichButton==6 || whichButton==7)
         {
             goToNextScreen(whichButton);
         }
