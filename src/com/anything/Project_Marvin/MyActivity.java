@@ -1,6 +1,9 @@
 package com.anything.Project_Marvin;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -157,6 +160,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btQuestion.setTextColor(getResources().getColor(R.color.green));
         btQuestion.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btQuestion.setText("TOP");
+        btQuestion.setTag("106");
         layout.removeView(btQuestion);
         gridLayout.addView(btQuestion, second);
 
@@ -246,7 +250,6 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         layout.addView(gridLayout);
     }
-
     public void InfoScreen()
     {
         int padding = 0;
@@ -370,7 +373,6 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         layout.addView(gridLayout);
     }
-
     public void StartScreen()
     {
         int padding = 0;
@@ -646,6 +648,8 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         Button infoButton=(Button) findViewById(R.id.btInfo);
         infoButton.setOnClickListener(this);
+        Button questionButton=(Button) findViewById(R.id.btQuestion);
+        questionButton.setOnClickListener(this);
 
         TextView tv = (TextView) findViewById(R.id.btQuestion);
 
@@ -820,6 +824,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         }
     }
 
+
+
     public void onClick(View v)
     {
         Button button=(Button) v;
@@ -846,6 +852,19 @@ public class MyActivity extends Activity implements View.OnClickListener
         else if(whichButton==4 || whichButton==5)
         {
             identifyLanguage(whichButton);
+        }
+        else if(whichButton==106)
+        {
+            new AlertDialog.Builder(this)
+                    .setTitle(language.getActualLanguage()[13])
+                    .setMessage("Du hoffnungsloser Loser...")
+                    .setNeutralButton(language.getActualLanguage()[14], new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .show();
         }
         else
         {
