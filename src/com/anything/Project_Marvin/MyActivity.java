@@ -100,6 +100,8 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     public void PlayScreen()
     {
+        int padding = 0;
+
         ViewGroup layout = (ViewGroup)findViewById(R.id.playScreenLayout);
         GridLayout.Spec row0 = GridLayout.spec(0);
         GridLayout.Spec row1 = GridLayout.spec(1);
@@ -122,8 +124,8 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         ImageView ivLogo = (ImageView)layout.findViewById(R.id.ivLogo);
         GridLayout.LayoutParams zero = new GridLayout.LayoutParams(row0,colspan1);
-        zero.width = (screenWidth/3)*2;
-        zero.height = fifthScreenHeight;
+        zero.width = (screenWidth/3)*2-padding;
+        zero.height = fifthScreenHeight-padding;
         ivLogo.setLayoutParams(zero);
         ivLogo.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         layout.removeView(ivLogo);
@@ -132,8 +134,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button btInfo = (Button) layout.findViewById(R.id.btInfo);
         btInfo.setOnClickListener(this);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(row0,col2);
-        first.width = thirdScreenWidth;
-        first.height = fifthScreenHeight;
+        first.width = thirdScreenWidth-padding;
+        first.height = fifthScreenHeight-padding;
         btInfo.setGravity(Gravity.CENTER);
         btInfo.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
         btInfo.setText("Info");
@@ -147,8 +149,8 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         TextView btQuestion = (TextView) layout.findViewById(R.id.btQuestion);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(row1,colspan2);
-        second.width = screenWidth;
-        second.height = fifthScreenHeight;
+        second.width = screenWidth-padding;
+        second.height = fifthScreenHeight-padding;
         btQuestion.setLayoutParams(second);
         btQuestion.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btQuestion.setGravity(Gravity.CENTER);
@@ -161,8 +163,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button btAnswer1 = (Button) layout.findViewById(R.id.btAnswer1);
         btAnswer1.setOnClickListener(this);
         GridLayout.LayoutParams third = new GridLayout.LayoutParams(row2,col0);
-        third.width = thirdScreenWidth;
-        third.height = fifthScreenHeight;
+        third.width = thirdScreenWidth-padding;
+        third.height = fifthScreenHeight-padding;
         btAnswer1.setLayoutParams(third);
         btAnswer1.setGravity(Gravity.CENTER);
         btAnswer1.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
@@ -177,8 +179,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button btAnswer2 = (Button) layout.findViewById(R.id.btAnswer2);
         btAnswer2.setOnClickListener(this);
         GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row2,col2);
-        fourth.width = thirdScreenWidth;
-        fourth.height = fifthScreenHeight;
+        fourth.width = thirdScreenWidth-padding;
+        fourth.height = fifthScreenHeight-padding;
         btAnswer2.setLayoutParams(fourth);
         btAnswer2.setGravity(Gravity.CENTER);
         btAnswer2.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
@@ -193,8 +195,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button btAnswer3 = (Button) layout.findViewById(R.id.btAnswer3);
         btAnswer3.setOnClickListener(this);
         GridLayout.LayoutParams fifth = new GridLayout.LayoutParams(row3,col1);
-        fifth.width = thirdScreenWidth;
-        fifth.height = fifthScreenHeight;
+        fifth.width = thirdScreenWidth-padding;
+        fifth.height = fifthScreenHeight-padding;
         btAnswer3.setLayoutParams(fifth);
         btAnswer3.setGravity(Gravity.CENTER);
         btAnswer3.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
@@ -209,8 +211,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button btAnswer4 = (Button) layout.findViewById(R.id.btAnswer4);
         btAnswer4.setOnClickListener(this);
         GridLayout.LayoutParams sixth = new GridLayout.LayoutParams(row4,col0);
-        sixth.width = thirdScreenWidth;
-        sixth.height = fifthScreenHeight;
+        sixth.width = thirdScreenWidth-padding;
+        sixth.height = fifthScreenHeight-padding;
         btAnswer4.setLayoutParams(sixth);
         btAnswer4.setGravity(Gravity.CENTER);
         btAnswer4.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
@@ -225,8 +227,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button btAnswer5 = (Button) layout.findViewById(R.id.btAnswer5);
         btAnswer5.setOnClickListener(this);
         GridLayout.LayoutParams seventh = new GridLayout.LayoutParams(row4,col2);
-        seventh.width = thirdScreenWidth;
-        seventh.height = fifthScreenHeight;
+        seventh.width = thirdScreenWidth-padding;
+        seventh.height = fifthScreenHeight-padding;
         btAnswer5.setLayoutParams(seventh);
         btAnswer5.setGravity(Gravity.CENTER);
         btAnswer5.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
@@ -240,11 +242,15 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         //gridLayout.setUseDefaultMargins(true);
 
+        layout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
+
         layout.addView(gridLayout);
     }
 
     public void InfoScreen()
     {
+        int padding = 0;
+
         ViewGroup layout = (ViewGroup)findViewById(R.id.InfoLayout);
         GridLayout.Spec row0 = GridLayout.spec(0);
         GridLayout.Spec row1 = GridLayout.spec(1);
@@ -264,16 +270,16 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         ImageView ivInfoMarvin = (ImageView) layout.findViewById(R.id.ivInfoMarvin);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,col0);
-        first.width = halfScreenWidth;
-        first.height = fifthScreenHeight*4;
+        first.width = halfScreenWidth-padding;
+        first.height = fifthScreenHeight*4-padding;
         ivInfoMarvin.setLayoutParams(first);
         layout.removeView(ivInfoMarvin);
         gridLayout.addView(ivInfoMarvin, first);
 
         TextView tvInfo1 = (TextView) layout.findViewById(R.id.tvInfo1);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(row0,colspan);
-        second.width = screenWidth;
-        second.height = fifthScreenHeight;
+        second.width = screenWidth-padding;
+        second.height = fifthScreenHeight-padding;
         tvInfo1.setLayoutParams(second);
         tvInfo1.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
         tvInfo1.setGravity(Gravity.CENTER);
@@ -284,8 +290,8 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         TextView tvInfo2 = (TextView) layout.findViewById(R.id.tvInfo2);
         GridLayout.LayoutParams third = new GridLayout.LayoutParams(rowspan1,col1);
-        third.width = halfScreenWidth;
-        third.height = fifthScreenHeight*3;
+        third.width = halfScreenWidth-padding;
+        third.height = fifthScreenHeight*3-padding;
         tvInfo2.setLayoutParams(third);
         tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.textView));
         tvInfo2.setGravity(Gravity.CENTER);
@@ -297,8 +303,8 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         TextView tvInfo3 = (TextView) layout.findViewById(R.id.tvInfo3);
         GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row4,col1);
-        fourth.width = halfScreenWidth;
-        fourth.height = fifthScreenHeight;
+        fourth.width = halfScreenWidth-padding;
+        fourth.height = fifthScreenHeight-padding;
         tvInfo3.setLayoutParams(fourth);
         tvInfo3.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.textView));
         tvInfo3.setGravity(Gravity.CENTER);
@@ -308,6 +314,9 @@ public class MyActivity extends Activity implements View.OnClickListener
         gridLayout.addView(tvInfo3, fourth);
 
         gridLayout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
+
+
+        layout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
 
         layout.addView(gridLayout);
     }
@@ -364,21 +373,18 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     public void StartScreen()
     {
+        int padding = 0;
+
         ViewGroup layout = (ViewGroup)findViewById(R.id.MainScreenLayout);
 
-        GridLayout.Spec row0 = GridLayout.spec(0);
-        GridLayout.Spec row1 = GridLayout.spec(1);
-        GridLayout.Spec row2 = GridLayout.spec(2);
-        GridLayout.Spec row3 = GridLayout.spec(3);
-        GridLayout.Spec row4 = GridLayout.spec(4);
-        GridLayout.Spec row5 = GridLayout.spec(5);
+
+
         GridLayout.Spec row6 = GridLayout.spec(6);
-        GridLayout.Spec row7 = GridLayout.spec(7);
+
         GridLayout.Spec row8 = GridLayout.spec(8);
-        GridLayout.Spec row9 = GridLayout.spec(9);
+
         GridLayout.Spec row10 = GridLayout.spec(10);
-        GridLayout.Spec row11 = GridLayout.spec(11);
-        GridLayout.Spec row12 = GridLayout.spec(12);
+
 
         GridLayout.Spec rowspan0 = GridLayout.spec(0,6);
         GridLayout.Spec rowspan1 = GridLayout.spec(6,3);
@@ -386,26 +392,26 @@ public class MyActivity extends Activity implements View.OnClickListener
         GridLayout.Spec rowspan3 = GridLayout.spec(0,13);
 
 
-        GridLayout.Spec col0 = GridLayout.spec(0);
-        GridLayout.Spec col1 = GridLayout.spec(1);
+
         GridLayout.Spec col2 = GridLayout.spec(2);
-        GridLayout.Spec col3 = GridLayout.spec(3);
-        GridLayout.Spec col4 = GridLayout.spec(4);
+
         GridLayout.Spec colspan = GridLayout.spec(0,2);
-        GridLayout.Spec colspan1 = GridLayout.spec(3,1);
+
         GridLayout.Spec colspan2 = GridLayout.spec(3,2);
         GridLayout.Spec colspan3 = GridLayout.spec(2,3);
+
 
         GridLayout gridLayout = new GridLayout(this);
         gridLayout.setColumnCount(5);
         gridLayout.setRowCount(13);
         gridLayout.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
 
+        gridLayout.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
 
         ImageView ivMainMarvin = (ImageView) layout.findViewById(R.id.ivMainMarvin);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,colspan);
-        first.width = fifthScreenWidth*2;
-        first.height = thirteenthScreenHeight *6;
+        first.width = fifthScreenWidth*2-padding;
+        first.height = thirteenthScreenHeight *6-padding;
         ivMainMarvin.setLayoutParams(first);
         layout.removeView(ivMainMarvin);
         gridLayout.addView(ivMainMarvin, first);
@@ -413,11 +419,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button start = (Button) layout.findViewById(R.id.start);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(row6,colspan2);
         start.setOnClickListener(this);
-        second.width = fifthScreenWidth*2;
-        second.height = thirteenthScreenHeight;
+        second.width = fifthScreenWidth*2-padding;
+        second.height = thirteenthScreenHeight-padding;
         start.setLayoutParams(second);
         start.setGravity(Gravity.CENTER);
-        start.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
+        start.setBackgroundColor(this.getResources().getColor(R.color.button_col));
         start.setText("Start");
         start.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         start.setTextColor(getResources().getColor(R.color.green));
@@ -429,11 +435,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button info = (Button) layout.findViewById(R.id.info);
         info.setOnClickListener(this);
         GridLayout.LayoutParams third = new GridLayout.LayoutParams(row8,colspan2);
-        third.width = fifthScreenWidth*2;
-        third.height = thirteenthScreenHeight;
+        third.width = fifthScreenWidth*2-padding;
+        third.height = thirteenthScreenHeight-padding;
         info.setLayoutParams(third);
         info.setGravity(Gravity.CENTER);
-        info.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
+        info.setBackgroundColor(this.getResources().getColor(R.color.button_col));
         info.setText("Info");
         info.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         info.setTag("2");
@@ -445,11 +451,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button credits = (Button) layout.findViewById(R.id.credits);
         credits.setOnClickListener(this);
         GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row10,colspan2);
-        fourth.width = fifthScreenWidth*2;
-        fourth.height = thirteenthScreenHeight;
+        fourth.width = fifthScreenWidth*2-padding;
+        fourth.height = thirteenthScreenHeight-padding;
         credits.setLayoutParams(fourth);
         credits.setGravity(Gravity.CENTER);
-        credits.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
+        credits.setBackgroundColor(this.getResources().getColor(R.color.button_col));
         credits.setText("Credits");
         credits.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.button));
         credits.setBackground(getResources().getDrawable(R.drawable.button_border));
@@ -461,8 +467,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button deu = (Button) layout.findViewById(R.id.deu);
         deu.setOnClickListener(this);
         GridLayout.LayoutParams fifth = new GridLayout.LayoutParams(rowspan1,colspan);
-        fifth.width = fifthScreenWidth*2;
-        fifth.height = thirteenthScreenHeight *3;
+        fifth.width = fifthScreenWidth*2-padding;
+        fifth.height = thirteenthScreenHeight *3-padding;
         deu.setLayoutParams(fifth);
         deu.setGravity(Gravity.CENTER);
         deu.setBackgroundColor(Color.RED);
@@ -476,8 +482,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button eng = (Button) layout.findViewById(R.id.eng);
         eng.setOnClickListener(this);
         GridLayout.LayoutParams sixth = new GridLayout.LayoutParams(rowspan2,colspan);
-        sixth.width = fifthScreenWidth*2;
-        sixth.height = thirteenthScreenHeight *3;
+        sixth.width = fifthScreenWidth*2-padding;
+        sixth.height = thirteenthScreenHeight *3-padding;
         eng.setLayoutParams(second);
         eng.setGravity(Gravity.CENTER);
         eng.setTag("5");
@@ -487,16 +493,16 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         Space spColumnPlaceholder = (Space) layout.findViewById(R.id.spMainColumnPlaceholder);
         GridLayout.LayoutParams seventh = new GridLayout.LayoutParams(rowspan3,col2);
-        seventh.width = fifthScreenWidth;
-        seventh.height = screenHeight;
+        seventh.width = fifthScreenWidth-padding;
+        seventh.height = screenHeight-padding;
         spColumnPlaceholder.setLayoutParams(seventh);
         layout.removeView(spColumnPlaceholder);
         gridLayout.addView(spColumnPlaceholder, seventh);
 
         TextView tvMainText = (TextView)layout.findViewById(R.id.tvStartText);
         GridLayout.LayoutParams eighth = new GridLayout.LayoutParams(rowspan0,colspan3);
-        eighth.width = fifthScreenWidth*3;
-        eighth.height = thirteenthScreenHeight *6;
+        eighth.width = fifthScreenWidth*3-padding;
+        eighth.height = thirteenthScreenHeight *6-padding;
         tvMainText.setLayoutParams(eighth);
         tvMainText.setText("dsfsdfsdfsdfsfsdfsdf");
         tvMainText.setTextColor(getResources().getColor(R.color.green));
@@ -505,9 +511,9 @@ public class MyActivity extends Activity implements View.OnClickListener
         layout.removeView(tvMainText);
         gridLayout.addView(tvMainText,eighth);
 
-        //gridLayout.setBackground(getResources().getDrawable(R.drawable.layout_border));
         //gridLayout.setUseDefaultMargins(true);
 
+        layout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
         layout.addView(gridLayout);
     }
     private void EndScreen()
@@ -573,6 +579,49 @@ public class MyActivity extends Activity implements View.OnClickListener
         layout.addView(gridLayout);
     }
 
+
+    public void SponsorScreen()
+    {
+        ViewGroup layout = (ViewGroup)findViewById(R.id.SponsorScreenLayout);
+        GridLayout.Spec row0 = GridLayout.spec(0);
+        GridLayout.Spec row1 = GridLayout.spec(1);
+        GridLayout.Spec row2 = GridLayout.spec(2);
+
+
+        GridLayout.Spec col0 = GridLayout.spec(0);
+        GridLayout.Spec col1 = GridLayout.spec(1);
+        GridLayout.Spec colspan = GridLayout.spec(0,2);
+
+        GridLayout gridLayout = new GridLayout(this);
+        gridLayout.setColumnCount(2);
+        gridLayout.setRowCount(3);
+
+
+
+        TextView tvSponsorText = (TextView) layout.findViewById(R.id.tvSponsorText);
+        GridLayout.LayoutParams first = new GridLayout.LayoutParams(row0,colspan);
+        first.width = screenWidth;
+        first.height = thirdScreenHeight;
+        tvSponsorText.setLayoutParams(first);
+        tvSponsorText.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
+        tvSponsorText.setGravity(Gravity.CENTER);
+        tvSponsorText.setText("11111111111111");
+        tvSponsorText.setTextColor(getResources().getColor(R.color.green));
+        layout.removeView(tvSponsorText);
+        gridLayout.addView(tvSponsorText, first);
+
+        ImageView ivSponsorPicture = (ImageView) layout.findViewById(R.id.ivSponsorPicture1);
+        GridLayout.LayoutParams second = new GridLayout.LayoutParams(row1,col0);
+        second.width = thirdScreenWidth;
+        second.height = thirdScreenHeight;
+        ivSponsorPicture.setLayoutParams(second);
+        layout.removeView(ivSponsorPicture);
+        gridLayout.addView(ivSponsorPicture, second);
+
+        gridLayout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
+
+        layout.addView(gridLayout);
+    }
 
     public void thingsConcerningPlayScreen(boolean neu)
     {

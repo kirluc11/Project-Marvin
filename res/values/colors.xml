@@ -7,5 +7,6 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="green">#217844</color>
+    <color name="button_col">#C3B2CD</color>
 
 </resources>
