@@ -863,8 +863,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         {
             if(qh.getRight()<=6)
             {
-                tv1.setText(language.getActualLanguage()[9]);
-                tv2.setText(language.getActualLanguage()[10]+qh.getRight()+ language.getActualLanguage()[11]);
+                tv1.setText(language.getActualLanguage()[16]);
+                tv2.setText(language.getActualLanguage()[17]+qh.getRight()+ language.getActualLanguage()[11]);
                 qh = null;
             }
             else
