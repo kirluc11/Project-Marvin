@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.TypedValue;
@@ -309,7 +310,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         fourth.width = halfScreenWidth-padding;
         fourth.height = fifthScreenHeight-padding;
         tvInfo3.setLayoutParams(fourth);
-        tvInfo3.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.textView));
+        tvInfo3.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.textView));
         tvInfo3.setGravity(Gravity.CENTER);
         tvInfo3.setTextColor(getResources().getColor(R.color.green));
         tvInfo3.setText("TOP");
@@ -354,7 +355,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         first.width = screenWidth;
         first.height = eigthScreenHeight *3;
         tvCreditsText.setLayoutParams(first);
-        tvCreditsText.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
+        tvCreditsText.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.headings));
         tvCreditsText.setGravity(Gravity.CENTER);
         tvCreditsText.setText("11111111111111");
         tvCreditsText.setTextColor(getResources().getColor(R.color.green));
@@ -646,6 +647,12 @@ public class MyActivity extends Activity implements View.OnClickListener
         Button b5=(Button) findViewById(R.id.btAnswer5);
         b5.setOnClickListener(this);
 
+        /*b1.setTypeface(Typeface.MONOSPACE);
+        b2.setTypeface(Typeface.MONOSPACE);
+        b3.setTypeface(Typeface.MONOSPACE);
+        b4.setTypeface(Typeface.MONOSPACE);
+        b5.setTypeface(Typeface.MONOSPACE);*/
+
         Button infoButton=(Button) findViewById(R.id.btInfo);
         infoButton.setOnClickListener(this);
         Button questionButton=(Button) findViewById(R.id.btQuestion);
@@ -857,7 +864,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         {
             new AlertDialog.Builder(this)
                     .setTitle(language.getActualLanguage()[13])
-                    .setMessage("Du hoffnungsloser Loser...")
+                    .setMessage(qh.getHint())
                     .setNeutralButton(language.getActualLanguage()[14], new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // continue with delete

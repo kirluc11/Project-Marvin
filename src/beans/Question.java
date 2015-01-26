@@ -115,4 +115,44 @@ public class Question implements Serializable
                 + ", " + gerWrongAnswers + "} "
                 + "hint: " + gerHint + "\n";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Question)) return false;
+
+        Question question = (Question) o;
+
+        if (cat != null ? !cat.equals(question.cat) : question.cat != null) return false;
+        if (engHint != null ? !engHint.equals(question.engHint) : question.engHint != null) return false;
+        if (engQuestion != null ? !engQuestion.equals(question.engQuestion) : question.engQuestion != null)
+            return false;
+        if (engRightAnswer != null ? !engRightAnswer.equals(question.engRightAnswer) : question.engRightAnswer != null)
+            return false;
+        if (engWrongAnswers != null ? !engWrongAnswers.equals(question.engWrongAnswers) : question.engWrongAnswers != null)
+            return false;
+        if (gerHint != null ? !gerHint.equals(question.gerHint) : question.gerHint != null) return false;
+        if (gerQuestion != null ? !gerQuestion.equals(question.gerQuestion) : question.gerQuestion != null)
+            return false;
+        if (gerRightAnswer != null ? !gerRightAnswer.equals(question.gerRightAnswer) : question.gerRightAnswer != null)
+            return false;
+        if (gerWrongAnswers != null ? !gerWrongAnswers.equals(question.gerWrongAnswers) : question.gerWrongAnswers != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = gerQuestion != null ? gerQuestion.hashCode() : 0;
+        result = 31 * result + (gerRightAnswer != null ? gerRightAnswer.hashCode() : 0);
+        result = 31 * result + (gerWrongAnswers != null ? gerWrongAnswers.hashCode() : 0);
+        result = 31 * result + (gerHint != null ? gerHint.hashCode() : 0);
+        result = 31 * result + (cat != null ? cat.hashCode() : 0);
+        result = 31 * result + (engQuestion != null ? engQuestion.hashCode() : 0);
+        result = 31 * result + (engRightAnswer != null ? engRightAnswer.hashCode() : 0);
+        result = 31 * result + (engWrongAnswers != null ? engWrongAnswers.hashCode() : 0);
+        result = 31 * result + (engHint != null ? engHint.hashCode() : 0);
+        return result;
+    }
 }

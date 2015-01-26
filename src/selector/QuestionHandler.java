@@ -18,6 +18,8 @@ public class QuestionHandler {
     private boolean currentQuestionAnswered = true;
     private LinkedList<String> currentQuestionAnswers = null;
     private int right = 0;
+    private int takenHints = 0;
+    private Question lastHintQuestion;
 
 
     public QuestionHandler(AssetManager am) throws Exception {
@@ -52,6 +54,7 @@ public class QuestionHandler {
             {
                 currentQuestionAnswers = null;
             }
+            answer.replaceAll(" ", "\n");
             return answer;
         }
         return null;
@@ -75,6 +78,27 @@ public class QuestionHandler {
 
     public int getRight() {
         return right;
+    }
+
+    public String getHint()
+    {
+        if(currentQuestion.equals(lastHintQuestion))
+        {
+            return Language.getInstance().isEnglish() ? currentQuestion.getEngHint() : currentQuestion.getGerHint();
+        }
+        else
+        {
+            if(takenHints < 2)
+            {
+                takenHints++;
+                lastHintQuestion = currentQuestion;
+                return Language.getInstance().isEnglish() ? currentQuestion.getEngHint() : currentQuestion.getGerHint();
+            }
+            else
+            {
+                return Language.getInstance().getActualLanguage()[15];
+            }
+        }
     }
 
     /**

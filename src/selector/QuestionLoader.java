@@ -45,24 +45,26 @@ public class QuestionLoader implements Serializable{
         {
             String[] parts = line.split(";");
 
+            final int MAX = 10;
+
             String gerQuestion = parts[0];
-            String gerRightAnswer = parts[1];
+            String gerRightAnswer = parts[1].length() > MAX ? parts[1].replaceFirst("\\s+", "\n") : parts[1];
             LinkedList<String> gerWrongAnswers = new LinkedList<String>();
-            gerWrongAnswers.add(parts[2]);
-            gerWrongAnswers.add(parts[3]);
-            gerWrongAnswers.add(parts[4]);
-            gerWrongAnswers.add(parts[5]);
+            gerWrongAnswers.add(parts[2].length() > MAX ? parts[2].replaceFirst("\\s+", "\n") : parts[2]);
+            gerWrongAnswers.add(parts[3].length() > MAX ? parts[3].replaceFirst("\\s+", "\n") : parts[3]);
+            gerWrongAnswers.add(parts[4].length() > MAX ? parts[4].replaceFirst("\\s+", "\n") : parts[4]);
+            gerWrongAnswers.add(parts[5].length() > MAX ? parts[5].replaceFirst("\\s+", "\n") : parts[5]);
             String gerHint = parts[6];
 
             String cat = parts[7];
 
             String engQuestion = parts[8];
-            String engRightAnswer = parts[9];
+            String engRightAnswer = parts[9].length() > MAX ? parts[9].replaceFirst("\\s+", "\n") : parts[9];
             LinkedList<String> engWrongAnswers = new LinkedList<String>();
-            engWrongAnswers.add(parts[10]);
-            engWrongAnswers.add(parts[11]);
-            engWrongAnswers.add(parts[12]);
-            engWrongAnswers.add(parts[13]);
+            engWrongAnswers.add(parts[10].length() > MAX ? parts[10].replaceFirst("\\s+", "\n") : parts[10]);
+            engWrongAnswers.add(parts[11].length() > MAX ? parts[11].replaceFirst("\\s+", "\n") : parts[11]);
+            engWrongAnswers.add(parts[12].length() > MAX ? parts[12].replaceFirst("\\s+", "\n") : parts[12]);
+            engWrongAnswers.add(parts[13].length() > MAX ? parts[13].replaceFirst("\\s+", "\n") : parts[13]);
             String engHint = parts[14];
 
             /*String gerQuestion = fixUml(parts[0]);
