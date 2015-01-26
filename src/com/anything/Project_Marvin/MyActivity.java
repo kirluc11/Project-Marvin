@@ -2,12 +2,10 @@ package com.anything.Project_Marvin;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.TypedValue;
@@ -697,6 +695,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         } catch (Exception e) {}
     }
+
     public void thingsConcerningInfoScreen()
     {
         setContentView(R.layout.info_screen);
@@ -706,6 +705,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         info2= (TextView) findViewById(R.id.tvInfo2);
         info3= (TextView) findViewById(R.id.tvInfo3);
     }
+
     public void thingsConcerningCreditsScreen()
     {
         setContentView(R.layout.credits_screen);
@@ -713,23 +713,8 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         creditsScreenTV = (TextView) findViewById(R.id.tvCreditsText);
 
-        //To close an intent after a specified time (first parameter in milliseconds, do not modify the second).
-        /*new CountDownTimer(10000, 100)
-        {
-            public void onTick(long millisUntilFinished)
-            {
-                if(millisUntilFinished<=1000)
-                {
-                    creditsScreenTV.setText((millisUntilFinished/1000+1)+language.getActualLanguage()[8]);
-                }
-                else
-                {
-                    creditsScreenTV.setText((millisUntilFinished/1000+1)+language.getActualLanguage()[7]);
-                }
-            }
-            public void onFinish(){cancel();finish();}
-        }.start();*/
     }
+
     public void thingsConcerningStartScreen()
     {
         setContentView(R.layout.main);
@@ -744,6 +729,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         start.setOnClickListener(this);
         tvOnStartScreen=(TextView) findViewById(R.id.tvStartText);
     }
+
     public void thingsConcerningEndScreen()
     {
         setContentView(R.layout.end_screen);
@@ -751,6 +737,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         tv1 = (TextView) findViewById(R.id.tvEndHeader);
         tv2 = (TextView) findViewById(R.id.tvEndSubtitle);
     }
+
     public void thingsConcerningSponsorScreen()
     {
         setContentView(R.layout.sponsor_screen);
@@ -758,7 +745,9 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         tvSponsorscreen1 = (TextView) findViewById(R.id.tvSponsorText);
         //tvSponsorscreen2 = (TextView) findViewById(R.id.tvSponsorText);
-        new CountDownTimer(10000, 100)
+
+        //To close an intent after a specified time (first parameter in milliseconds, do not modify the second).
+        new CountDownTimer(7000, 500)
         {
             public void onTick(long millisUntilFinished)
             {
@@ -773,6 +762,15 @@ public class MyActivity extends Activity implements View.OnClickListener
             }
             public void onFinish(){cancel();finish();}
         }.start();
+
+
+        //to go to a website when a button is clicked:
+        /*
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("http://www.google.com"));
+        startActivity(intent);*/
     }
 
 
@@ -890,14 +888,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         //Button  6:       Endscreen
 
 
-        //to go to a website when a button is clicked:
-        /*
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.addCategory(Intent.CATEGORY_BROWSABLE);
-        intent.setData(Uri.parse("http://www.google.com"));
-        startActivity(intent);*/
-
         if(whichButton<=3 || whichButton==6 || whichButton==7)
         {
             goToNextScreen(whichButton);
@@ -912,9 +902,7 @@ public class MyActivity extends Activity implements View.OnClickListener
                     .setTitle(language.getActualLanguage()[13])
                     .setMessage(qh.getHint())
                     .setNeutralButton(language.getActualLanguage()[14], new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // continue with delete
-                        }
+                        public void onClick(DialogInterface dialog, int which) {}
                     })
                     .setIcon(android.R.drawable.ic_dialog_info)
                     .show();
