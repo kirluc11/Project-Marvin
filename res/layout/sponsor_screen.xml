@@ -16,8 +16,14 @@
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/credits_picture"
+            android:src="@drawable/raika_logo"
             android:id="@+id/ivSponsorPicture1"
+            />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wir danken für die Unterstützung"
+            android:id="@+id/tvSponsorCountDown"
             />
 
 </LinearLayout>

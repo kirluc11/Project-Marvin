@@ -588,6 +588,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         GridLayout.Spec row0 = GridLayout.spec(0);
         GridLayout.Spec row1 = GridLayout.spec(1);
         GridLayout.Spec row2 = GridLayout.spec(2);
+        GridLayout.Spec row12 = GridLayout.spec(12);
 
 
         GridLayout.Spec col0 = GridLayout.spec(0);
@@ -596,14 +597,14 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         GridLayout gridLayout = new GridLayout(this);
         gridLayout.setColumnCount(2);
-        gridLayout.setRowCount(3);
+        gridLayout.setRowCount(13);
 
 
 
         TextView tvSponsorText = (TextView) layout.findViewById(R.id.tvSponsorText);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(row0,colspan);
         first.width = screenWidth;
-        first.height = thirdScreenHeight;
+        first.height = thirteenthScreenHeight*6;
         tvSponsorText.setLayoutParams(first);
         tvSponsorText.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
         tvSponsorText.setGravity(Gravity.CENTER);
@@ -614,11 +615,23 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         ImageView ivSponsorPicture = (ImageView) layout.findViewById(R.id.ivSponsorPicture1);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(row1,col0);
-        second.width = thirdScreenWidth;
-        second.height = thirdScreenHeight;
+        second.width = screenWidth;
+        second.height = thirteenthScreenHeight*6;
         ivSponsorPicture.setLayoutParams(second);
         layout.removeView(ivSponsorPicture);
         gridLayout.addView(ivSponsorPicture, second);
+
+        TextView tvSponsorCountDown = (TextView) layout.findViewById(R.id.tvSponsorCountDown);
+        GridLayout.LayoutParams third = new GridLayout.LayoutParams(row12,col1);
+        third.width = screenWidth;
+        third.height = thirteenthScreenHeight;
+        tvSponsorCountDown.setLayoutParams(third);
+        tvSponsorCountDown.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
+        tvSponsorCountDown.setGravity(Gravity.CENTER);
+        tvSponsorCountDown.setText("111111111232312312311111");
+        tvSponsorCountDown.setTextColor(getResources().getColor(R.color.green));
+        layout.removeView(tvSponsorCountDown);
+        gridLayout.addView(tvSponsorCountDown, third);
 
         gridLayout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
 
