@@ -62,7 +62,7 @@ public class QuestionHandler {
 
     public Question getNextQuestion()
     {
-        if(usedQuestion != null && usedQuestion.size() >= 0)
+        if(usedQuestion != null && usedQuestion.size() > 0)
         {
             if(currentQuestionAnswered)
             {

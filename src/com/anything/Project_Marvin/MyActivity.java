@@ -682,30 +682,22 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         TextView tv = (TextView) findViewById(R.id.btQuestion);
 
-        try
-        {
-            if(qh == null)
-            {
+        try {
+            if (qh == null) {
                 System.out.println("qh = null in things....");
                 qh = new QuestionHandler(getBaseContext().getApplicationContext().getAssets());
             }
 
             Question q = qh.getNextQuestion();
 
-            if(q == null)
-            {
+            if (q == null) {
                 finish();
                 goToNextScreen(6);
                 goToNextScreen(7);
-            }
-            else
-            {
-                if(Language.getInstance().isEnglish())
-                {
+            } else {
+                if (Language.getInstance().isEnglish()) {
                     tv.setText(q.getEngQuestion());
-                }
-                else
-                {
+                } else {
                     tv.setText(q.getGerQuestion());
                 }
 
@@ -716,7 +708,8 @@ public class MyActivity extends Activity implements View.OnClickListener
                 b5.setText(qh.getNextAnswer());
             }
 
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
     }
 
     public void thingsConcerningInfoScreen()
