@@ -768,7 +768,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         setContentView(R.layout.sponsor_screen);
         SponsorScreen();
 
-        tvSponsorscreen1 = (TextView) findViewById(R.id.tvSponsorCountDown);
+        //tvSponsorscreen1 = (TextView) findViewById(R.id.tvSponsorCountDown);
         tvSponsorscreen2 = (TextView) findViewById(R.id.tvSponsorText);
 
         //To close an intent after a specified time (first parameter in milliseconds, do not modify the second).
@@ -778,11 +778,11 @@ public class MyActivity extends Activity implements View.OnClickListener
             {
                 if(millisUntilFinished<=1000)
                 {
-                    tvSponsorscreen1.setText((millisUntilFinished/1000+1)+language.getActualLanguage()[8]);
+                    tvSponsorscreen2.setText(language.getActualLanguage()[18]+"\n\n"+(millisUntilFinished/1000+1)+language.getActualLanguage()[8]);
                 }
                 else
                 {
-                    tvSponsorscreen1.setText((millisUntilFinished/1000+1)+language.getActualLanguage()[7]);
+                    tvSponsorscreen2.setText(language.getActualLanguage()[18]+"\n\n"+(millisUntilFinished/1000+1)+language.getActualLanguage()[7]);
                 }
             }
             public void onFinish(){cancel();finish();}
@@ -890,10 +890,6 @@ public class MyActivity extends Activity implements View.OnClickListener
                 tv2.setText(language.getActualLanguage()[10]+qh.getRight()+ language.getActualLanguage()[11]);
                 qh = null;
             }
-        }
-        else if(screennumber==7) //sponsor screen
-        {
-            tvSponsorscreen2.setText(language.getActualLanguage()[18]);
         }
     }
 
