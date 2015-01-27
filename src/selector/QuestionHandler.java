@@ -78,7 +78,7 @@ public class QuestionHandler {
 
     public String getCat()
     {
-        return Language.getInstance().isEnglish() ? currentQuestion.getCat() : currentQuestion.getCat();
+        return Language.getInstance().isEnglish() ? currentQuestion.getEngCat() : currentQuestion.getGerCat();
     }
 
     public int getRight() {

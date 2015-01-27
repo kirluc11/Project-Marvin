@@ -13,25 +13,25 @@ public class Question implements Serializable
     private String gerRightAnswer;
     private LinkedList<String> gerWrongAnswers;
     private String gerHint;
-
-    private String cat;
+    private String gerCat;
 
     private String engQuestion;
     private String engRightAnswer;
     private LinkedList<String> engWrongAnswers;
     private String engHint;
+    private String engCat;
 
-    public Question(String gerQuestion, String gerRightAnswer, LinkedList<String> gerWrongAnswers, String gerHint, String cat, String engQuestion, String engRightAnswer, LinkedList<String> engWrongAnswers, String engHint)
-    {
+    public Question(String gerQuestion, String gerRightAnswer, LinkedList<String> gerWrongAnswers, String gerHint, String gerCat, String engQuestion, String engRightAnswer, LinkedList<String> engWrongAnswers, String engHint, String engCat) {
         this.gerQuestion = gerQuestion;
         this.gerRightAnswer = gerRightAnswer;
         this.gerWrongAnswers = gerWrongAnswers;
         this.gerHint = gerHint;
-        this.cat = cat;
+        this.gerCat = gerCat;
         this.engQuestion = engQuestion;
         this.engRightAnswer = engRightAnswer;
         this.engWrongAnswers = engWrongAnswers;
         this.engHint = engHint;
+        this.engCat = engCat;
     }
 
     public String getGerQuestion() {
@@ -66,12 +66,20 @@ public class Question implements Serializable
         this.gerHint = gerHint;
     }
 
-    public String getCat() {
-        return cat;
+    public String getGerCat() {
+        return gerCat;
     }
 
-    public void setCat(String cat) {
-        this.cat = cat;
+    public void setGerCat(String gerCat) {
+        this.gerCat = gerCat;
+    }
+
+    public String getEngCat() {
+        return engCat;
+    }
+
+    public void setEngCat(String engCat) {
+        this.engCat = engCat;
     }
 
     public String getEngQuestion() {
@@ -109,7 +117,7 @@ public class Question implements Serializable
     @Override
     public String toString() {
         return "Question{"
-                + "cat: " + cat + " {"
+                + "cat: " +gerCat + " {"
                 + gerQuestion + " "
                 + gerRightAnswer
                 + ", " + gerWrongAnswers + "} "
@@ -123,7 +131,7 @@ public class Question implements Serializable
 
         Question question = (Question) o;
 
-        if (cat != null ? !cat.equals(question.cat) : question.cat != null) return false;
+        if (engCat != null ? !engCat.equals(question.engCat) : question.engCat != null) return false;
         if (engHint != null ? !engHint.equals(question.engHint) : question.engHint != null) return false;
         if (engQuestion != null ? !engQuestion.equals(question.engQuestion) : question.engQuestion != null)
             return false;
@@ -131,6 +139,7 @@ public class Question implements Serializable
             return false;
         if (engWrongAnswers != null ? !engWrongAnswers.equals(question.engWrongAnswers) : question.engWrongAnswers != null)
             return false;
+        if (gerCat != null ? !gerCat.equals(question.gerCat) : question.gerCat != null) return false;
         if (gerHint != null ? !gerHint.equals(question.gerHint) : question.gerHint != null) return false;
         if (gerQuestion != null ? !gerQuestion.equals(question.gerQuestion) : question.gerQuestion != null)
             return false;
@@ -148,11 +157,12 @@ public class Question implements Serializable
         result = 31 * result + (gerRightAnswer != null ? gerRightAnswer.hashCode() : 0);
         result = 31 * result + (gerWrongAnswers != null ? gerWrongAnswers.hashCode() : 0);
         result = 31 * result + (gerHint != null ? gerHint.hashCode() : 0);
-        result = 31 * result + (cat != null ? cat.hashCode() : 0);
+        result = 31 * result + (gerCat != null ? gerCat.hashCode() : 0);
         result = 31 * result + (engQuestion != null ? engQuestion.hashCode() : 0);
         result = 31 * result + (engRightAnswer != null ? engRightAnswer.hashCode() : 0);
         result = 31 * result + (engWrongAnswers != null ? engWrongAnswers.hashCode() : 0);
         result = 31 * result + (engHint != null ? engHint.hashCode() : 0);
+        result = 31 * result + (engCat != null ? engCat.hashCode() : 0);
         return result;
     }
 }

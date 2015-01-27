@@ -55,8 +55,7 @@ public class QuestionLoader implements Serializable{
             gerWrongAnswers.add(parts[4].length() > MAX ? parts[4].replaceFirst("\\s+", "\n") : parts[4]);
             gerWrongAnswers.add(parts[5].length() > MAX ? parts[5].replaceFirst("\\s+", "\n") : parts[5]);
             String gerHint = parts[6];
-
-            String cat = parts[7];
+            String gerCat = parts[7];
 
             String engQuestion = parts[8];
             String engRightAnswer = parts[9].length() > MAX ? parts[9].replaceFirst("\\s+", "\n") : parts[9];
@@ -66,6 +65,7 @@ public class QuestionLoader implements Serializable{
             engWrongAnswers.add(parts[12].length() > MAX ? parts[12].replaceFirst("\\s+", "\n") : parts[12]);
             engWrongAnswers.add(parts[13].length() > MAX ? parts[13].replaceFirst("\\s+", "\n") : parts[13]);
             String engHint = parts[14];
+            String engCat = parts[7];
 
             /*String gerQuestion = fixUml(parts[0]);
             String gerRightAnswer = fixUml(parts[1]);
@@ -87,11 +87,11 @@ public class QuestionLoader implements Serializable{
             engWrongAnswers.add(fixUml(parts[13]));
             String engHint = fixUml(parts[14]);*/
 
-            Question q = new Question(gerQuestion,gerRightAnswer,gerWrongAnswers,gerHint,cat,engQuestion,engRightAnswer,engWrongAnswers,engHint);
+            Question q = new Question(gerQuestion,gerRightAnswer,gerWrongAnswers,gerHint,gerCat,engQuestion,engRightAnswer,engWrongAnswers,engHint, engCat);
             sortInCatList(q);
-            if(!keys.contains(cat))
+            if(!keys.contains(gerCat))
             {
-                keys.add(cat);
+                keys.add(gerCat);
             }
         }
     }
@@ -113,13 +113,13 @@ public class QuestionLoader implements Serializable{
 
     private void sortInCatList(Question q)
     {
-        LinkedList<Question> qForCat = questions.get(q.getCat());
+        LinkedList<Question> qForCat = questions.get(q.getGerCat());
         if(qForCat == null)
         {
             qForCat = new LinkedList<Question>();
         }
         qForCat.add(q);
-        questions.put(q.getCat(), qForCat);
+        questions.put(q.getGerCat(), qForCat);
     }
 
     public LinkedHashMap<String, LinkedList<Question>> getQuestions() {
