@@ -13,11 +13,10 @@
             android:text="Wir danken für die Unterstützung"
             android:id="@+id/tvSponsorText"
             />
-    <ImageView
+    <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/raika_logo"
-            android:id="@+id/ivSponsorPicture1"
+            android:id="@+id/btSponsorPicture1"
             />
     <TextView
             android:layout_width="wrap_content"
@@ -25,5 +24,9 @@
             android:text="Wir danken für die Unterstützung"
             android:id="@+id/tvSponsorCountDown"
             />
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spSponsorRowPlaceholder"/>
 
 </LinearLayout>

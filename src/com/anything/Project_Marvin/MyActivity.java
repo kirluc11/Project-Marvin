@@ -589,7 +589,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         GridLayout.Spec row1 = GridLayout.spec(1);
         GridLayout.Spec row2 = GridLayout.spec(2);
         GridLayout.Spec row12 = GridLayout.spec(12);
-
+        GridLayout.Spec rowspan = GridLayout.spec(6,3);
 
         GridLayout.Spec col0 = GridLayout.spec(0);
         GridLayout.Spec col1 = GridLayout.spec(1);
@@ -613,13 +613,15 @@ public class MyActivity extends Activity implements View.OnClickListener
         layout.removeView(tvSponsorText);
         gridLayout.addView(tvSponsorText, first);
 
-        ImageView ivSponsorPicture = (ImageView) layout.findViewById(R.id.ivSponsorPicture1);
+        Button btSponsorPicture = (Button) layout.findViewById(R.id.btSponsorPicture1);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(row1,col0);
         second.width = screenWidth;
-        second.height = thirteenthScreenHeight*6;
-        ivSponsorPicture.setLayoutParams(second);
-        layout.removeView(ivSponsorPicture);
-        gridLayout.addView(ivSponsorPicture, second);
+        second.height = thirteenthScreenHeight*3;
+        btSponsorPicture.setLayoutParams(second);
+        btSponsorPicture.setTag("10");
+        btSponsorPicture.setBackgroundResource(R.drawable.raika_logo);
+        layout.removeView(btSponsorPicture);
+        gridLayout.addView(btSponsorPicture, second);
 
         TextView tvSponsorCountDown = (TextView) layout.findViewById(R.id.tvSponsorCountDown);
         GridLayout.LayoutParams third = new GridLayout.LayoutParams(row12,col1);
@@ -632,6 +634,14 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvSponsorCountDown.setTextColor(getResources().getColor(R.color.green));
         layout.removeView(tvSponsorCountDown);
         gridLayout.addView(tvSponsorCountDown, third);
+
+        Space spRowPlaceholder = (Space) layout.findViewById(R.id.spSponsorRowPlaceholder);
+        GridLayout.LayoutParams seventh = new GridLayout.LayoutParams(rowspan,colspan);
+        seventh.width = fifthScreenWidth-padding;
+        seventh.height = screenHeight-padding;
+        spRowPlaceholder.setLayoutParams(seventh);
+        layout.removeView(spRowPlaceholder);
+        gridLayout.addView(spRowPlaceholder, seventh);
 
         gridLayout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
 
