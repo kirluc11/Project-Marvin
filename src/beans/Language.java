@@ -16,7 +16,7 @@ public class Language
             "Drücke auf \"Start\" und beantworte 10 Fragen. Falls du Hilfe brauchst, frage Schüler, Lehrer oder klicke auf die Frage, um einen Tipp zu erhalten (du hast aber nur 2!).",
             "Hol dir zum Schluss ein kleines Geschenk! ;)",
             " Sekunden verbleiben.",
-            "Sekunde verbleibt.",
+            " Sekunde verbleibt.",
             "HERZLICHEN\nGLÜCKWUNSCH!",                         //9
             "Du hast ",
             " von 10 Fragen richtig beantwortet.",
