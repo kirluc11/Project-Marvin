@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.TypedValue;
@@ -33,6 +34,7 @@ public class MyActivity extends Activity implements View.OnClickListener
     private TextView tvOnStartScreen;
     private TextView tvSponsorscreen1;
     private TextView tvSponsorscreen2;
+    private ImageView ivSponsorscreen;
     //every thingy where the text can be changed to another language needs to be put here,
     //because it's used in the changeLanguage() method!
 
@@ -582,6 +584,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         gridLayout.addView(ivEndPicture, fourth);
         layout.addView(gridLayout);
     }
+
     public void SponsorScreen()
     {
         ViewGroup layout = (ViewGroup)findViewById(R.id.SponsorScreenLayout);
@@ -614,6 +617,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         gridLayout.addView(tvSponsorText, first);
 
         Button btSponsorPicture = (Button) layout.findViewById(R.id.btSponsorPicture1);
+        btSponsorPicture.setOnClickListener(this);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(row1,col0);
         second.width = screenWidth;
         second.height = thirteenthScreenHeight*3;
@@ -658,6 +662,7 @@ public class MyActivity extends Activity implements View.OnClickListener
             PlayScreen();
         }
 
+
         Button b1=(Button) findViewById(R.id.btAnswer1);
         b1.setOnClickListener(this);
         Button b2=(Button) findViewById(R.id.btAnswer2);
@@ -693,10 +698,16 @@ public class MyActivity extends Activity implements View.OnClickListener
                 finish();
                 goToNextScreen(6);
                 goToNextScreen(7);
-            } else {
-                if (Language.getInstance().isEnglish()) {
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(), qh.getCat(),Toast.LENGTH_LONG).show();
+                if(Language.getInstance().isEnglish())
+                {
                     tv.setText(q.getEngQuestion());
-                } else {
+                }
+                else
+                {
                     tv.setText(q.getGerQuestion());
                 }
 
@@ -707,8 +718,7 @@ public class MyActivity extends Activity implements View.OnClickListener
                 b5.setText(qh.getNextAnswer());
             }
 
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
     }
 
     public void thingsConcerningInfoScreen()
@@ -758,8 +768,8 @@ public class MyActivity extends Activity implements View.OnClickListener
         setContentView(R.layout.sponsor_screen);
         SponsorScreen();
 
-        tvSponsorscreen1 = (TextView) findViewById(R.id.tvSponsorText);
-        //tvSponsorscreen2 = (TextView) findViewById(R.id.tvSponsorText);
+        tvSponsorscreen1 = (TextView) findViewById(R.id.tvSponsorCountDown);
+        tvSponsorscreen2 = (TextView) findViewById(R.id.tvSponsorText);
 
         //To close an intent after a specified time (first parameter in milliseconds, do not modify the second).
         new CountDownTimer(7000, 500)
@@ -777,15 +787,6 @@ public class MyActivity extends Activity implements View.OnClickListener
             }
             public void onFinish(){cancel();finish();}
         }.start();
-
-
-        //to go to a website when a button is clicked:
-        /*
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.addCategory(Intent.CATEGORY_BROWSABLE);
-        intent.setData(Uri.parse("http://www.google.com"));
-        startActivity(intent);*/
     }
 
 
@@ -889,7 +890,10 @@ public class MyActivity extends Activity implements View.OnClickListener
                 tv2.setText(language.getActualLanguage()[10]+qh.getRight()+ language.getActualLanguage()[11]);
                 qh = null;
             }
-
+        }
+        else if(screennumber==7) //sponsor screen
+        {
+            tvSponsorscreen2.setText(language.getActualLanguage()[18]);
         }
     }
 
@@ -904,6 +908,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         //Buttons 4+5:     language buttons in main.xml
         //Buttons 101-105: Answer-Buttons in general-playscreen.xml, but the tag is not used.
         //Button  6:       Endscreen
+        //Button  10:      Werbebutton Raika
 
 
         if(whichButton<=3 || whichButton==6 || whichButton==7)
@@ -924,6 +929,15 @@ public class MyActivity extends Activity implements View.OnClickListener
                     })
                     .setIcon(android.R.drawable.ic_dialog_info)
                     .show();
+        }
+        else if(whichButton==10)
+        {
+            //to go to a website when a button is clicked:
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+            intent.setData(Uri.parse("http://www.raiffeisen.at/strass"));
+            startActivity(intent);
         }
         else
         {

@@ -25,7 +25,8 @@ public class Language
             "zurück",                                           //14
             "Leider kein Tipp mehr verfügbar!",
             "Auweeeh!",
-            "Du hast leider nur "
+            "Du hast leider nur ",
+            "Wir danken für die Unterstützung!"
     };
     private final String[] ENGLISH={
             "Start",
@@ -45,7 +46,8 @@ public class Language
             "back",                                            //14
             "You don't have any hints anymore!",
             "Oh nooo!",
-            "You only got "
+            "You only got ",
+            "Thank you for your support!"
     };
     private boolean english = true;
 
