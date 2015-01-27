@@ -66,7 +66,6 @@ public class QuestionHandler {
         {
             if(currentQuestionAnswered)
             {
-                System.out.println("returned new question");
                 currentQuestionAnswered = false;
                 currentQuestion = usedQuestion.getFirst();
                 usedQuestion.removeFirst();
