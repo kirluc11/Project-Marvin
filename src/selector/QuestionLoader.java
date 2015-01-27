@@ -65,7 +65,7 @@ public class QuestionLoader implements Serializable{
             engWrongAnswers.add(parts[12].length() > MAX ? parts[12].replaceFirst("\\s+", "\n") : parts[12]);
             engWrongAnswers.add(parts[13].length() > MAX ? parts[13].replaceFirst("\\s+", "\n") : parts[13]);
             String engHint = parts[14];
-            String engCat = parts[7];
+            String engCat = parts[7] + "i'm english";
 
             /*String gerQuestion = fixUml(parts[0]);
             String gerRightAnswer = fixUml(parts[1]);
