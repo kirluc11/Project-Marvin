@@ -627,22 +627,11 @@ public class MyActivity extends Activity implements View.OnClickListener
         layout.removeView(btSponsorPicture);
         gridLayout.addView(btSponsorPicture, second);
 
-        TextView tvSponsorCountDown = (TextView) layout.findViewById(R.id.tvSponsorCountDown);
-        GridLayout.LayoutParams third = new GridLayout.LayoutParams(row12,col1);
-        third.width = screenWidth;
-        third.height = thirteenthScreenHeight;
-        tvSponsorCountDown.setLayoutParams(third);
-        tvSponsorCountDown.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
-        tvSponsorCountDown.setGravity(Gravity.CENTER);
-        tvSponsorCountDown.setText("111111111232312312311111");
-        tvSponsorCountDown.setTextColor(getResources().getColor(R.color.green));
-        layout.removeView(tvSponsorCountDown);
-        gridLayout.addView(tvSponsorCountDown, third);
 
         Space spRowPlaceholder = (Space) layout.findViewById(R.id.spSponsorRowPlaceholder);
         GridLayout.LayoutParams seventh = new GridLayout.LayoutParams(rowspan,colspan);
-        seventh.width = fifthScreenWidth-padding;
-        seventh.height = screenHeight-padding;
+        seventh.width = fifthScreenWidth;
+        seventh.height = thirteenthScreenHeight*4;
         spRowPlaceholder.setLayoutParams(seventh);
         layout.removeView(spRowPlaceholder);
         gridLayout.addView(spRowPlaceholder, seventh);

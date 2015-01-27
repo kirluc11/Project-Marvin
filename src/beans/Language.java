@@ -15,7 +15,7 @@ public class Language
             "SO WIRD GESPIELT",                                  //4
             "Drücke auf \"Start\" und beantworte 10 Fragen. Falls du Hilfe brauchst, frage Schüler, Lehrer oder klicke auf die Frage, um einen Tipp zu erhalten (du hast aber nur 2!).",
             "Hol dir zum Schluss ein kleines Geschenk! ;)",
-            " Sekunden verbleiben.",
+            " Sekunden verbleibend.",
             " Sekunde verbleibt.",
             "HERZLICHEN\nGLÜCKWUNSCH!",                         //9
             "Du hast ",
@@ -34,7 +34,7 @@ public class Language
             "Credits",
             "MARVIN AND\n\nHIS FRIENDS",
             "HOW TO PLAY",                                      //4
-            "Press \"Start\" and answer 10 questions. If you need help, ask a student, a teacher or touch the question to get a hint (but you have only 2!).",
+            "Press \"Start\" and answer 10 questions. If you need help, ask a student, a teacher or touch the question to get a hint (but you only have 2!).",
             "Get a little present at the end! ;)",
             " seconds remaining.",
             " second remaining.",
