@@ -54,7 +54,6 @@ public class QuestionHandler {
             {
                 currentQuestionAnswers = null;
             }
-            answer.replaceAll(" ", "\n");
             return answer;
         }
         return null;
@@ -62,13 +61,13 @@ public class QuestionHandler {
 
     public Question getNextQuestion()
     {
-        if(usedQuestion != null && usedQuestion.size() > 0)
+        System.out.println(10 - usedQuestion.size() + ": " + currentQuestionAnswered);
+        if((usedQuestion != null && usedQuestion.size() > 0) || 10 - usedQuestion.size() <= 10)
         {
             if(currentQuestionAnswered)
             {
                 currentQuestionAnswered = false;
-                currentQuestion = usedQuestion.getFirst();
-                usedQuestion.removeFirst();
+                currentQuestion = usedQuestion.poll();
             }
             return currentQuestion;
         }
@@ -120,6 +119,7 @@ public class QuestionHandler {
         else
         {
             currentQuestionAnswered = true;
+            System.out.println("answered");
             if(Language.getInstance().isEnglish())
             {
                 if(answer != null && answer.equals(currentQuestion.getEngRightAnswer()))

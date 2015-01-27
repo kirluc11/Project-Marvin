@@ -684,7 +684,6 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         try {
             if (qh == null) {
-                System.out.println("qh = null in things....");
                 qh = new QuestionHandler(getBaseContext().getApplicationContext().getAssets());
             }
 
@@ -793,7 +792,10 @@ public class MyActivity extends Activity implements View.OnClickListener
     @Override
     public void onBackPressed()
     {
-        if(screennumber!=7)super.onBackPressed();
+        if(screennumber!=7){
+
+            super.onBackPressed();
+        }
     }
 
     int getScreenNumber()
