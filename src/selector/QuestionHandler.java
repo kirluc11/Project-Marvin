@@ -62,7 +62,7 @@ public class QuestionHandler {
 
     public Question getNextQuestion()
     {
-        if(usedQuestion != null && usedQuestion.size() > 0)
+        if(usedQuestion != null && usedQuestion.size() >= 0)
         {
             if(currentQuestionAnswered)
             {
@@ -74,6 +74,11 @@ public class QuestionHandler {
             return currentQuestion;
         }
         return null;
+    }
+
+    public String getCat()
+    {
+        return Language.getInstance().isEnglish() ? currentQuestion.getCat() : currentQuestion.getCat();
     }
 
     public int getRight() {
