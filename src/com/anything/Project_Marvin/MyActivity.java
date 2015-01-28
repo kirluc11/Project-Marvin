@@ -690,7 +690,7 @@ public class MyActivity extends Activity implements View.OnClickListener
             }
             else
             {
-                Toast.makeText(getApplicationContext(), qh.getCat(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), qh.getCat(),Toast.LENGTH_SHORT).show();
                 if(Language.getInstance().isEnglish())
                 {
                     tv.setText(q.getEngQuestion());

@@ -43,6 +43,7 @@ public class QuestionLoader implements Serializable{
 
         while((line = br.readLine()) != null)
         {
+            line=line.replaceAll("\\s+"," ");
             String[] parts = line.split(";");
 
             final int MAX = 10;
