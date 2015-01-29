@@ -32,9 +32,8 @@ public class MyActivity extends Activity implements View.OnClickListener
     private TextView tv1;
     private TextView tv2;
     private TextView tvOnStartScreen;
-    private TextView tvSponsorscreen1;
     private TextView tvSponsorscreen2;
-    private ImageView ivSponsorscreen;
+    private Toast toast;
     //every thingy where the text can be changed to another language needs to be put here,
     //because it's used in the changeLanguage() method!
 
@@ -685,12 +684,15 @@ public class MyActivity extends Activity implements View.OnClickListener
 
             if (q == null) {
                 finish();
+                toast.cancel();
                 goToNextScreen(6);
                 goToNextScreen(7);
             }
             else
             {
-                Toast.makeText(getApplicationContext(), qh.getCat(),Toast.LENGTH_SHORT).show();
+                if(toast!=null)toast.cancel();
+                toast=Toast.makeText(getApplicationContext(), qh.getCat(),Toast.LENGTH_SHORT);
+                toast.show();
                 if(Language.getInstance().isEnglish())
                 {
                     tv.setText(q.getEngQuestion());
@@ -867,18 +869,22 @@ public class MyActivity extends Activity implements View.OnClickListener
         }
         else if(screennumber==6) //end-screen
         {
-            if(qh.getRight()<=6)
+            if(qh.getRight()==0)
+            {
+                tv1.setText(language.getActualLanguage()[16]);
+                tv2.setText(language.getActualLanguage()[19]);
+            }
+            else if(qh.getRight()<=6)
             {
                 tv1.setText(language.getActualLanguage()[16]);
                 tv2.setText(language.getActualLanguage()[17]+qh.getRight()+ language.getActualLanguage()[11]);
-                qh = null;
             }
             else
             {
                 tv1.setText(language.getActualLanguage()[9]);
                 tv2.setText(language.getActualLanguage()[10]+qh.getRight()+ language.getActualLanguage()[11]);
-                qh = null;
             }
+            qh = null;
         }
     }
 

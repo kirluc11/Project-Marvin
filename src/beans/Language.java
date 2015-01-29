@@ -20,13 +20,14 @@ public class Language
             "HERZLICHEN\nGLÜCKWUNSCH!",                         //9
             "Du hast ",
             " von 10 Fragen richtig beantwortet.",
-            "Hi, ich bin Marvin, viel Spaß beim Fragen beantworten!",
+            "Hi, ich bin Marvin! Viel Spaß beim Fragen beantworten!",
             "Tipp",
             "zurück",                                           //14
             "Leider kein Tipp mehr verfügbar!",
             "Auweeeh!",
             "Du hast leider nur ",
-            "Wir danken für die Unterstützung!"
+            "Wir danken für die Unterstützung!",
+            "Du hast leider keine der 10 Fragen beantwortet."    //19
     };
     private final String[] ENGLISH={
             "Start",
@@ -41,13 +42,14 @@ public class Language
             "CONGRATULATIONS!",                                //9
             "You got ",
             " out of 10 questions right.",
-            "Hi, I'm Marvin, have fun answering my questions!",
+            "Hi, I'm Marvin! Have fun answering my questions!",
             "Hint",
             "back",                                            //14
             "You don't have any hints anymore!",
             "Oh nooo!",
             "You only got ",
-            "Thank you for your support!"
+            "Thank you for your support!",
+            "Unfortunately, you got no question right."       //19
     };
     private boolean english = true;
 
