@@ -175,7 +175,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer1.setLayoutParams(third);
         btAnswer1.setGravity(Gravity.CENTER);
         btAnswer1.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        btAnswer1.setText("Gerhard Gugerbauer Idiot sasdasdasdadasdasdadsafsadf");
+        btAnswer1.setText("AaAaAaAaAaAaAaAaAaAaAaAaAaAa sasdasdasdadasdasdadsafsadf");
         btAnswer1.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btAnswer1.setTag("101");
         btAnswer1.setTextColor(getResources().getColor(R.color.green));
@@ -191,7 +191,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer2.setLayoutParams(fourth);
         btAnswer2.setGravity(Gravity.CENTER);
         btAnswer2.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        btAnswer2.setText("Gerhard Gugerbauer Idiot sasdasdasdadasdasdadsafsadf");
+        btAnswer2.setText("AaAaAaAaAaAaAaAaAaAaAaAaAaAa sasdasdasdadasdasdadsafsadf");
         btAnswer2.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btAnswer2.setTag("102");
         btAnswer2.setTextColor(getResources().getColor(R.color.green));
@@ -207,7 +207,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer3.setLayoutParams(fifth);
         btAnswer3.setGravity(Gravity.CENTER);
         btAnswer3.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        btAnswer3.setText("Gerhard Gugerbauer Idiot sasdasdasdadasdasdadsafsadf");
+        btAnswer3.setText("AaAaAaAaAaAaAaAaAaAaAaAaAaAa sasdasdasdadasdasdadsafsadf");
         btAnswer3.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btAnswer3.setTag("103");
         btAnswer3.setTextColor(getResources().getColor(R.color.green));
@@ -223,7 +223,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer4.setLayoutParams(sixth);
         btAnswer4.setGravity(Gravity.CENTER);
         btAnswer4.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        btAnswer4.setText("Gerhard Gugerbauer Idiot sasdasdasdadasdasdadsafsadf");
+        btAnswer4.setText("AaAaAaAaAaAaAaAaAaAaAaAaAaAa sasdasdasdadasdasdadsafsadf");
         btAnswer4.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btAnswer4.setTag("104");
         btAnswer4.setTextColor(getResources().getColor(R.color.green));
@@ -239,7 +239,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         btAnswer5.setLayoutParams(seventh);
         btAnswer5.setGravity(Gravity.CENTER);
         btAnswer5.setBackgroundColor(this.getResources().getColor(R.color.hellviolett));
-        btAnswer5.setText("Gerhard Gugerbauer Idiot sasdasdasdadasdasdadsafsadf");
+        btAnswer5.setText("AaAaAaAaAaAaAaAaAaAaAaAaAaAa sasdasdasdadasdasdadsafsadf");
         btAnswer5.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.button));
         btAnswer5.setTag("105");
         btAnswer5.setTextColor(getResources().getColor(R.color.green));
@@ -301,7 +301,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvInfo2.setLayoutParams(third);
         tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.textView));
         tvInfo2.setGravity(Gravity.CENTER);
-        tvInfo2.setText("Gerhard Gugerbauer Idiot");
+        tvInfo2.setText("AaAaAaAaAaAaAaAaAaAaAaAaAaAa");
         tvInfo2.setTextColor(getResources().getColor(R.color.green));
         tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.textView));
         layout.removeView(tvInfo2);
