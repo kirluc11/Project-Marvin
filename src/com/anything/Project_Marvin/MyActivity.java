@@ -247,8 +247,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         layout.removeView(btAnswer5);
         gridLayout.addView(btAnswer5, seventh);
 
-        //gridLayout.setUseDefaultMargins(true);
-
         layout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
 
         layout.addView(gridLayout);
@@ -479,7 +477,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         deu.setBackgroundColor(Color.RED);
         deu.setTag("4");
         deu.setBackgroundResource(R.drawable.oesterreich);
-        //deu.setBackground();
 
         layout.removeView(deu);
         gridLayout.addView(deu, fifth);
@@ -515,8 +512,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvMainText.setGravity(Gravity.CENTER);
         layout.removeView(tvMainText);
         gridLayout.addView(tvMainText,eighth);
-
-        //gridLayout.setUseDefaultMargins(true);
 
         layout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
         layout.addView(gridLayout);
@@ -759,7 +754,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         setContentView(R.layout.sponsor_screen);
         SponsorScreen();
 
-        //tvSponsorscreen1 = (TextView) findViewById(R.id.tvSponsorCountDown);
         tvSponsorscreen2 = (TextView) findViewById(R.id.tvSponsorText);
 
         //To close an intent after a specified time (first parameter in milliseconds, do not modify the second).
@@ -816,6 +810,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         else if(whichButton==3)
         {
             nextIntent.putExtra("screenNumber",3);
+
         }
         else if(whichButton==6)
         {

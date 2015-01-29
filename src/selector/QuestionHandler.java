@@ -61,7 +61,6 @@ public class QuestionHandler {
 
     public Question getNextQuestion()
     {
-        System.out.println(10 - usedQuestion.size() + ": " + currentQuestionAnswered);
         if((usedQuestion != null && usedQuestion.size() > 0) || 10 - usedQuestion.size() <= 10)
         {
             if(currentQuestionAnswered)
@@ -119,7 +118,6 @@ public class QuestionHandler {
         else
         {
             currentQuestionAnswered = true;
-            System.out.println("answered");
             if(Language.getInstance().isEnglish())
             {
                 if(answer != null && answer.equals(currentQuestion.getEngRightAnswer()))

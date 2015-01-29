@@ -27,7 +27,7 @@ public class Language
             "Auweeeh!",
             "Du hast leider nur ",
             "Wir danken für die Unterstützung!",
-            "Du hast leider keine der 10 Fragen beantwortet."    //19
+            "Du hast leider keine der 10 Fragen richtig beantwortet."    //19
     };
     private final String[] ENGLISH={
             "Start",
