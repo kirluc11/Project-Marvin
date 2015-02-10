@@ -273,14 +273,17 @@ public class MyActivity extends Activity implements View.OnClickListener
         gridLayout.setRowCount(5);
 
         ImageView ivInfoMarvin = (ImageView) layout.findViewById(R.id.ivInfoMarvin);
+        ivInfoMarvin.setOnClickListener(this);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,col0);
         first.width = halfScreenWidth-padding;
         first.height = fifthScreenHeight*4-padding;
         ivInfoMarvin.setLayoutParams(first);
+        ivInfoMarvin.setTag("11");
         layout.removeView(ivInfoMarvin);
         gridLayout.addView(ivInfoMarvin, first);
 
         TextView tvInfo1 = (TextView) layout.findViewById(R.id.tvInfo1);
+        tvInfo1.setOnClickListener(this);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(row0,colspan);
         second.width = screenWidth-padding;
         second.height = fifthScreenHeight-padding;
@@ -288,11 +291,13 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvInfo1.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.headings));
         tvInfo1.setGravity(Gravity.CENTER);
         tvInfo1.setText("TOP");
+        tvInfo1.setTag("11");
         tvInfo1.setTextColor(getResources().getColor(R.color.green));
         layout.removeView(tvInfo1);
         gridLayout.addView(tvInfo1, second);
 
         TextView tvInfo2 = (TextView) layout.findViewById(R.id.tvInfo2);
+        tvInfo2.setOnClickListener(this);
         GridLayout.LayoutParams third = new GridLayout.LayoutParams(rowspan1,col1);
         third.width = halfScreenWidth-padding;
         third.height = fifthScreenHeight*3-padding;
@@ -300,12 +305,14 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.textView));
         tvInfo2.setGravity(Gravity.CENTER);
         tvInfo2.setText("AaAaAaAaAaAaAaAaAaAaAaAaAaAa");
+        tvInfo2.setTag("11");
         tvInfo2.setTextColor(getResources().getColor(R.color.green));
         tvInfo2.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.textView));
         layout.removeView(tvInfo2);
         gridLayout.addView(tvInfo2, third);
 
         TextView tvInfo3 = (TextView) layout.findViewById(R.id.tvInfo3);
+        tvInfo3.setOnClickListener(this);
         GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(row4,col1);
         fourth.width = halfScreenWidth-padding;
         fourth.height = fifthScreenHeight-padding;
@@ -314,6 +321,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvInfo3.setGravity(Gravity.CENTER);
         tvInfo3.setTextColor(getResources().getColor(R.color.green));
         tvInfo3.setText("TOP");
+        tvInfo3.setTag("11");
         layout.removeView(tvInfo3);
         gridLayout.addView(tvInfo3, fourth);
 
@@ -351,6 +359,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
 
        TextView tvCreditsText = (TextView) layout.findViewById(R.id.tvCreditsText);
+        tvCreditsText.setOnClickListener(this);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,colspan);
         first.width = screenWidth;
         first.height = eigthScreenHeight *3;
@@ -358,15 +367,18 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvCreditsText.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.headings));
         tvCreditsText.setGravity(Gravity.CENTER);
         tvCreditsText.setText("11111111111111");
+        tvCreditsText.setTag("11");
         tvCreditsText.setTextColor(getResources().getColor(R.color.green));
         layout.removeView(tvCreditsText);
         gridLayout.addView(tvCreditsText, first);
 
         ImageView ivCreditsPicture = (ImageView) layout.findViewById(R.id.ivCreditsPicture);
+        ivCreditsPicture.setOnClickListener(this);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(rowspan1,colspan);
         second.width = screenWidth;
         second.height = eigthScreenHeight *5;
         ivCreditsPicture.setLayoutParams(second);
+        ivCreditsPicture.setTag("11");
         layout.removeView(ivCreditsPicture);
         gridLayout.addView(ivCreditsPicture, second);
 
@@ -546,6 +558,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         gridLayout.setBackgroundColor(getResources().getColor(R.color.hellviolett));
 
         TextView tvEndHeader = (TextView) layout.findViewById(R.id.tvEndHeader);
+        tvEndHeader.setOnClickListener(this);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(rowspan0,col0);
         second.width = screenWidth;
         second.height = thirteenthScreenHeight *3;
@@ -553,11 +566,13 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvEndHeader.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.headings));
         tvEndHeader.setGravity(Gravity.CENTER);
         tvEndHeader.setText("Header");
+        tvEndHeader.setTag("11");
         tvEndHeader.setTextColor(getResources().getColor(R.color.green));
         layout.removeView(tvEndHeader);
         gridLayout.addView(tvEndHeader, second);
 
         TextView tvEndSubtitle = (TextView) layout.findViewById(R.id.tvEndSubtitle);
+        tvEndSubtitle.setOnClickListener(this);
         GridLayout.LayoutParams third = new GridLayout.LayoutParams(rowspan1,col0);
         third.width = screenWidth;
         third.height = thirteenthScreenHeight *3;
@@ -565,15 +580,18 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvEndSubtitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,getResources().getInteger(R.integer.textView));
         tvEndSubtitle.setGravity(Gravity.CENTER);
         tvEndSubtitle.setText("Sub");
+        tvEndSubtitle.setTag("11");
         tvEndSubtitle.setTextColor(getResources().getColor(R.color.green));
         layout.removeView(tvEndSubtitle);
         gridLayout.addView(tvEndSubtitle, third);
 
         ImageView ivEndPicture = (ImageView) layout.findViewById(R.id.ivEndPicture);
+        ivEndPicture.setOnClickListener(this);
         GridLayout.LayoutParams fourth = new GridLayout.LayoutParams(rowspan3,col0);
         fourth.width = screenWidth;
         fourth.height = thirteenthScreenHeight *7;
         ivEndPicture.setLayoutParams(fourth);
+        ivEndPicture.setTag("11");
         layout.removeView(ivEndPicture);
         gridLayout.addView(ivEndPicture, fourth);
         layout.addView(gridLayout);
@@ -887,14 +905,17 @@ public class MyActivity extends Activity implements View.OnClickListener
 
     public void onClick(View v)
     {
-        Button button=(Button) v;
-        int whichButton = Integer.parseInt(button.getTag().toString());
+
+
+
+        int whichButton = Integer.parseInt(v.getTag().toString());
 
         //Buttons 1-3:     menu things in main.xml
         //Buttons 4+5:     language buttons in main.xml
         //Buttons 101-105: Answer-Buttons in general-playscreen.xml, but the tag is not used.
         //Button  6:       Endscreen
         //Button  10:      Werbebutton Raika
+        //Components have 11, if they're supposed to close the intent.
 
 
         if(whichButton<=3 || whichButton==6 || whichButton==7)
@@ -925,8 +946,13 @@ public class MyActivity extends Activity implements View.OnClickListener
             intent.setData(Uri.parse("http://www.raiffeisen.at/strass"));
             startActivity(intent);
         }
+        else if(whichButton==11)
+        {
+            finish();
+        }
         else
         {
+            Button button=(Button) v;
             if(button != null)
             {
                 if(qh != null) {
