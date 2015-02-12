@@ -33,7 +33,6 @@ public class MyActivity extends Activity implements View.OnClickListener
     private TextView tv2;
     private TextView tvOnStartScreen;
     private TextView tvSponsorscreen2;
-    private Toast toast;
     //every thingy where the text can be changed to another language needs to be put here,
     //because it's used in the changeLanguage() method!
 
@@ -49,7 +48,7 @@ public class MyActivity extends Activity implements View.OnClickListener
     private int fifthScreenHeight;
     private int halfScreenWidth;
     private int quarterScreenWidth;
-    private int eigthScreenHeight;
+    private int eighthScreenHeight;
     private int thirteenthScreenHeight;
     private int thirdScreenHeight;
     private int fifthScreenWidth;
@@ -93,7 +92,7 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         /**Define Screen height here*/
         fifthScreenHeight = (int) (screenHeight/5)-padding;
-        eigthScreenHeight = (int)(screenHeight/8)-padding;
+        eighthScreenHeight = (int)(screenHeight/8)-padding;
         thirdScreenHeight = (screenHeight/3)-padding;
         thirteenthScreenHeight = (int)(screenHeight/13)-padding;
 
@@ -362,7 +361,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         tvCreditsText.setOnClickListener(this);
         GridLayout.LayoutParams first = new GridLayout.LayoutParams(rowspan0,colspan);
         first.width = screenWidth;
-        first.height = eigthScreenHeight *3;
+        first.height = eighthScreenHeight *3;
         tvCreditsText.setLayoutParams(first);
         tvCreditsText.setTextSize(TypedValue.COMPLEX_UNIT_SP, getResources().getInteger(R.integer.headings));
         tvCreditsText.setGravity(Gravity.CENTER);
@@ -376,7 +375,7 @@ public class MyActivity extends Activity implements View.OnClickListener
         ivCreditsPicture.setOnClickListener(this);
         GridLayout.LayoutParams second = new GridLayout.LayoutParams(rowspan1,colspan);
         second.width = screenWidth;
-        second.height = eigthScreenHeight *5;
+        second.height = eighthScreenHeight *5;
         ivCreditsPicture.setLayoutParams(second);
         ivCreditsPicture.setTag("11");
         layout.removeView(ivCreditsPicture);
@@ -697,15 +696,11 @@ public class MyActivity extends Activity implements View.OnClickListener
 
             if (q == null) {
                 finish();
-                toast.cancel();
                 goToNextScreen(6);
                 goToNextScreen(7);
             }
             else
             {
-                if(toast!=null)toast.cancel();
-                toast=Toast.makeText(getApplicationContext(), qh.getCat(),Toast.LENGTH_SHORT);
-                toast.show();
                 if(Language.getInstance().isEnglish())
                 {
                     tv.setText(q.getEngQuestion());
@@ -802,10 +797,6 @@ public class MyActivity extends Activity implements View.OnClickListener
         }
     }
 
-    int getScreenNumber()
-    {
-        return getIntent().getIntExtra("screenNumber",0);
-    }
 
     void goToNextScreen (int whichButton)
     {
@@ -912,8 +903,10 @@ public class MyActivity extends Activity implements View.OnClickListener
 
         //Buttons 1-3:     menu things in main.xml
         //Buttons 4+5:     language buttons in main.xml
-        //Buttons 101-105: Answer-Buttons in general-playscreen.xml, but the tag is not used.
+        //Buttons 101-105: Answer-Buttons in general-playscreen.xml, but the tag-number is not used (handled in the else-statement).
+        //Button  106:     Open hint-dialogue
         //Button  6:       Endscreen
+        //Button  7:       Sponsorscreen
         //Button  10:      Werbebutton Raika
         //Components have 11, if they're supposed to close the intent.
 
